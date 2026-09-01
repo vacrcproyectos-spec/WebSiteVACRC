@@ -1,0 +1,70 @@
+---
+import { SITE, SERVICES } from "../data/site";
+import Icon from "./Icon.astro";
+import Button from "./Button.astro";
+import SectionDivider from "./SectionDivider.astro";
+---
+
+<section id="contacto" class="relative py-24 md:py-32 bg-white border-t border-vacrc-ink-100">
+  <SectionDivider />
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-vacrc-ink-100 blur-[100px]"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-5 gap-12">
+    <div class="reveal lg:col-span-2">
+      <span class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600">Contacto</span>
+      <h2 class="font-display font-bold text-4xl mt-3 text-metal">Hablemos de tu proyecto</h2>
+      <p class="mt-4 text-vacrc-ink-500 leading-relaxed">
+        Cuéntanos qué necesitas y te enviamos una propuesta técnica sin costo.
+      </p>
+
+      <ul class="mt-9 space-y-5">
+        <li class="flex items-center gap-3 text-vacrc-ink-700">
+          <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
+            <Icon icon="phone" class="w-4 h-4" />
+          </span>
+          {SITE.phone}
+        </li>
+        <li class="flex items-center gap-3 text-vacrc-ink-700">
+          <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
+            <Icon icon="email" class="w-4 h-4" />
+          </span>
+          {SITE.email}
+        </li>
+        <li class="flex items-center gap-3 text-vacrc-ink-700">
+          <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
+            <Icon icon="location" class="w-4 h-4" />
+          </span>
+          {SITE.address}
+        </li>
+      </ul>
+    </div>
+
+    <form class="reveal reveal-delay-2 lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]">
+      <div class="sm:col-span-1">
+        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Nombre</label>
+        <input type="text" name="nombre" placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Teléfono</label>
+        <input type="tel" name="telefono" placeholder="999 000 0000" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+      </div>
+      <div class="sm:col-span-2">
+        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Servicio de interés</label>
+        <select name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
+          {SERVICES.map((s) => (
+            <option>{s.name}</option>
+          ))}
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Mensaje</label>
+        <textarea name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
+      </div>
+      <Button type="submit" class="sm:col-span-2 mt-1">
+        Enviar solicitud
+      </Button>
+    </form>
+  </div>
+</section>

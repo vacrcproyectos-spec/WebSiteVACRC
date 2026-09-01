@@ -1,0 +1,57 @@
+---
+import { SERVICES } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section id="servicios" class="relative">
+  <div class="absolute -top-8 left-1/2 -translate-x-1/2 z-10 w-16 h-16 rounded-full bg-white shadow-lg shadow-vacrc-ink-900/10 flex items-center justify-center text-vacrc-blue-500">
+    <Icon icon="fan" ring={false} class="w-8 h-8" />
+  </div>
+
+  <div class="py-16 md:py-20 px-5 sm:px-8 bg-white">
+    <div class="reveal max-w-2xl mx-auto text-center">
+      <span class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600">Nuestros servicios</span>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl mt-3 text-metal">
+        Todo lo que tu minisplit necesita, en un solo lugar
+      </h2>
+    </div>
+  </div>
+
+  {SERVICES.map((service, i) => (
+    <div class:list={["py-16 md:py-20", i % 2 === 0 ? "bg-vacrc-bg-soft" : "bg-white"]}>
+      <div
+        class:list={[
+          "reveal max-w-6xl mx-auto px-5 sm:px-8 flex flex-col md:items-center gap-10 md:gap-16",
+          i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row",
+        ]}
+      >
+        <div class="w-full md:w-1/2 shrink-0">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-vacrc-ink-900 shadow-sm shadow-vacrc-ink-900/[0.06]">
+            <img
+              src={`/hero/${service.slug}.png`}
+              onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+              alt={service.name}
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2">
+          <h3 class="font-script text-4xl sm:text-5xl text-vacrc-blue-600">{service.name}</h3>
+          <p class="mt-5 text-vacrc-ink-500 leading-relaxed">{service.description}</p>
+
+          <p class="mt-7 font-bold text-sm uppercase tracking-wide text-vacrc-ink-900">Lo que incluye</p>
+          <ul class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-2">
+            {service.bullets.map((bullet) => (
+              <li class="flex items-center gap-2 text-sm text-vacrc-ink-600">
+                <span class="w-1.5 h-1.5 rounded-full bg-vacrc-blue-500 shrink-0"></span>
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>

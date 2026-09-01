@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* --- Color system: navy + cool cyan, evoking clean air and cold --- */
+  --color-vacrc-bg: #FFFFFF;
+  --color-vacrc-bg-soft: #EAF4F5;
+  --color-vacrc-surface: #FFFFFF;
+  --color-vacrc-surface-alt: #DCEDF0;
+
+  /* Ink scale — navy-tinted neutrals for text/borders on a light theme */
+  --color-vacrc-ink-900: #0E1E33;
+  --color-vacrc-ink-700: #1D3A5C;
+  --color-vacrc-ink-500: #4C6483;
+  --color-vacrc-ink-400: #7688A0;
+  --color-vacrc-ink-300: #A4B2C4;
+  --color-vacrc-ink-200: #CCD6E2;
+  --color-vacrc-ink-100: #E4EAF2;
+  --color-vacrc-ink-50: #F3F6FA;
+
+  /* Muted steel accents, kept for icon strokes / fine detail */
+  --color-vacrc-steel-300: #B6C0CE;
+  --color-vacrc-steel-500: #859CA5;
+  --color-vacrc-steel-700: #48607F;
+
+  /* Institutional navy, the primary brand blue */
+--color-vacrc-blue-50: #0E1A29;
+--color-vacrc-blue-100: #0C151F;
+--color-vacrc-blue-400: #1C3F5E;
+--color-vacrc-blue-500: #0F2E4F;
+--color-vacrc-blue-600: #0A1C2E;
+--color-vacrc-blue-700: #06111C;
+  /* Cool cyan accent, echoing ice/clean air instead of a warm tone */
+  --color-vacrc-cyan-400: #2E86AB;
+  --color-vacrc-cyan-600: #1D6580;
+
+  /* --- Type --- */
+  --font-display: 'Bitter', 'Inter', serif;
+--font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+
+  /* --- Motion --- */
+  --ease-flow: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-vacrc-bg);
+    color: var(--color-vacrc-ink-700);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  /* Elegant italic accent for section labels, e.g. "Divisiones" on hbs-delli.mx */
+  .font-script {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  ::selection {
+    background: var(--color-vacrc-blue-500);
+    color: white;
+  }
+}
+
+@layer utilities {
+  /* Brushed-steel text fill for headings, tuned for a light background */
+  .text-metal {
+    background: linear-gradient(180deg, #33404F 0%, #17202E 30%, #4A5A6E 55%, #1A222E 80%, #384453 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-glow-blue {
+    text-shadow: 0 0 30px rgba(29, 99, 199, 0.18);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(91, 101, 118, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91, 101, 118, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Keeps navbar text legible over photos of any brightness while its background is transparent */
+  .text-shadow-nav {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Cursor-tracking glow + 3D tilt, driven by --x/--y/--rx/--ry set via JS on mousemove */
+  .spotlight-card {
+    transform: perspective(900px) rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
+  }
+  .spotlight-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(280px circle at var(--x, 50%) var(--y, 50%), rgba(29, 78, 125, 0.16), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .spotlight-card:hover::after {
+    opacity: 1;
+  }
+}
+
+@keyframes flow-x {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  70% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-flow-x { animation: flow-x 3.5s var(--ease-flow) infinite; }
+.animate-float-y { animation: float-y 5s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll reveal, toggled by IntersectionObserver in Layout.astro */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-flow), transform 0.8s var(--ease-flow);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1.is-visible { transition-delay: 0.1s; }
+.reveal-delay-2.is-visible { transition-delay: 0.2s; }
+.reveal-delay-3.is-visible { transition-delay: 0.3s; }
+.reveal-delay-4.is-visible { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-flow-x, .animate-float-y, .animate-pulse-ring, .animate-shimmer, .animate-marquee {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .spotlight-card {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,126 @@
+---
+import { NAV_LINKS, SITE } from "../data/site";
+import Button from "./Button.astro";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div id="navbar-shell" class="transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+      <a href="#inicio" class="flex items-center h-9 md:h-10">
+        <img
+          src="/logo.svg"
+          alt={SITE.name}
+          class="h-8 md:h-9 w-auto object-contain drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+        />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-9 font-medium text-sm">
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="navbar-link relative py-1.5 text-white/80 text-shadow-nav hover:text-white transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-vacrc-blue-500 hover:after:w-full after:transition-all after:duration-300"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <Button href="#contacto" size="sm" class="hidden md:inline-flex">
+        Cotizar servicio
+      </Button>
+
+      <button
+        id="menu-toggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        class="md:hidden relative w-10 h-10 flex items-center justify-center text-white text-shadow-nav transition-colors duration-300"
+      >
+        <span class="sr-only">Menú</span>
+        <div class="w-6 flex flex-col gap-1.5">
+          <span id="bar1" class="block h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+          <span id="bar2" class="block h-0.5 bg-current rounded transition-all duration-300"></span>
+          <span id="bar3" class="block h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+        </div>
+      </button>
+    </nav>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/98 backdrop-blur border-b border-vacrc-ink-100"
+  >
+    <ul class="flex flex-col px-6 py-4 gap-1 font-medium text-vacrc-ink-500">
+      {NAV_LINKS.map((link) => (
+        <li>
+          <a href={link.href} class="mobile-link block py-3 border-b border-vacrc-ink-100 hover:text-vacrc-ink-900 transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-3">
+        <Button href="#contacto" size="sm" class="mobile-link w-full">
+          Cotizar servicio
+        </Button>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const shell = document.getElementById("navbar-shell");
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const bar1 = document.getElementById("bar1");
+  const bar2 = document.getElementById("bar2");
+  const bar3 = document.getElementById("bar3");
+  const navLinks = document.querySelectorAll<HTMLElement>(".navbar-link");
+  const hero = document.getElementById("inicio");
+
+  const setScrolled = () => {
+    if (!shell) return;
+    const scrolled = window.scrollY > 8;
+    // Text only turns dark once we've scrolled past the hero photos entirely,
+    // so it stays white (legible over any photo) while the glass bar still floats over them.
+    const heroHeight = hero?.offsetHeight ?? 0;
+    const pastHero = window.scrollY > heroHeight - (shell.offsetHeight || 80);
+
+    shell.classList.toggle("backdrop-blur-md", scrolled);
+    shell.classList.toggle("bg-white/20", scrolled);
+    shell.classList.toggle("shadow-[0_1px_0_0_rgba(15,22,33,0.04)]", scrolled);
+
+    toggle?.classList.toggle("text-vacrc-ink-900", pastHero);
+    toggle?.classList.toggle("text-white", !pastHero);
+    toggle?.classList.toggle("text-shadow-nav", !pastHero);
+
+    navLinks.forEach((link) => {
+      link.classList.toggle("text-vacrc-ink-500", pastHero);
+      link.classList.toggle("hover:text-vacrc-ink-900", pastHero);
+      link.classList.toggle("text-white/80", !pastHero);
+      link.classList.toggle("hover:text-white", !pastHero);
+      link.classList.toggle("text-shadow-nav", !pastHero);
+    });
+  };
+  setScrolled();
+  window.addEventListener("scroll", setScrolled, { passive: true });
+  window.addEventListener("resize", setScrolled);
+
+  let open = false;
+  const setMenu = (state: boolean) => {
+    open = state;
+    toggle?.setAttribute("aria-expanded", String(open));
+    if (!menu) return;
+    menu.style.maxHeight = open ? menu.scrollHeight + "px" : "0px";
+    bar1?.classList.toggle("rotate-45", open);
+    bar1?.classList.toggle("translate-y-2", open);
+    bar2?.classList.toggle("opacity-0", open);
+    bar3?.classList.toggle("-rotate-45", open);
+    bar3?.classList.toggle("-translate-y-2", open);
+  };
+
+  toggle?.addEventListener("click", () => setMenu(!open));
+  document.querySelectorAll(".mobile-link").forEach((el) =>
+    el.addEventListener("click", () => setMenu(false))
+  );
+</script>

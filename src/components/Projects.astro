@@ -1,0 +1,189 @@
+---
+import { PROJECTS } from "../data/site";
+import Icon from "./Icon.astro";
+import SectionDivider from "./SectionDivider.astro";
+---
+
+<section id="proyectos" class="relative py-24 md:py-32 bg-vacrc-bg-soft">
+  <SectionDivider />
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600">Proyectos recientes</span>
+        <h2 class="font-display font-bold text-4xl sm:text-5xl mt-3 text-metal">Minisplits en operación</h2>
+      </div>
+      <p class="text-vacrc-ink-400 text-sm max-w-sm">
+        Una muestra representativa de nuestro trabajo. Proyectos ilustrativos, disponibles para reemplazar con fotografía real de tu operación.
+      </p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 gap-6">
+      {PROJECTS.map((p, i) => (
+        <button
+          type="button"
+          class:list={["project-card reveal group relative rounded-2xl overflow-hidden border border-vacrc-ink-100 bg-vacrc-ink-900 h-72 shadow-sm shadow-vacrc-ink-900/[0.03] text-left cursor-pointer", `reveal-delay-${Math.min(i + 1, 4)}`]}
+          data-index={i}
+        >
+          <img
+            src={`/projects/${p.slug}.png`}
+            onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+            alt={p.title}
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900/92 via-vacrc-ink-900/30 to-transparent"></div>
+
+          <div class="absolute top-4 left-4 w-10 h-10 rounded-lg bg-white/15 backdrop-blur border border-white/20 flex items-center justify-center text-white">
+            <Icon icon={p.icon} class="w-5 h-5" />
+          </div>
+
+          <div class="absolute inset-x-0 bottom-0 p-6">
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono text-[11px] uppercase tracking-widest text-white/90">{p.tag}</span>
+              <span class="font-mono text-[11px] text-white/60">{p.date}</span>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-white mt-1">{p.title}</h3>
+            <p class="text-xs text-white/70 mt-1">{p.client}</p>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="project-lightbox" class="fixed inset-0 z-[60] opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="project-lightbox-backdrop" class="absolute inset-0 bg-vacrc-ink-900/80 backdrop-blur-sm"></div>
+
+    <div class="relative h-full flex items-center justify-center p-4 sm:p-8">
+      <button
+        type="button"
+        id="project-lightbox-close"
+        aria-label="Cerrar"
+        class="absolute top-5 right-5 sm:top-8 sm:right-8 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+      >
+        <Icon icon="arrow" class="w-4 h-4 rotate-45" />
+      </button>
+
+      <button
+        type="button"
+        id="project-lightbox-prev"
+        aria-label="Proyecto anterior"
+        class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+      >
+        <Icon icon="arrow" class="w-4 h-4 rotate-180" />
+      </button>
+      <button
+        type="button"
+        id="project-lightbox-next"
+        aria-label="Siguiente proyecto"
+        class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+      >
+        <Icon icon="arrow" class="w-4 h-4" />
+      </button>
+
+      <div class="relative w-full max-w-3xl rounded-3xl overflow-hidden bg-white">
+        <div class="relative h-56 sm:h-72 bg-vacrc-ink-900 overflow-hidden">
+          {PROJECTS.map((p, i) => (
+            <img
+              src={`/projects/${p.slug}.png`}
+              onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+              alt={p.title}
+              loading="lazy"
+              class:list={["project-lightbox-image absolute inset-0 w-full h-full object-cover transition-opacity duration-300", i === 0 ? "opacity-100" : "opacity-0"]}
+            />
+          ))}
+          <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900/50 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 w-12 h-12 rounded-lg bg-white/15 backdrop-blur border border-white/20 flex items-center justify-center text-white">
+            {PROJECTS.map((p, i) => (
+              <Icon icon={p.icon} class:list={["project-lightbox-icon w-6 h-6 absolute transition-opacity duration-300", i === 0 ? "opacity-100" : "opacity-0"]} />
+            ))}
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-10">
+          <div class="flex items-center justify-between gap-3">
+            <span id="project-lightbox-tag" class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600"></span>
+            <span id="project-lightbox-date" class="font-mono text-xs text-vacrc-ink-400"></span>
+          </div>
+          <h3 id="project-lightbox-title" class="font-display font-bold text-2xl sm:text-3xl text-vacrc-ink-900 mt-2"></h3>
+          <p id="project-lightbox-client" class="text-sm text-vacrc-ink-400 mt-1"></p>
+          <p id="project-lightbox-description" class="mt-5 text-vacrc-ink-500 leading-relaxed"></p>
+          <p id="project-lightbox-counter" class="mt-6 font-mono text-xs text-vacrc-ink-300"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ projects: PROJECTS }}>
+  const cards = document.querySelectorAll(".project-card");
+  const lightbox = document.getElementById("project-lightbox");
+  const backdrop = document.getElementById("project-lightbox-backdrop");
+  const closeBtn = document.getElementById("project-lightbox-close");
+  const prevBtn = document.getElementById("project-lightbox-prev");
+  const nextBtn = document.getElementById("project-lightbox-next");
+  const images = document.querySelectorAll(".project-lightbox-image");
+  const icons = document.querySelectorAll(".project-lightbox-icon");
+
+  const tagEl = document.getElementById("project-lightbox-tag");
+  const dateEl = document.getElementById("project-lightbox-date");
+  const titleEl = document.getElementById("project-lightbox-title");
+  const clientEl = document.getElementById("project-lightbox-client");
+  const descriptionEl = document.getElementById("project-lightbox-description");
+  const counterEl = document.getElementById("project-lightbox-counter");
+
+  let current = 0;
+
+  const render = (index) => {
+    const p = projects[index];
+    tagEl.textContent = p.tag;
+    dateEl.textContent = p.date;
+    titleEl.textContent = p.title;
+    clientEl.textContent = p.client;
+    descriptionEl.textContent = p.description;
+    counterEl.textContent = `${index + 1} / ${projects.length}`;
+    images.forEach((img, i) => {
+      img.classList.toggle("opacity-100", i === index);
+      img.classList.toggle("opacity-0", i !== index);
+    });
+    icons.forEach((icon, i) => {
+      icon.classList.toggle("opacity-100", i === index);
+      icon.classList.toggle("opacity-0", i !== index);
+    });
+    current = index;
+  };
+
+  const open = (index) => {
+    render(index);
+    lightbox?.classList.remove("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "hidden";
+  };
+
+  const close = () => {
+    lightbox?.classList.add("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "";
+  };
+
+  const go = (delta) => {
+    render((current + delta + projects.length) % projects.length);
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const index = Number(card.dataset.index);
+      open(index);
+    });
+  });
+
+  closeBtn?.addEventListener("click", close);
+  backdrop?.addEventListener("click", close);
+  prevBtn?.addEventListener("click", () => go(-1));
+  nextBtn?.addEventListener("click", () => go(1));
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox?.classList.contains("pointer-events-none")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") go(-1);
+    if (e.key === "ArrowRight") go(1);
+  });
+</script>

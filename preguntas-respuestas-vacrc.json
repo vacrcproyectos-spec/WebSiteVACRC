@@ -1,0 +1,818 @@
+[
+  {
+    "instruction": "¿Qué es VACRC?",
+    "output": "VACRC es una empresa especializada en aire acondicionado tipo minisplit en Mérida, Yucatán, con más de 15 años de experiencia en climatización, dedicada a la instalación, mantenimiento y reparación de estos equipos."
+  },
+  {
+    "instruction": "¿A qué se dedica VACRC?",
+    "output": "Nos dedicamos a la instalación, mantenimiento y reparación de equipos de aire acondicionado tipo minisplit para hogares y negocios."
+  },
+  {
+    "instruction": "¿Cuántos años de experiencia tiene VACRC?",
+    "output": "Contamos con más de 15 años de experiencia en climatización."
+  },
+  {
+    "instruction": "¿Dónde está ubicada VACRC?",
+    "output": "Estamos ubicados en Mérida, Yucatán, México."
+  },
+  {
+    "instruction": "¿VACRC solo trabaja con equipos minisplit?",
+    "output": "Sí, nuestro enfoque principal son los equipos minisplit (pared, cassette y ducto), además de sistemas VRF/VRV para proyectos con varias unidades interiores."
+  },
+  {
+    "instruction": "¿Para quién trabaja VACRC?",
+    "output": "Trabajamos para hogares, oficinas, comercios y negocios que buscan confort inmediato y un servicio técnico confiable."
+  },
+  {
+    "instruction": "¿VACRC es una empresa certificada?",
+    "output": "Nuestros técnicos están certificados en el manejo de refrigerantes y en equipos minisplit de todas las marcas."
+  },
+  {
+    "instruction": "¿Qué hace diferente a VACRC de otras empresas de aire acondicionado?",
+    "output": "Nuestra ingeniería propia: cada instalación se calcula según las necesidades reales de tu espacio, no de catálogo, respaldada por más de 15 años de experiencia."
+  },
+  {
+    "instruction": "¿VACRC atiende también refrigeración industrial o cuartos fríos?",
+    "output": "No, nuestro enfoque actual es exclusivamente aire acondicionado tipo minisplit (instalación, mantenimiento y reparación), incluyendo sistemas VRF/VRV."
+  },
+  {
+    "instruction": "¿VACRC atiende clientes residenciales y comerciales?",
+    "output": "Sí, atendemos tanto hogares como oficinas, comercios y otros negocios."
+  },
+  {
+    "instruction": "¿Qué tan confiable es el servicio de VACRC?",
+    "output": "Respaldamos cada instalación y servicio con ingeniería propia, técnicos certificados y más de 15 años de experiencia en climatización."
+  },
+  {
+    "instruction": "¿VACRC ofrece garantía en sus servicios?",
+    "output": "Para conocer las condiciones específicas de garantía de tu equipo o servicio, te recomendamos contactarnos directamente al +52 999 123 4567 o contacto@vacrc.mx."
+  },
+  {
+    "instruction": "¿Cómo puedo saber más sobre VACRC?",
+    "output": "Puedes contactarnos al +52 999 123 4567, escribirnos a contacto@vacrc.mx o visitarnos en Mérida, Yucatán."
+  },
+  {
+    "instruction": "¿VACRC es una empresa nueva?",
+    "output": "No, contamos con más de 15 años de experiencia en climatización."
+  },
+  {
+    "instruction": "¿Qué significa el enfoque \"100% en minisplit\" de VACRC?",
+    "output": "Significa que todos nuestros servicios (instalación, mantenimiento y reparación) están enfocados específicamente en equipos de aire acondicionado tipo minisplit."
+  },
+  {
+    "instruction": "¿VACRC instala equipos minisplit?",
+    "output": "Sí, instalamos equipos minisplit de todas las capacidades y marcas."
+  },
+  {
+    "instruction": "¿Qué incluye el servicio de instalación de minisplit?",
+    "output": "Incluye cálculo de la capacidad ideal para tu espacio, instalación de línea frigorífica a medida, y prueba de vacío y carga de gas."
+  },
+  {
+    "instruction": "¿Cómo calculan el tamaño del equipo que necesito?",
+    "output": "Calculamos la capacidad ideal según las necesidades reales de tu espacio, no de catálogo, para que el equipo rinda al máximo."
+  },
+  {
+    "instruction": "¿Hacen pruebas después de instalar el equipo?",
+    "output": "Sí, realizamos pruebas de vacío y carga de gas para asegurar que el equipo funcione correctamente desde el primer encendido."
+  },
+  {
+    "instruction": "¿Instalan minisplits en casas y en oficinas?",
+    "output": "Sí, instalamos minisplits tanto en espacios residenciales como en oficinas, comercios y negocios."
+  },
+  {
+    "instruction": "¿Qué pasa si mi minisplit no rinde bien después de instalarlo?",
+    "output": "Nuestro proceso de instalación incluye cálculo de capacidad y pruebas de vacío y carga de gas justamente para evitar ese problema; contáctanos si tienes dudas sobre un equipo ya instalado."
+  },
+  {
+    "instruction": "¿Puedo pedir la instalación de varios equipos a la vez?",
+    "output": "Sí, hemos realizado instalaciones de múltiples equipos, por ejemplo en oficinas corporativas y proyectos residenciales."
+  },
+  {
+    "instruction": "¿Instalan la línea frigorífica del equipo?",
+    "output": "Sí, la instalación de línea frigorífica a la medida es parte de nuestro servicio de instalación."
+  },
+  {
+    "instruction": "¿Qué es la prueba de vacío y carga de gas?",
+    "output": "Es parte de nuestro proceso de instalación para verificar que el sistema esté hermético y con la carga correcta de refrigerante antes de la puesta en marcha."
+  },
+  {
+    "instruction": "¿Cuánto tiempo tarda una instalación de minisplit?",
+    "output": "El tiempo depende del proyecto; contáctanos para una evaluación y cotización sin costo."
+  },
+  {
+    "instruction": "¿Instalan equipos de todas las marcas?",
+    "output": "Sí, instalamos equipos minisplit de todas las capacidades y marcas."
+  },
+  {
+    "instruction": "¿Puedo solicitar instalación residencial?",
+    "output": "Sí, hemos realizado instalaciones residenciales, incluyendo salida de drenaje y conexión eléctrica dedicada."
+  },
+  {
+    "instruction": "¿Hacen instalación en edificios de varios niveles?",
+    "output": "Sí, por ejemplo hemos instalado minisplits en corporativos de varios niveles, con puesta en marcha por fases para no interrumpir la operación."
+  },
+  {
+    "instruction": "¿Qué necesito para que me instalen un minisplit?",
+    "output": "Contáctanos y te enviamos una propuesta técnica sin costo con el cálculo de capacidad para tu espacio."
+  },
+  {
+    "instruction": "¿La instalación afecta la fachada de mi casa?",
+    "output": "Cuidamos los acabados durante la instalación para no afectar la fachada de tu vivienda."
+  },
+  {
+    "instruction": "¿VACRC da mantenimiento a equipos minisplit?",
+    "output": "Sí, ofrecemos mantenimiento preventivo para equipos minisplit."
+  },
+  {
+    "instruction": "¿Qué incluye el mantenimiento preventivo?",
+    "output": "Incluye limpieza de evaporadora y condensadora, revisión de gas refrigerante, y chequeo eléctrico y de drenaje."
+  },
+  {
+    "instruction": "¿Con qué frecuencia debo dar mantenimiento a mi minisplit?",
+    "output": "Ofrecemos planes de mantenimiento programados; contáctanos para definir la frecuencia ideal según el uso de tu equipo."
+  },
+  {
+    "instruction": "¿El mantenimiento ayuda a ahorrar energía?",
+    "output": "Sí, un mantenimiento adecuado mejora el rendimiento del equipo y ayuda a mantener bajo el consumo eléctrico."
+  },
+  {
+    "instruction": "¿Limpian la unidad interior y exterior?",
+    "output": "Sí, la limpieza de evaporadora (interior) y condensadora (exterior) forma parte del mantenimiento preventivo."
+  },
+  {
+    "instruction": "¿Revisan el gas refrigerante en el mantenimiento?",
+    "output": "Sí, la revisión de gas refrigerante es parte de nuestro servicio de mantenimiento."
+  },
+  {
+    "instruction": "¿Qué pasa si mi minisplit gotea agua?",
+    "output": "El chequeo de drenaje forma parte de nuestro mantenimiento preventivo; contáctanos para revisar tu equipo."
+  },
+  {
+    "instruction": "¿Ofrecen contratos de mantenimiento?",
+    "output": "Sí, acompañamos a cada cliente con contratos de mantenimiento preventivo y soporte técnico 24/7."
+  },
+  {
+    "instruction": "¿El mantenimiento alarga la vida útil del equipo?",
+    "output": "Sí, los planes de mantenimiento programado evitan paros y extienden la vida útil de tu equipo."
+  },
+  {
+    "instruction": "¿Dan mantenimiento a varios equipos en un mismo lugar?",
+    "output": "Sí, hemos dado mantenimiento a flotillas completas de minisplits, por ejemplo en hoteles."
+  },
+  {
+    "instruction": "¿Qué revisan en el chequeo eléctrico?",
+    "output": "Revisamos los componentes eléctricos del equipo como parte del mantenimiento preventivo."
+  },
+  {
+    "instruction": "¿Puedo contratar mantenimiento para mi negocio?",
+    "output": "Sí, ofrecemos mantenimiento preventivo para negocios, oficinas y comercios."
+  },
+  {
+    "instruction": "¿El mantenimiento incluye revisión de refacciones?",
+    "output": "El mantenimiento se enfoca en limpieza, gas y componentes eléctricos; si se detecta una refacción dañada, se puede cotizar su cambio."
+  },
+  {
+    "instruction": "¿Cómo agendo un mantenimiento?",
+    "output": "Contáctanos al +52 999 123 4567 o contacto@vacrc.mx para agendar tu mantenimiento preventivo."
+  },
+  {
+    "instruction": "¿El mantenimiento preventivo evita fallas futuras?",
+    "output": "Sí, ese es justamente su objetivo: evitar paros y detectar problemas antes de que se conviertan en una falla mayor."
+  },
+  {
+    "instruction": "¿VACRC repara minisplits?",
+    "output": "Sí, diagnosticamos y reparamos fallas eléctricas, fugas de refrigerante, ruidos y falta de enfriamiento en equipos minisplit."
+  },
+  {
+    "instruction": "¿Qué incluye el servicio de reparación?",
+    "output": "Incluye diagnóstico de fallas, detección y reparación de fugas, y cambio de componentes y refacciones."
+  },
+  {
+    "instruction": "¿Mi minisplit no enfría, pueden revisarlo?",
+    "output": "Sí, la falta de enfriamiento es una de las fallas que diagnosticamos y reparamos."
+  },
+  {
+    "instruction": "¿Reparan fugas de refrigerante?",
+    "output": "Sí, detectamos y reparamos fugas de refrigerante como parte de nuestro servicio de reparación."
+  },
+  {
+    "instruction": "¿Qué hago si mi minisplit hace ruido?",
+    "output": "Contáctanos, el diagnóstico de ruidos es parte de nuestro servicio de reparación."
+  },
+  {
+    "instruction": "¿Usan refacciones originales?",
+    "output": "Trabajamos con refacciones de calidad y, en mantenimiento, acompañamos a nuestros clientes con refacciones originales."
+  },
+  {
+    "instruction": "¿Atienden reparaciones urgentes?",
+    "output": "Sí, contamos con soporte de emergencia 24/7 y hemos resuelto reparaciones urgentes el mismo día, por ejemplo en locales comerciales."
+  },
+  {
+    "instruction": "¿Reparan fallas eléctricas en el equipo?",
+    "output": "Sí, el diagnóstico y reparación de fallas eléctricas es parte de nuestro servicio de reparación."
+  },
+  {
+    "instruction": "¿Cuánto tiempo tardan en reparar un minisplit?",
+    "output": "Depende del diagnóstico; en algunos casos, como fugas de refrigerante en locales comerciales, hemos resuelto la reparación el mismo día."
+  },
+  {
+    "instruction": "¿Puedo solicitar una reparación de emergencia fuera de horario?",
+    "output": "Sí, ofrecemos soporte de emergencia 24/7 además de nuestro horario regular."
+  },
+  {
+    "instruction": "¿Qué pasa si mi equipo enciende pero no enfría?",
+    "output": "Ese síntoma se revisa como parte de nuestro diagnóstico de fallas; contáctanos para agendar la revisión."
+  },
+  {
+    "instruction": "¿Reparan equipos de cualquier marca?",
+    "output": "Sí, nuestros técnicos están certificados para trabajar con equipos minisplit de todas las marcas."
+  },
+  {
+    "instruction": "¿Cambian piezas dañadas del equipo?",
+    "output": "Sí, el cambio de componentes y refacciones forma parte de nuestro servicio de reparación."
+  },
+  {
+    "instruction": "¿Cómo solicito una reparación?",
+    "output": "Contáctanos al +52 999 123 4567, por correo a contacto@vacrc.mx, o a través del formulario de contacto en la página."
+  },
+  {
+    "instruction": "¿Ofrecen diagnóstico antes de cobrar la reparación?",
+    "output": "Realizamos un diagnóstico de fallas para identificar el problema; contáctanos para más detalles sobre el proceso y costo."
+  },
+  {
+    "instruction": "¿Qué es un minisplit tipo pared?",
+    "output": "Es la solución más popular: un equipo de instalación rápida, silenciosa y eficiente para climatizar una sola zona."
+  },
+  {
+    "instruction": "¿El minisplit tipo pared es bueno para casas?",
+    "output": "Sí, es ideal para hogares, oficinas y consultorios que buscan confort inmediato en un solo ambiente."
+  },
+  {
+    "instruction": "¿El minisplit de pared hace mucho ruido?",
+    "output": "No, es una solución silenciosa pensada para espacios como hogares y consultorios."
+  },
+  {
+    "instruction": "¿Cuál es el equipo más común que instalan?",
+    "output": "El minisplit tipo pared es la solución más popular que instalamos."
+  },
+  {
+    "instruction": "¿El minisplit de pared sirve para una oficina pequeña?",
+    "output": "Sí, es ideal para climatizar una sola zona como una oficina o consultorio."
+  },
+  {
+    "instruction": "¿Es rápida la instalación de un minisplit de pared?",
+    "output": "Sí, es de instalación rápida en comparación con otros tipos de equipo."
+  },
+  {
+    "instruction": "¿Qué es un minisplit tipo cassette?",
+    "output": "Es un equipo que se empotra en el plafón, ideal para locales comerciales y áreas abiertas sin unidades visibles en la pared."
+  },
+  {
+    "instruction": "¿El minisplit cassette se ve en la pared?",
+    "output": "No, se instala empotrado en el plafón, por lo que no hay unidades visibles en pared."
+  },
+  {
+    "instruction": "¿Qué tipo de espacios usan minisplit cassette?",
+    "output": "Se usa principalmente en locales comerciales y áreas abiertas."
+  },
+  {
+    "instruction": "¿Puedo instalar un cassette en mi negocio?",
+    "output": "Sí, el minisplit tipo cassette es ideal para locales comerciales."
+  },
+  {
+    "instruction": "¿El equipo cassette climatiza áreas grandes?",
+    "output": "Está pensado para áreas abiertas donde no se desea ver unidades en la pared."
+  },
+  {
+    "instruction": "¿VACRC instala equipos tipo cassette?",
+    "output": "Sí, es uno de los tipos de minisplit con los que trabajamos."
+  },
+  {
+    "instruction": "¿Qué es un minisplit tipo ducto?",
+    "output": "Es un sistema de climatización oculta que se integra al plafón mediante ductería, sin unidades visibles en el espacio."
+  },
+  {
+    "instruction": "¿El minisplit de ducto se ve desde adentro del espacio?",
+    "output": "No, es una climatización oculta integrada al plafón mediante ductería."
+  },
+  {
+    "instruction": "¿Para qué sirve un minisplit tipo ducto?",
+    "output": "Es ideal cuando se busca climatización sin unidades visibles en el espacio."
+  },
+  {
+    "instruction": "¿VACRC instala sistemas de ducto?",
+    "output": "Sí, el minisplit tipo ducto es uno de los equipos con los que trabajamos."
+  },
+  {
+    "instruction": "¿El sistema de ducto requiere plafón?",
+    "output": "Sí, se integra mediante ductería al plafón del espacio."
+  },
+  {
+    "instruction": "¿Qué diferencia hay entre un minisplit de pared y uno de ducto?",
+    "output": "El de pared es una unidad visible de instalación rápida; el de ducto se oculta en el plafón mediante ductería para que no se vean unidades en el espacio."
+  },
+  {
+    "instruction": "¿Qué es un sistema VRF o VRV?",
+    "output": "Es un sistema que permite controlar varias unidades interiores tipo minisplit desde un solo equipo exterior, con control independiente por zona."
+  },
+  {
+    "instruction": "¿VACRC instala sistemas VRF/VRV?",
+    "output": "Sí, trabajamos con sistemas VRF/VRV para proyectos que necesitan varias unidades interiores controladas desde un solo sistema exterior."
+  },
+  {
+    "instruction": "¿Para qué proyectos sirve un sistema VRF/VRV?",
+    "output": "Para proyectos que necesitan climatizar varias zonas con distintas unidades interiores, controladas de forma independiente."
+  },
+  {
+    "instruction": "¿Puedo controlar cada zona por separado con VRF/VRV?",
+    "output": "Sí, estos sistemas permiten control independiente por zona."
+  },
+  {
+    "instruction": "¿VRF y VRV son lo mismo que un minisplit?",
+    "output": "Son sistemas relacionados: usan varias unidades interiores tipo minisplit conectadas a un solo equipo exterior."
+  },
+  {
+    "instruction": "¿Han hecho instalaciones de VRF en edificios?",
+    "output": "Sí, por ejemplo hemos instalado sistemas multi-zona en torres de oficinas con control independiente por piso."
+  },
+  {
+    "instruction": "¿Con qué marcas trabaja VACRC?",
+    "output": "Trabajamos con Carrier, Trane, York, Daikin, Mitsubishi Electric, Copeland y Danfoss."
+  },
+  {
+    "instruction": "¿VACRC instala equipos de cualquier marca?",
+    "output": "Instalamos equipos minisplit de todas las capacidades y marcas, incluyendo las marcas líderes del sector con las que trabajamos."
+  },
+  {
+    "instruction": "¿Cuántas marcas manejan?",
+    "output": "Trabajamos con 7 marcas líderes del sector: Carrier, Trane, York, Daikin, Mitsubishi Electric, Copeland y Danfoss."
+  },
+  {
+    "instruction": "¿Trabajan con marcas reconocidas?",
+    "output": "Sí, trabajamos con las marcas líderes del sector de climatización."
+  },
+  {
+    "instruction": "¿VACRC trabaja con la marca LG?",
+    "output": "No, LG no forma parte de nuestra lista actual de marcas asociadas."
+  },
+  {
+    "instruction": "¿Instalan equipos Carrier?",
+    "output": "Sí, Carrier es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Dan mantenimiento a equipos Carrier?",
+    "output": "Sí, damos mantenimiento y reparación a equipos Carrier, entre otras marcas."
+  },
+  {
+    "instruction": "¿Carrier es una marca confiable para minisplit?",
+    "output": "Es una de las marcas líderes del sector con las que trabajamos regularmente."
+  },
+  {
+    "instruction": "¿Trabajan con equipos Trane?",
+    "output": "Sí, Trane es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Reparan equipos Trane?",
+    "output": "Sí, reparamos equipos Trane, además de instalarlos y darles mantenimiento."
+  },
+  {
+    "instruction": "¿Qué marcas similares a Trane manejan?",
+    "output": "Además de Trane, trabajamos con Carrier, York, Daikin, Mitsubishi Electric, Copeland y Danfoss."
+  },
+  {
+    "instruction": "¿Instalan equipos York?",
+    "output": "Sí, York es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿VACRC da servicio a equipos York?",
+    "output": "Sí, ofrecemos instalación, mantenimiento y reparación para equipos York."
+  },
+  {
+    "instruction": "¿York está entre sus marcas asociadas?",
+    "output": "Sí, York forma parte de las marcas líderes del sector con las que trabajamos."
+  },
+  {
+    "instruction": "¿Trabajan con Daikin?",
+    "output": "Sí, Daikin es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Dan mantenimiento a minisplits Daikin?",
+    "output": "Sí, damos mantenimiento preventivo a equipos Daikin, entre otras marcas."
+  },
+  {
+    "instruction": "¿Daikin es una opción confiable según VACRC?",
+    "output": "Sí, es una de las marcas líderes del sector con las que trabajamos."
+  },
+  {
+    "instruction": "¿Instalan equipos Mitsubishi Electric?",
+    "output": "Sí, Mitsubishi Electric es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Reparan minisplits Mitsubishi Electric?",
+    "output": "Sí, ofrecemos reparación para equipos Mitsubishi Electric, además de instalación y mantenimiento."
+  },
+  {
+    "instruction": "¿Mitsubishi Electric está en su lista de marcas?",
+    "output": "Sí, forma parte de las marcas líderes del sector con las que trabajamos."
+  },
+  {
+    "instruction": "¿Trabajan con equipos o componentes Copeland?",
+    "output": "Sí, Copeland es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Copeland es una marca de compresores?",
+    "output": "Copeland es una de las marcas líderes del sector con las que trabajamos en nuestros servicios."
+  },
+  {
+    "instruction": "¿Dan servicio a equipos con componentes Copeland?",
+    "output": "Sí, Copeland está entre las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Trabajan con Danfoss?",
+    "output": "Sí, Danfoss es una de las marcas con las que trabajamos."
+  },
+  {
+    "instruction": "¿Danfoss está entre sus marcas asociadas?",
+    "output": "Sí, forma parte de las marcas líderes del sector con las que trabajamos."
+  },
+  {
+    "instruction": "¿Dan mantenimiento a componentes Danfoss?",
+    "output": "Sí, Danfoss está entre las marcas con las que trabajamos en instalación, mantenimiento y reparación."
+  },
+  {
+    "instruction": "¿Cuál es el teléfono de VACRC?",
+    "output": "Nuestro teléfono es +52 999 123 4567."
+  },
+  {
+    "instruction": "¿Cuál es el correo de contacto de VACRC?",
+    "output": "Puedes escribirnos a contacto@vacrc.mx."
+  },
+  {
+    "instruction": "¿Dónde están ubicados?",
+    "output": "Estamos ubicados en Mérida, Yucatán, México."
+  },
+  {
+    "instruction": "¿Cuál es el horario de atención?",
+    "output": "Atendemos de lunes a sábado de 8:00 a 19:00 horas, con emergencias 24/7."
+  },
+  {
+    "instruction": "¿Atienden los domingos?",
+    "output": "No tenemos horario regular los domingos, pero contamos con soporte de emergencia 24/7."
+  },
+  {
+    "instruction": "¿Cómo puedo contactar a VACRC?",
+    "output": "Puedes llamarnos al +52 999 123 4567, escribirnos a contacto@vacrc.mx o llenar el formulario de contacto en nuestra página."
+  },
+  {
+    "instruction": "¿A qué hora abren?",
+    "output": "Abrimos a las 8:00 horas, de lunes a sábado."
+  },
+  {
+    "instruction": "¿A qué hora cierran?",
+    "output": "Cerramos a las 19:00 horas, de lunes a sábado."
+  },
+  {
+    "instruction": "¿Tienen atención de emergencias fuera de horario?",
+    "output": "Sí, contamos con soporte de emergencia 24/7."
+  },
+  {
+    "instruction": "¿Cómo solicito una cotización?",
+    "output": "Contáctanos y te enviamos una propuesta técnica sin costo."
+  },
+  {
+    "instruction": "¿La cotización tiene algún costo?",
+    "output": "No, te enviamos una propuesta técnica sin costo."
+  },
+  {
+    "instruction": "¿Puedo escribirles por correo para pedir información?",
+    "output": "Sí, puedes escribirnos a contacto@vacrc.mx."
+  },
+  {
+    "instruction": "¿Tienen formulario de contacto en la página?",
+    "output": "Sí, puedes llenar el formulario indicando tu nombre, teléfono, servicio de interés y mensaje."
+  },
+  {
+    "instruction": "¿Qué información me piden en el formulario de contacto?",
+    "output": "Nombre, teléfono, servicio de interés (instalación, mantenimiento o reparación) y un mensaje sobre tu proyecto."
+  },
+  {
+    "instruction": "¿Puedo llamar en caso de una emergencia de fin de semana?",
+    "output": "Sí, contamos con soporte de emergencia 24/7 incluso fuera de nuestro horario regular."
+  },
+  {
+    "instruction": "¿Cuál es la dirección exacta de VACRC?",
+    "output": "Nos encontramos en Mérida, Yucatán, México."
+  },
+  {
+    "instruction": "¿VACRC da servicio en toda la península de Yucatán?",
+    "output": "Contamos con proyectos realizados en Mérida, Cancún, Playa del Carmen y Campeche; contáctanos para confirmar cobertura en tu zona."
+  },
+  {
+    "instruction": "¿Cómo agendo una visita técnica?",
+    "output": "Contáctanos al +52 999 123 4567 o contacto@vacrc.mx para agendar una visita y recibir tu propuesta técnica."
+  },
+  {
+    "instruction": "¿Puedo pedir informes por WhatsApp?",
+    "output": "Puedes comunicarte a nuestro número +52 999 123 4567; contáctanos para confirmar el medio de atención disponible."
+  },
+  {
+    "instruction": "¿Cuál es el horario de emergencias?",
+    "output": "El soporte de emergencia está disponible las 24 horas, los 7 días de la semana."
+  },
+  {
+    "instruction": "¿Cuál es la misión de VACRC?",
+    "output": "Ser el aliado técnico de confianza en instalación, mantenimiento y reparación de equipos minisplit, con los más altos estándares de calidad y seguridad."
+  },
+  {
+    "instruction": "¿Cuál es la visión de VACRC?",
+    "output": "Ser la empresa de referencia en instalación, mantenimiento y reparación de minisplit en la región, reconocida por la confiabilidad de nuestro servicio."
+  },
+  {
+    "instruction": "¿Qué valores tiene VACRC?",
+    "output": "Enfoque al cliente, integridad, calidad, seguridad, innovación y trabajo en equipo."
+  },
+  {
+    "instruction": "¿Qué es el enfoque al cliente para VACRC?",
+    "output": "Es uno de nuestros valores principales: poner las necesidades del cliente al centro de cada servicio."
+  },
+  {
+    "instruction": "¿VACRC valora la integridad en su trabajo?",
+    "output": "Sí, la integridad es uno de nuestros seis valores fundamentales."
+  },
+  {
+    "instruction": "¿La calidad es importante para VACRC?",
+    "output": "Sí, la calidad es uno de los valores que guían todos nuestros servicios."
+  },
+  {
+    "instruction": "¿Cómo garantiza VACRC la seguridad en sus instalaciones?",
+    "output": "La seguridad es uno de nuestros valores, y trabajamos con técnicos certificados en el manejo de refrigerantes."
+  },
+  {
+    "instruction": "¿VACRC innova en sus servicios?",
+    "output": "La innovación es uno de nuestros valores; buscamos mejorar continuamente nuestros procesos técnicos."
+  },
+  {
+    "instruction": "¿El trabajo en equipo es importante en VACRC?",
+    "output": "Sí, el trabajo en equipo es uno de nuestros seis valores."
+  },
+  {
+    "instruction": "¿Cuál es el objetivo a largo plazo de VACRC?",
+    "output": "Ser la empresa de referencia en instalación, mantenimiento y reparación de minisplit en la región."
+  },
+  {
+    "instruction": "¿En qué se basa la confianza que ofrece VACRC?",
+    "output": "En más de 15 años de experiencia, ingeniería propia y técnicos certificados."
+  },
+  {
+    "instruction": "¿VACRC busca ser reconocida en la región?",
+    "output": "Sí, nuestra visión es ser la empresa de referencia en minisplit en la región."
+  },
+  {
+    "instruction": "¿Qué papel juega la calidad y seguridad en sus servicios?",
+    "output": "Entregamos cada servicio con los más altos estándares de calidad y seguridad, conforme a nuestra misión."
+  },
+  {
+    "instruction": "¿VACRC tiene una filosofía de servicio?",
+    "output": "Sí, buscamos ser el aliado técnico de confianza para el confort de tu hogar o negocio."
+  },
+  {
+    "instruction": "¿Cuántos valores fundamentales tiene VACRC?",
+    "output": "Seis: enfoque al cliente, integridad, calidad, seguridad, innovación y trabajo en equipo."
+  },
+  {
+    "instruction": "¿VACRC prioriza el confort del cliente?",
+    "output": "Sí, nuestra misión y valores están enfocados en el confort de tu hogar o negocio."
+  },
+  {
+    "instruction": "¿Qué distingue la visión de VACRC?",
+    "output": "Ser reconocidos por la confiabilidad de nuestro servicio en instalación, mantenimiento y reparación de minisplit."
+  },
+  {
+    "instruction": "¿Tienen ejemplos de proyectos realizados?",
+    "output": "Sí, entre nuestros proyectos ilustrativos está la instalación de minisplits en oficinas corporativas, mantenimiento a flotilla de un hotel, reparación urgente en un local comercial e instalación residencial."
+  },
+  {
+    "instruction": "¿Han instalado minisplits en oficinas?",
+    "output": "Sí, instalamos 12 equipos minisplit en un corporativo de 3 niveles en Mérida, Yuc."
+  },
+  {
+    "instruction": "¿Han dado mantenimiento a hoteles?",
+    "output": "Sí, realizamos un programa de mantenimiento preventivo trimestral para 30 equipos minisplit en un hotel boutique en Cancún, Q. Roo."
+  },
+  {
+    "instruction": "¿Han reparado equipos en locales comerciales?",
+    "output": "Sí, resolvimos una fuga de refrigerante en un local comercial en Playa del Carmen el mismo día del diagnóstico."
+  },
+  {
+    "instruction": "¿Han hecho instalaciones residenciales?",
+    "output": "Sí, instalamos 3 equipos minisplit en una vivienda en Campeche, incluyendo drenaje y conexión eléctrica dedicada."
+  },
+  {
+    "instruction": "¿En qué ciudades han trabajado?",
+    "output": "Hemos trabajado en Mérida, Cancún, Playa del Carmen y Campeche, entre otras."
+  },
+  {
+    "instruction": "¿Los proyectos que muestran en la página son reales?",
+    "output": "Son proyectos ilustrativos, listos para reemplazarse con fotografía y casos reales de nuestros clientes."
+  },
+  {
+    "instruction": "¿Han hecho instalaciones por fases para no afectar la operación?",
+    "output": "Sí, por ejemplo en la instalación de un corporativo de 3 niveles trabajamos por fases para no interrumpir la operación de las oficinas."
+  },
+  {
+    "instruction": "¿Cuántos equipos han instalado en un solo proyecto?",
+    "output": "Depende del proyecto; por ejemplo, instalamos 12 equipos en un corporativo y 3 en una vivienda residencial."
+  },
+  {
+    "instruction": "¿Ofrecen mantenimiento a flotillas grandes de equipos?",
+    "output": "Sí, hemos dado mantenimiento preventivo trimestral a 30 equipos minisplit en un hotel."
+  },
+  {
+    "instruction": "¿Resuelven reparaciones el mismo día?",
+    "output": "En algunos casos sí, como una reparación urgente por fuga de refrigerante que resolvimos el mismo día en un local comercial."
+  },
+  {
+    "instruction": "¿Instalan drenaje y conexión eléctrica en proyectos residenciales?",
+    "output": "Sí, en instalaciones residenciales incluimos salida de drenaje y conexión eléctrica dedicada."
+  },
+  {
+    "instruction": "¿Cuidan los acabados en instalaciones residenciales?",
+    "output": "Sí, cuidamos los acabados para no afectar la fachada de la vivienda."
+  },
+  {
+    "instruction": "¿Dan seguimiento después de instalar un equipo residencial?",
+    "output": "En proyectos residenciales, ofrecemos una primera revisión de cortesía a los 30 días junto con garantía de instalación."
+  },
+  {
+    "instruction": "¿Tienen experiencia con proyectos hoteleros?",
+    "output": "Sí, contamos con experiencia en mantenimiento preventivo para hoteles, como un caso realizado en Cancún."
+  },
+  {
+    "instruction": "¿Han trabajado en Campeche?",
+    "output": "Sí, realizamos una instalación residencial de minisplit en Campeche."
+  },
+  {
+    "instruction": "¿Puedo ver fotos de sus proyectos?",
+    "output": "Las imágenes mostradas actualmente son ilustrativas; iremos actualizando la galería con fotografía real de nuestros proyectos."
+  },
+  {
+    "instruction": "¿Cómo pido una cotización?",
+    "output": "Contáctanos por teléfono, correo o el formulario de la página y te enviamos una propuesta técnica sin costo."
+  },
+  {
+    "instruction": "¿La cotización tiene costo?",
+    "output": "No, la propuesta técnica es sin costo."
+  },
+  {
+    "instruction": "¿Qué información necesito dar para una cotización?",
+    "output": "Tu nombre, teléfono, el servicio de tu interés (instalación, mantenimiento o reparación) y detalles de tu proyecto."
+  },
+  {
+    "instruction": "¿Cuánto tardan en responder una solicitud de cotización?",
+    "output": "Contáctanos y te responderemos con una propuesta técnica; para tiempos específicos, comunícate al +52 999 123 4567."
+  },
+  {
+    "instruction": "¿Puedo pedir cotización para varios equipos?",
+    "output": "Sí, puedes indicarlo en tu mensaje al solicitar la cotización."
+  },
+  {
+    "instruction": "¿Necesito visita técnica para recibir una cotización?",
+    "output": "Contáctanos para definir si tu proyecto requiere una visita técnica previa a la propuesta."
+  },
+  {
+    "instruction": "¿Puedo solicitar cotización para mi negocio?",
+    "output": "Sí, atendemos solicitudes de cotización tanto para hogares como para negocios."
+  },
+  {
+    "instruction": "¿El formulario de contacto sirve para pedir cotización?",
+    "output": "Sí, puedes usar el formulario indicando el servicio de tu interés y tu mensaje."
+  },
+  {
+    "instruction": "¿Qué servicios puedo cotizar?",
+    "output": "Puedes cotizar instalación, mantenimiento o reparación de tu equipo minisplit."
+  },
+  {
+    "instruction": "¿Hay algún compromiso al pedir una cotización?",
+    "output": "No, la propuesta técnica es sin costo y sin compromiso de contratación inmediato."
+  },
+  {
+    "instruction": "¿Tienen soporte de emergencia?",
+    "output": "Sí, ofrecemos soporte de emergencia 24/7."
+  },
+  {
+    "instruction": "¿Qué hago si mi minisplit falla en la noche?",
+    "output": "Puedes contactarnos, ya que ofrecemos soporte de emergencia 24/7."
+  },
+  {
+    "instruction": "¿El soporte 24/7 aplica todos los días?",
+    "output": "Sí, el soporte de emergencia está disponible los 7 días de la semana."
+  },
+  {
+    "instruction": "¿Atienden emergencias en fin de semana?",
+    "output": "Sí, el soporte de emergencia 24/7 cubre también los fines de semana."
+  },
+  {
+    "instruction": "¿Qué se considera una emergencia?",
+    "output": "Situaciones donde tu equipo deja de funcionar y necesitas atención antes de perder el confort en tu hogar o negocio."
+  },
+  {
+    "instruction": "¿El soporte de emergencia tiene costo adicional?",
+    "output": "Contáctanos al +52 999 123 4567 para conocer los detalles y costos del servicio de emergencia."
+  },
+  {
+    "instruction": "¿Puedo llamar fuera del horario regular?",
+    "output": "Sí, para emergencias contamos con atención 24/7, además de nuestro horario regular de lunes a sábado."
+  },
+  {
+    "instruction": "¿Qué tan rápido atienden una emergencia?",
+    "output": "Contamos con soporte de emergencia 24/7 pensado para atenderte antes de que pierdas el confort en tu hogar o negocio."
+  },
+  {
+    "instruction": "¿El soporte 24/7 aplica para negocios también?",
+    "output": "Sí, aplica tanto para hogares como para negocios."
+  },
+  {
+    "instruction": "¿Cómo contacto el soporte de emergencia?",
+    "output": "Llama al +52 999 123 4567, disponible las 24 horas para emergencias."
+  },
+  {
+    "instruction": "¿En qué estado ofrecen servicio?",
+    "output": "Nuestra base de operaciones está en Mérida, Yucatán, aunque también hemos realizado proyectos en Quintana Roo y Campeche."
+  },
+  {
+    "instruction": "¿Dan servicio en Cancún?",
+    "output": "Sí, hemos realizado proyectos de mantenimiento en Cancún, Quintana Roo."
+  },
+  {
+    "instruction": "¿Dan servicio en Playa del Carmen?",
+    "output": "Sí, hemos realizado reparaciones en Playa del Carmen."
+  },
+  {
+    "instruction": "¿Dan servicio en Campeche?",
+    "output": "Sí, hemos realizado instalaciones residenciales en Campeche."
+  },
+  {
+    "instruction": "¿Su base principal está en Mérida?",
+    "output": "Sí, nuestra dirección y base de operaciones están en Mérida, Yucatán, México."
+  },
+  {
+    "instruction": "¿Cubren toda la Península de Yucatán?",
+    "output": "Contamos con proyectos en Yucatán, Quintana Roo y Campeche; contáctanos para confirmar cobertura en tu ubicación específica."
+  },
+  {
+    "instruction": "¿Puedo solicitar servicio fuera de Mérida?",
+    "output": "Contáctanos para confirmar si damos cobertura en tu zona específica."
+  },
+  {
+    "instruction": "¿Tienen sucursales en otras ciudades?",
+    "output": "Nuestra base se encuentra en Mérida, Yucatán; contáctanos para conocer la disponibilidad de servicio en otras ciudades."
+  },
+  {
+    "instruction": "¿Qué zona atienden principalmente?",
+    "output": "Atendemos principalmente Mérida y la región de Yucatán, con proyectos también en Quintana Roo y Campeche."
+  },
+  {
+    "instruction": "¿Necesito estar en Mérida para contratar sus servicios?",
+    "output": "No necesariamente; contáctanos para confirmar cobertura en tu ubicación."
+  },
+  {
+    "instruction": "¿Por qué elegir a VACRC?",
+    "output": "Por nuestra ingeniería propia, técnicos certificados, más de 15 años de experiencia y un enfoque 100% dedicado a equipos minisplit."
+  },
+  {
+    "instruction": "¿VACRC trabaja solo con minisplit o también otros equipos de clima?",
+    "output": "Nuestro enfoque principal es minisplit, incluyendo sistemas VRF/VRV para proyectos con varias unidades interiores."
+  },
+  {
+    "instruction": "¿VACRC ofrece refacciones originales?",
+    "output": "Sí, en nuestros contratos de mantenimiento preventivo acompañamos a los clientes con refacciones originales."
+  },
+  {
+    "instruction": "¿VACRC calcula el equipo según catálogo o según mi espacio?",
+    "output": "Calculamos la capacidad ideal según las necesidades reales de tu espacio, no de catálogo."
+  },
+  {
+    "instruction": "¿Los técnicos de VACRC están certificados?",
+    "output": "Sí, están certificados en el manejo de refrigerantes y en equipos minisplit de todas las marcas."
+  },
+  {
+    "instruction": "¿VACRC protege mi inversión a largo plazo?",
+    "output": "Sí, con contratos de mantenimiento preventivo, soporte técnico 24/7 y refacciones originales."
+  },
+  {
+    "instruction": "¿Qué servicios de la página puedo solicitar?",
+    "output": "Instalación, mantenimiento y reparación de equipos minisplit, incluyendo sistemas VRF/VRV."
+  },
+  {
+    "instruction": "¿Puedo consultar el catálogo de servicios en la página?",
+    "output": "Sí, en la sección de Servicios de nuestra página puedes ver el detalle de instalación, mantenimiento y reparación."
+  },
+  {
+    "instruction": "¿VACRC tiene sección de \"Nosotros\" en la página?",
+    "output": "Sí, en la sección Nosotros encontrarás nuestra misión, visión, valores y experiencia."
+  },
+  {
+    "instruction": "¿VACRC tiene sección de contacto en la página?",
+    "output": "Sí, en la sección Contacto puedes ver nuestro teléfono, correo, dirección y un formulario para enviarnos tu solicitud."
+  }
+]

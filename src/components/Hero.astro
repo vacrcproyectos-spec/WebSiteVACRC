@@ -1,0 +1,133 @@
+---
+import { SITE, SERVICES } from "../data/site";
+import Icon from "./Icon.astro";
+import Button from "./Button.astro";
+---
+
+<section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden bg-vacrc-ink-900">
+  <!-- Full-screen service photo slideshow -->
+  <div class="absolute inset-0">
+    {SERVICES.map((service, i) => (
+      <img
+        src={`/hero/${service.slug}.png`}
+        onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+        alt={service.name}
+        loading={i === 0 ? "eager" : "lazy"}
+        class:list={[
+          "hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out",
+          i === 0 ? "opacity-100" : "opacity-0",
+        ]}
+      />
+    ))}
+    <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900 via-vacrc-ink-900/55 to-vacrc-ink-900/15"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-16 md:py-32 w-full">
+    <div class="reveal max-w-2xl">
+      <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-mono uppercase tracking-widest text-white">
+        <span class="relative w-3.5 h-3.5">
+          {SERVICES.map((service, i) => (
+            <Icon
+              icon={service.icon}
+              class:list={["hero-label-icon absolute inset-0 w-3.5 h-3.5 transition-opacity duration-500", i === 0 ? "opacity-100" : "opacity-0"]}
+            />
+          ))}
+        </span>
+        <span id="hero-label-text">{SERVICES[0].name}</span>
+      </span>
+
+      <h1 class="font-display font-bold leading-[0.95] mt-6 text-5xl sm:text-6xl lg:text-7xl text-white">
+        INSTALAMOS<br />
+        MANTENEMOS<br />
+        REPARAMOS TU MINISPLIT
+      </h1>
+
+      <p class="font-display mt-6 text-white/80 text-base sm:text-lg max-w-lg leading-relaxed">
+        {SITE.description}
+      </p>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <Button href="#contacto" icon="arrow">
+          Solicitar cotización
+        </Button>
+        <Button href="#servicios" variant="secondary-light">
+          Ver servicios
+        </Button>
+      </div>
+
+      <div class="mt-12 flex items-center gap-8 font-mono text-white/70 text-sm">
+        <div>
+          <p class="text-2xl font-display font-bold text-white">+15</p>
+          <p>años de experiencia</p>
+        </div>
+        <div class="w-px h-9 bg-white/20"></div>
+        <div>
+          <p class="text-2xl font-display font-bold text-white">24/7</p>
+          <p>soporte de emergencia</p>
+        </div>
+        <div class="w-px h-9 bg-white/20"></div>
+        <div>
+          <p class="text-2xl font-display font-bold text-white">100%</p>
+          <p>enfocados en minisplit</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide indicators -->
+    <div class="reveal reveal-delay-2 mt-12 flex gap-2">
+      {SERVICES.map((service, i) => (
+        <button
+          type="button"
+          class:list={["hero-dot h-1 rounded-full transition-all duration-500", i === 0 ? "w-12 bg-white" : "w-8 bg-white/30"]}
+          aria-label={`Ver ${service.name}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>(".hero-slide");
+  const labelIcons = document.querySelectorAll<HTMLElement>(".hero-label-icon");
+  const labelText = document.getElementById("hero-label-text");
+  const dots = document.querySelectorAll<HTMLElement>(".hero-dot");
+  const names = Array.from(dots).map((dot) => dot.getAttribute("aria-label")?.replace("Ver ", "") ?? "");
+
+  let current = 0;
+  let timer: ReturnType<typeof setInterval>;
+
+  const show = (index: number) => {
+    slides.forEach((el, i) => {
+      el.classList.toggle("opacity-100", i === index);
+      el.classList.toggle("opacity-0", i !== index);
+    });
+    labelIcons.forEach((el, i) => {
+      el.classList.toggle("opacity-100", i === index);
+      el.classList.toggle("opacity-0", i !== index);
+    });
+    dots.forEach((el, i) => {
+      el.classList.toggle("w-12", i === index);
+      el.classList.toggle("bg-white", i === index);
+      el.classList.toggle("w-8", i !== index);
+      el.classList.toggle("bg-white/30", i !== index);
+    });
+    if (labelText) labelText.textContent = names[index];
+    current = index;
+  };
+
+  const next = () => show((current + 1) % slides.length);
+
+  const restart = () => {
+    clearInterval(timer);
+    timer = setInterval(next, 5000);
+  };
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      show(i);
+      restart();
+    });
+  });
+
+  restart();
+</script>

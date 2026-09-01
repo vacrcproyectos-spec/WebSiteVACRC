@@ -1,0 +1,65 @@
+---
+import { SITE, SERVICES, NAV_LINKS } from "../data/site";
+import Icon from "./Icon.astro";
+const year = new Date().getFullYear();
+---
+
+<footer class="relative bg-vacrc-bg-soft border-t border-vacrc-ink-100 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="reveal flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-full bg-white pl-3 pr-6 sm:pr-8 py-3 mb-14">
+      <img src="/logo.svg" alt={SITE.name} class="relative h-16 sm:h-20 w-auto shrink-0 -my-5 sm:-my-7 drop-shadow-lg" />
+      <p class="text-sm text-vacrc-ink-500">
+         Somos especialistas en equipos de aire acondicionado tipo minisplit en Mérida y Yucatán, ofreciendo instalación, mantenimiento y reparación para hogares, oficinas y negocios que buscan confort inmediato y un servicio técnico confiable.
+      </p>
+      <span class="sm:ml-auto shrink-0 inline-flex items-center gap-1.5 font-display font-bold text-sm uppercase tracking-wide text-vacrc-blue-600">
+        <Icon icon="fan" ring={false} class="w-4 h-4 text-vacrc-blue-500" />
+        Soluciones con respaldo
+      </span>
+    </div>
+
+    <div class="reveal grid sm:grid-cols-3 gap-10">
+      <div>
+        <h4 class="font-script text-2xl text-vacrc-blue-600 mb-4">Menú</h4>
+        <ul class="space-y-2.5 text-sm text-vacrc-ink-600">
+          {NAV_LINKS.map((link) => (
+            <li>
+              <a href={link.href} class="inline-flex items-center gap-1.5 hover:text-vacrc-blue-600 transition-colors">
+                <span class="text-vacrc-blue-400 font-bold">&gt;</span>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-script text-2xl text-vacrc-blue-600 mb-4">Servicios</h4>
+        <ul class="space-y-2.5 text-sm text-vacrc-ink-600">
+          {SERVICES.map((s) => (
+            <li>
+              <a href="#servicios" class="inline-flex items-center gap-1.5 hover:text-vacrc-blue-600 transition-colors">
+                <span class="text-vacrc-blue-400 font-bold">&gt;</span>
+                {s.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-script text-2xl text-vacrc-blue-600 mb-4">Contacto</h4>
+        <ul class="space-y-2.5 text-sm text-vacrc-ink-600">
+          <li class="flex items-center gap-1.5"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.phone}</li>
+          <li class="flex items-center gap-1.5"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.email}</li>
+          <li class="flex items-center gap-1.5"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.address}</li>
+          <li class="flex items-center gap-1.5 text-vacrc-ink-400"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.hours}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-6 border-t border-vacrc-ink-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-vacrc-ink-400">
+      <p>© {year} {SITE.name}. Todos los derechos reservados.</p>
+      <p class="font-mono">Instalación · Mantenimiento · Reparación de Minisplit</p>
+    </div>
+  </div>
+</footer>
