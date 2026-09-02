@@ -14,7 +14,7 @@ import Button from "./Button.astro";
         />
       </a>
 
-      <ul class="hidden md:flex items-center gap-9 font-medium text-sm">
+      <ul class="hidden lg:flex items-center gap-9 font-medium text-sm">
         {NAV_LINKS.map((link) => (
           <li>
             <a
@@ -27,7 +27,7 @@ import Button from "./Button.astro";
         ))}
       </ul>
 
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-3">
         <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
           <img src="/brands/facebook.png" alt="Facebook" class="w-5 h-5 object-contain" />
         </a>
@@ -39,7 +39,7 @@ import Button from "./Button.astro";
         </a>
       </div>
 
-      <Button href="#contacto" size="sm" class="hidden md:inline-flex">
+      <Button href="#contacto" size="sm" class="hidden lg:inline-flex">
         Cotizar servicio
       </Button>
 
@@ -47,7 +47,7 @@ import Button from "./Button.astro";
         id="menu-toggle"
         aria-label="Abrir menú"
         aria-expanded="false"
-        class="md:hidden relative w-10 h-10 flex items-center justify-center text-white text-shadow-nav transition-colors duration-300"
+        class="lg:hidden relative w-10 h-10 flex items-center justify-center text-white text-shadow-nav transition-colors duration-300"
       >
         <span class="sr-only">Menú</span>
         <div class="w-6 flex flex-col gap-1.5">
@@ -61,7 +61,7 @@ import Button from "./Button.astro";
 
   <div
     id="mobile-menu"
-    class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/98 backdrop-blur border-b border-vacrc-ink-100"
+    class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/98 backdrop-blur border-b border-vacrc-ink-100"
   >
     <ul class="flex flex-col px-6 py-4 gap-1 font-medium text-vacrc-ink-500">
       {NAV_LINKS.map((link) => (

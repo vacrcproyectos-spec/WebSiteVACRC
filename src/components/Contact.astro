@@ -38,7 +38,7 @@ import SectionDivider from "./SectionDivider.astro";
           <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
             <Icon icon="email" class="w-4 h-4" />
           </span>
-          <a href={`mailto:${SITE.email}`} class="cursor-pointer hover:text-vacrc-blue-600 transition-colors">{SITE.email}</a>
+          <a id="contact-email-link" href={`mailto:${SITE.email}`} class="cursor-pointer hover:text-vacrc-blue-600 transition-colors">{SITE.email}</a>
           <button
             type="button"
             data-copy={SITE.email}
@@ -100,7 +100,8 @@ import SectionDivider from "./SectionDivider.astro";
     mensaje: mensajeEl.value.trim(),
   });
 
-  document.getElementById("send-email")?.addEventListener("click", () => {
+  const sendEmail = (e) => {
+    e?.preventDefault();
     const { nombre, telefono, servicio, mensaje } = getValues();
     const subject = `Solicitud de cotización - ${servicio}`;
     const body =
@@ -109,7 +110,10 @@ import SectionDivider from "./SectionDivider.astro";
       `Servicio de interés: ${servicio}\n\n` +
       `Mensaje:\n${mensaje}`;
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+  };
+
+  document.getElementById("send-email")?.addEventListener("click", sendEmail);
+  document.getElementById("contact-email-link")?.addEventListener("click", sendEmail);
 
   document.getElementById("send-whatsapp")?.addEventListener("click", () => {
     const { nombre, telefono, mensaje } = getValues();
