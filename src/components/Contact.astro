@@ -13,13 +13,13 @@ import SectionDivider from "./SectionDivider.astro";
 
   <div class="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-5 gap-12">
     <div class="reveal lg:col-span-2">
-      <span class="font-mono text-[0.9rem] uppercase tracking-widest text-vacrc-blue-600">Contacto</span>
-      <h2 class="font-display font-bold text-4xl mt-3 text-metal">Hablemos de tu proyecto</h2>
-      <p class="mt-4 text-vacrc-ink-500 text-[1.2rem] leading-relaxed">
+      <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Contacto</span>
+      <h2 class="text-h2 mt-3 text-metal">Hablemos de tu proyecto</h2>
+      <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
         Cuéntanos qué necesitas y te enviamos una propuesta técnica sin costo.
       </p>
 
-      <ul class="mt-9 space-y-5">
+      <ul class="mt-9 space-y-5 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem]">
         <li class="group relative flex items-center gap-3 text-vacrc-ink-700">
           <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
             <Icon icon="phone" class="w-4 h-4" />
@@ -59,22 +59,22 @@ import SectionDivider from "./SectionDivider.astro";
 
     <form id="contact-form" class="reveal reveal-delay-2 lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]">
       <div class="sm:col-span-1">
-        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Nombre</label>
-        <input id="contact-nombre" type="text" name="nombre" placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Nombre</label>
+        <input id="contact-nombre" type="text" name="nombre" placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
       </div>
       <div class="sm:col-span-1">
-        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Teléfono</label>
-        <input id="contact-telefono" type="tel" name="telefono" placeholder="999 000 0000" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Teléfono</label>
+        <input id="contact-telefono" type="tel" name="telefono" placeholder="999 000 0000" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
       </div>
       <div class="sm:col-span-2">
-        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Servicio de interés</label>
-        <select id="contact-servicio" name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
+        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Servicio de interés</label>
+        <select id="contact-servicio" name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
           <option selected>Cotización de Proyectos</option>
         </select>
       </div>
       <div class="sm:col-span-2">
-        <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Mensaje</label>
-        <textarea id="contact-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
+        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Mensaje</label>
+        <textarea id="contact-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
       </div>
       <Button id="send-email" type="button" variant="secondary" icon="email" iconPosition="left" class="sm:col-span-1 mt-1">
         Enviar correo

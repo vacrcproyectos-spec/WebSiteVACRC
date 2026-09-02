@@ -15,7 +15,7 @@ import SocialIcon from "./SocialIcon.astro";
         />
       </a>
 
-      <ul class="hidden lg:flex items-center gap-9 font-display font-medium text-sm">
+      <ul class="hidden lg:flex items-center gap-9 text-nav-link">
         {NAV_LINKS.map((link) => (
           <li>
             <a
@@ -66,7 +66,7 @@ import SocialIcon from "./SocialIcon.astro";
     id="mobile-menu"
     class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/60 backdrop-blur-md border-b border-vacrc-blue-500/30"
   >
-    <ul class="flex flex-col px-6 py-4 gap-1 font-display font-medium">
+    <ul class="flex flex-col px-6 py-4 gap-1 text-nav-link">
       {NAV_LINKS.map((link) => (
         <li>
           <a href={link.href} class="mobile-link navbar-link block py-3 border-b border-vacrc-blue-500/30 text-center uppercase transition-colors">

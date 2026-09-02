@@ -13,20 +13,20 @@ const rows = Array.from({ length: Math.ceil(SPECIALTIES.length / chunkSize) }, (
   <SectionDivider />
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="reveal max-w-2xl">
-      <span class="font-mono text-[0.9rem] uppercase tracking-widest text-vacrc-blue-600">Nos Especializamos En</span>
-      <h2 class="font-display font-bold text-4xl sm:text-5xl mt-3 text-metal">
+      <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Nos Especializamos En</span>
+      <h2 class="text-h2 mt-3 text-metal">
         Proyectos de climatización para cada tipo de espacio
       </h2>
-      <p class="mt-4 text-vacrc-ink-500 text-[1.2rem] sm:text-[1.35rem]">
+      <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
         Cotizamos y desarrollamos proyectos de climatización a la medida de cada giro. Pasa el cursor sobre cada uno para ver más.
       </p>
     </div>
 
     <div class="mt-14 md:mt-16 space-y-3">
       {rows.map((row) => (
-        <div class="flex flex-col md:flex-row gap-3 md:h-[420px]">
+        <div class="flex flex-col md:flex-row gap-3 md:h-[460px]">
           {row.map((item, itemIndex) => (
-            <div class:list={["reveal group relative w-full h-64 md:h-full md:flex-1 md:min-w-0 overflow-hidden rounded-2xl bg-vacrc-ink-900 cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[2.5]", `reveal-delay-${Math.min(itemIndex + 1, 4)}`]}>
+            <div class:list={["reveal group relative w-full h-80 md:h-full md:flex-1 md:min-w-0 overflow-hidden rounded-2xl bg-vacrc-ink-900 cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[2.5]", `reveal-delay-${Math.min(itemIndex + 1, 4)}`]}>
               <img
                 src={`/especialidades/${item.slug}.png`}
                 onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
@@ -40,8 +40,8 @@ const rows = Array.from({ length: Math.ceil(SPECIALTIES.length / chunkSize) }, (
                 <div class="w-10 h-10 rounded-lg bg-white/15 backdrop-blur border border-white/20 flex items-center justify-center text-white">
                   <Icon icon={item.icon} class="w-5 h-5" />
                 </div>
-                <h3 class="font-display font-bold text-lg text-white mt-3 leading-tight">{item.name}</h3>
-                <p class="mt-2 text-sm text-white/80 leading-relaxed max-h-32 opacity-100 overflow-hidden transition-all duration-500 md:max-h-0 md:opacity-0 md:group-hover:max-h-32 md:group-hover:opacity-100">
+                <h3 class="text-tile-title text-white mt-3 text-2xl sm:text-[1.75rem]">{item.name}</h3>
+                <p class="text-tile-body mt-2 text-white/80 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem] text-justify max-h-40 opacity-100 overflow-hidden transition-all duration-500 md:max-h-0 md:opacity-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
                   {item.short}
                 </p>
               </div>

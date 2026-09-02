@@ -24,7 +24,7 @@ import Button from "./Button.astro";
 
   <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-16 md:py-32 w-full">
     <div class="reveal max-w-2xl">
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-[0.9rem] font-mono uppercase tracking-widest text-white">
+      <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-eyebrow text-white">
         <span class="relative w-3.5 h-3.5">
           {SERVICES.map((service, i) => (
             <Icon
@@ -36,11 +36,11 @@ import Button from "./Button.astro";
         <span id="hero-label-text">{SERVICES[0].name}</span>
       </span>
 
-      <h1 id="hero-title" class="font-display font-bold leading-[0.95] mt-6 text-5xl sm:text-6xl lg:text-7xl text-white transition-opacity duration-500">
+      <h1 id="hero-title" class="text-h1 mt-6 text-white transition-opacity duration-500">
         {SERVICES[0].name}
       </h1>
 
-      <p id="hero-description" class="font-display mt-6 text-white/80 text-[1.2rem] sm:text-[1.35rem] max-w-lg leading-relaxed transition-opacity duration-500">
+      <p id="hero-description" class="text-lead font-display mt-6 text-white/80 max-w-lg transition-opacity duration-500">
         {SERVICES[0].description}
       </p>
 
@@ -55,7 +55,7 @@ import Button from "./Button.astro";
 
       <div class="mt-12 flex items-center gap-8 font-mono text-white/70 text-sm">
         <div>
-          <p class="text-2xl font-display font-bold text-white">+10</p>
+          <p class="text-stat-number text-white">+10</p>
           <p>años de experiencia</p>
         </div>
       </div>

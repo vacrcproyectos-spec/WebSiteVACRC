@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -38,6 +38,7 @@
   --font-display: 'Bitter', 'Inter', serif;
 --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-montserrat: 'Montserrat', sans-serif;
 
 
   /* --- Motion --- */
@@ -71,6 +72,88 @@
   ::selection {
     background: var(--color-vacrc-blue-500);
     color: white;
+  }
+}
+
+@layer components {
+  /*
+   * Centralized typography roles. Every recurring text pattern on the site
+   * (eyebrow labels, headings, lead paragraphs, etc.) pulls its font-family
+   * and font-size from here, so both can be tuned in one place instead of
+   * hunting through each component. Color, margin and layout utilities stay
+   * inline per usage since they vary by context/background.
+   */
+  .text-eyebrow {
+    @apply font-mono uppercase tracking-widest text-[0.9rem];
+  }
+  .text-h1 {
+    @apply font-display font-bold leading-[0.95] text-5xl sm:text-6xl lg:text-7xl;
+  }
+  .text-h2 {
+    @apply font-display font-bold text-4xl sm:text-5xl;
+  }
+  .text-lead {
+    @apply text-[1.2rem] sm:text-[1.35rem] leading-relaxed;
+  }
+  .text-card-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0;
+    @apply text-4xl sm:text-5xl;
+  }
+  .text-tile-title {
+    @apply font-display font-bold text-lg leading-tight;
+  }
+  .text-tile-body {
+    @apply text-sm leading-relaxed;
+  }
+  .text-badge-caption {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0;
+    @apply text-2xl;
+  }
+  .text-script-heading {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0;
+    @apply text-3xl sm:text-4xl;
+  }
+  .text-value-label {
+    @apply text-xs font-semibold uppercase tracking-wide leading-tight;
+  }
+  .text-nav-link {
+    @apply font-display font-medium text-sm;
+  }
+  .text-footer-heading {
+    @apply font-bold text-base;
+  }
+  .text-eyebrow-badge {
+    @apply font-display font-bold uppercase tracking-wide text-xs;
+  }
+  .text-form-label {
+    @apply font-mono uppercase tracking-widest text-xs;
+  }
+  .text-includes-label {
+    @apply font-bold text-sm uppercase tracking-wide;
+  }
+  .text-chip {
+    @apply text-[10.5px] leading-none;
+  }
+  .text-chat-title {
+    @apply font-display font-bold text-sm;
+  }
+  .text-chat-subtitle {
+    @apply text-[11px];
+  }
+  .text-stat-number {
+    @apply font-display font-bold text-2xl;
+  }
+  .text-fallback-brand {
+    @apply font-display font-bold text-xl;
   }
 }
 
