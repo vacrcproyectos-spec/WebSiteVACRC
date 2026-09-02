@@ -1,24 +1,24 @@
 ---
-import { EQUIPMENT } from "../data/site";
+import { SPECIALTIES } from "../data/site";
 import Icon from "./Icon.astro";
 import SectionDivider from "./SectionDivider.astro";
 
 const chunkSize = 4;
-const rows = Array.from({ length: Math.ceil(EQUIPMENT.length / chunkSize) }, (_, i) =>
-  EQUIPMENT.slice(i * chunkSize, i * chunkSize + chunkSize)
+const rows = Array.from({ length: Math.ceil(SPECIALTIES.length / chunkSize) }, (_, i) =>
+  SPECIALTIES.slice(i * chunkSize, i * chunkSize + chunkSize)
 );
 ---
 
-<section id="equipos" class="relative py-24 md:py-32 bg-white border-t border-vacrc-ink-100">
+<section id="especialidades" class="relative py-24 md:py-32 bg-white border-t border-vacrc-ink-100">
   <SectionDivider />
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="reveal max-w-2xl">
-      <span class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600">Equipos con los que trabajamos</span>
+      <span class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600">Nos Especializamos En</span>
       <h2 class="font-display font-bold text-4xl sm:text-5xl mt-3 text-metal">
-        Tecnología para cada tipo de proyecto
+        Proyectos de climatización para cada tipo de espacio
       </h2>
       <p class="mt-4 text-vacrc-ink-500 text-base sm:text-lg">
-        Desde una habitación hasta un edificio completo, seleccionamos el tipo de minisplit correcto para cada espacio y presupuesto. Pasa el cursor sobre cada uno para verlo de cerca.
+        Cotizamos y desarrollamos proyectos de climatización a la medida de cada giro. Pasa el cursor sobre cada uno para ver más.
       </p>
     </div>
 
@@ -28,7 +28,7 @@ const rows = Array.from({ length: Math.ceil(EQUIPMENT.length / chunkSize) }, (_,
           {row.map((item) => (
             <div class="group relative w-full h-64 md:h-full md:flex-1 md:min-w-0 overflow-hidden rounded-2xl bg-vacrc-ink-900 cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[2.5]">
               <img
-                src={`/equipos/${item.slug}.png`}
+                src={`/especialidades/${item.slug}.png`}
                 onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
                 alt={item.name}
                 loading="lazy"

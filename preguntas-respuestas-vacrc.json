@@ -45,11 +45,11 @@
   },
   {
     "instruction": "¿VACRC ofrece garantía en sus servicios?",
-    "output": "Para conocer las condiciones específicas de garantía de tu equipo o servicio, te recomendamos contactarnos directamente al +52 999 123 4567 o contacto@vacrc.mx."
+    "output": "Para conocer las condiciones específicas de garantía de tu equipo o servicio, te recomendamos contactarnos directamente al +52 991 959 2109 o vacrcproyectos@gmail.com."
   },
   {
     "instruction": "¿Cómo puedo saber más sobre VACRC?",
-    "output": "Puedes contactarnos al +52 999 123 4567, escribirnos a contacto@vacrc.mx o visitarnos en Mérida, Yucatán."
+    "output": "Puedes contactarnos al +52 991 959 2109, escribirnos a vacrcproyectos@gmail.com o visitarnos en Mérida, Yucatán."
   },
   {
     "instruction": "¿VACRC es una empresa nueva?",
@@ -149,7 +149,7 @@
   },
   {
     "instruction": "¿Ofrecen contratos de mantenimiento?",
-    "output": "Sí, acompañamos a cada cliente con contratos de mantenimiento preventivo y soporte técnico 24/7."
+    "output": "Sí, acompañamos a cada cliente con contratos de mantenimiento preventivo."
   },
   {
     "instruction": "¿El mantenimiento alarga la vida útil del equipo?",
@@ -173,7 +173,7 @@
   },
   {
     "instruction": "¿Cómo agendo un mantenimiento?",
-    "output": "Contáctanos al +52 999 123 4567 o contacto@vacrc.mx para agendar tu mantenimiento preventivo."
+    "output": "Contáctanos al +52 991 959 2109 o vacrcproyectos@gmail.com para agendar tu mantenimiento preventivo."
   },
   {
     "instruction": "¿El mantenimiento preventivo evita fallas futuras?",
@@ -205,7 +205,7 @@
   },
   {
     "instruction": "¿Atienden reparaciones urgentes?",
-    "output": "Sí, contamos con soporte de emergencia 24/7 y hemos resuelto reparaciones urgentes el mismo día, por ejemplo en locales comerciales."
+    "output": "Sí, atendemos reparaciones urgentes dentro de nuestro horario de atención y hemos resuelto casos el mismo día, por ejemplo en locales comerciales."
   },
   {
     "instruction": "¿Reparan fallas eléctricas en el equipo?",
@@ -217,7 +217,7 @@
   },
   {
     "instruction": "¿Puedo solicitar una reparación de emergencia fuera de horario?",
-    "output": "Sí, ofrecemos soporte de emergencia 24/7 además de nuestro horario regular."
+    "output": "No, actualmente solo atendemos dentro de nuestro horario regular de Lunes a Viernes de 8:30 a 17:30."
   },
   {
     "instruction": "¿Qué pasa si mi equipo enciende pero no enfría?",
@@ -233,7 +233,7 @@
   },
   {
     "instruction": "¿Cómo solicito una reparación?",
-    "output": "Contáctanos al +52 999 123 4567, por correo a contacto@vacrc.mx, o a través del formulario de contacto en la página."
+    "output": "Contáctanos al +52 991 959 2109, por correo a vacrcproyectos@gmail.com, o a través del formulario de contacto en la página."
   },
   {
     "instruction": "¿Ofrecen diagnóstico antes de cobrar la reparación?",
@@ -441,11 +441,11 @@
   },
   {
     "instruction": "¿Cuál es el teléfono de VACRC?",
-    "output": "Nuestro teléfono es +52 999 123 4567."
+    "output": "Nuestro teléfono es +52 991 959 2109."
   },
   {
     "instruction": "¿Cuál es el correo de contacto de VACRC?",
-    "output": "Puedes escribirnos a contacto@vacrc.mx."
+    "output": "Puedes escribirnos a vacrcproyectos@gmail.com."
   },
   {
     "instruction": "¿Dónde están ubicados?",
@@ -453,27 +453,27 @@
   },
   {
     "instruction": "¿Cuál es el horario de atención?",
-    "output": "Atendemos de lunes a sábado de 8:00 a 19:00 horas, con emergencias 24/7."
+    "output": "Atendemos de Lunes a Viernes de 8:30 a 17:30 horas."
   },
   {
     "instruction": "¿Atienden los domingos?",
-    "output": "No tenemos horario regular los domingos, pero contamos con soporte de emergencia 24/7."
+    "output": "No, no atendemos los domingos. Nuestro horario es de Lunes a Viernes de 8:30 a 17:30."
   },
   {
     "instruction": "¿Cómo puedo contactar a VACRC?",
-    "output": "Puedes llamarnos al +52 999 123 4567, escribirnos a contacto@vacrc.mx o llenar el formulario de contacto en nuestra página."
+    "output": "Puedes llamarnos al +52 991 959 2109, escribirnos a vacrcproyectos@gmail.com o llenar el formulario de contacto en nuestra página."
   },
   {
     "instruction": "¿A qué hora abren?",
-    "output": "Abrimos a las 8:00 horas, de lunes a sábado."
+    "output": "Abrimos a las 8:30 horas, de lunes a viernes."
   },
   {
     "instruction": "¿A qué hora cierran?",
-    "output": "Cerramos a las 19:00 horas, de lunes a sábado."
+    "output": "Cerramos a las 17:30 horas, de lunes a viernes."
   },
   {
     "instruction": "¿Tienen atención de emergencias fuera de horario?",
-    "output": "Sí, contamos con soporte de emergencia 24/7."
+    "output": "No, actualmente solo atendemos dentro de nuestro horario regular de Lunes a Viernes de 8:30 a 17:30."
   },
   {
     "instruction": "¿Cómo solicito una cotización?",
@@ -485,7 +485,7 @@
   },
   {
     "instruction": "¿Puedo escribirles por correo para pedir información?",
-    "output": "Sí, puedes escribirnos a contacto@vacrc.mx."
+    "output": "Sí, puedes escribirnos a vacrcproyectos@gmail.com."
   },
   {
     "instruction": "¿Tienen formulario de contacto en la página?",
@@ -497,7 +497,7 @@
   },
   {
     "instruction": "¿Puedo llamar en caso de una emergencia de fin de semana?",
-    "output": "Sí, contamos con soporte de emergencia 24/7 incluso fuera de nuestro horario regular."
+    "output": "No, actualmente no contamos con atención los fines de semana; te atendemos de Lunes a Viernes de 8:30 a 17:30."
   },
   {
     "instruction": "¿Cuál es la dirección exacta de VACRC?",
@@ -509,15 +509,11 @@
   },
   {
     "instruction": "¿Cómo agendo una visita técnica?",
-    "output": "Contáctanos al +52 999 123 4567 o contacto@vacrc.mx para agendar una visita y recibir tu propuesta técnica."
+    "output": "Contáctanos al +52 991 959 2109 o vacrcproyectos@gmail.com para agendar una visita y recibir tu propuesta técnica."
   },
   {
     "instruction": "¿Puedo pedir informes por WhatsApp?",
-    "output": "Puedes comunicarte a nuestro número +52 999 123 4567; contáctanos para confirmar el medio de atención disponible."
-  },
-  {
-    "instruction": "¿Cuál es el horario de emergencias?",
-    "output": "El soporte de emergencia está disponible las 24 horas, los 7 días de la semana."
+    "output": "Puedes comunicarte a nuestro número +52 991 959 2109; contáctanos para confirmar el medio de atención disponible."
   },
   {
     "instruction": "¿Cuál es la misión de VACRC?",
@@ -588,74 +584,6 @@
     "output": "Ser reconocidos por la confiabilidad de nuestro servicio en instalación, mantenimiento y reparación de minisplit."
   },
   {
-    "instruction": "¿Tienen ejemplos de proyectos realizados?",
-    "output": "Sí, entre nuestros proyectos ilustrativos está la instalación de minisplits en oficinas corporativas, mantenimiento a flotilla de un hotel, reparación urgente en un local comercial e instalación residencial."
-  },
-  {
-    "instruction": "¿Han instalado minisplits en oficinas?",
-    "output": "Sí, instalamos 12 equipos minisplit en un corporativo de 3 niveles en Mérida, Yuc."
-  },
-  {
-    "instruction": "¿Han dado mantenimiento a hoteles?",
-    "output": "Sí, realizamos un programa de mantenimiento preventivo trimestral para 30 equipos minisplit en un hotel boutique en Cancún, Q. Roo."
-  },
-  {
-    "instruction": "¿Han reparado equipos en locales comerciales?",
-    "output": "Sí, resolvimos una fuga de refrigerante en un local comercial en Playa del Carmen el mismo día del diagnóstico."
-  },
-  {
-    "instruction": "¿Han hecho instalaciones residenciales?",
-    "output": "Sí, instalamos 3 equipos minisplit en una vivienda en Campeche, incluyendo drenaje y conexión eléctrica dedicada."
-  },
-  {
-    "instruction": "¿En qué ciudades han trabajado?",
-    "output": "Hemos trabajado en Mérida, Cancún, Playa del Carmen y Campeche, entre otras."
-  },
-  {
-    "instruction": "¿Los proyectos que muestran en la página son reales?",
-    "output": "Son proyectos ilustrativos, listos para reemplazarse con fotografía y casos reales de nuestros clientes."
-  },
-  {
-    "instruction": "¿Han hecho instalaciones por fases para no afectar la operación?",
-    "output": "Sí, por ejemplo en la instalación de un corporativo de 3 niveles trabajamos por fases para no interrumpir la operación de las oficinas."
-  },
-  {
-    "instruction": "¿Cuántos equipos han instalado en un solo proyecto?",
-    "output": "Depende del proyecto; por ejemplo, instalamos 12 equipos en un corporativo y 3 en una vivienda residencial."
-  },
-  {
-    "instruction": "¿Ofrecen mantenimiento a flotillas grandes de equipos?",
-    "output": "Sí, hemos dado mantenimiento preventivo trimestral a 30 equipos minisplit en un hotel."
-  },
-  {
-    "instruction": "¿Resuelven reparaciones el mismo día?",
-    "output": "En algunos casos sí, como una reparación urgente por fuga de refrigerante que resolvimos el mismo día en un local comercial."
-  },
-  {
-    "instruction": "¿Instalan drenaje y conexión eléctrica en proyectos residenciales?",
-    "output": "Sí, en instalaciones residenciales incluimos salida de drenaje y conexión eléctrica dedicada."
-  },
-  {
-    "instruction": "¿Cuidan los acabados en instalaciones residenciales?",
-    "output": "Sí, cuidamos los acabados para no afectar la fachada de la vivienda."
-  },
-  {
-    "instruction": "¿Dan seguimiento después de instalar un equipo residencial?",
-    "output": "En proyectos residenciales, ofrecemos una primera revisión de cortesía a los 30 días junto con garantía de instalación."
-  },
-  {
-    "instruction": "¿Tienen experiencia con proyectos hoteleros?",
-    "output": "Sí, contamos con experiencia en mantenimiento preventivo para hoteles, como un caso realizado en Cancún."
-  },
-  {
-    "instruction": "¿Han trabajado en Campeche?",
-    "output": "Sí, realizamos una instalación residencial de minisplit en Campeche."
-  },
-  {
-    "instruction": "¿Puedo ver fotos de sus proyectos?",
-    "output": "Las imágenes mostradas actualmente son ilustrativas; iremos actualizando la galería con fotografía real de nuestros proyectos."
-  },
-  {
     "instruction": "¿Cómo pido una cotización?",
     "output": "Contáctanos por teléfono, correo o el formulario de la página y te enviamos una propuesta técnica sin costo."
   },
@@ -669,7 +597,7 @@
   },
   {
     "instruction": "¿Cuánto tardan en responder una solicitud de cotización?",
-    "output": "Contáctanos y te responderemos con una propuesta técnica; para tiempos específicos, comunícate al +52 999 123 4567."
+    "output": "Contáctanos y te responderemos con una propuesta técnica; para tiempos específicos, comunícate al +52 991 959 2109."
   },
   {
     "instruction": "¿Puedo pedir cotización para varios equipos?",
@@ -697,43 +625,23 @@
   },
   {
     "instruction": "¿Tienen soporte de emergencia?",
-    "output": "Sí, ofrecemos soporte de emergencia 24/7."
+    "output": "No, actualmente no contamos con soporte de emergencia; atendemos dentro de nuestro horario regular de Lunes a Viernes de 8:30 a 17:30."
   },
   {
     "instruction": "¿Qué hago si mi minisplit falla en la noche?",
-    "output": "Puedes contactarnos, ya que ofrecemos soporte de emergencia 24/7."
-  },
-  {
-    "instruction": "¿El soporte 24/7 aplica todos los días?",
-    "output": "Sí, el soporte de emergencia está disponible los 7 días de la semana."
-  },
-  {
-    "instruction": "¿Atienden emergencias en fin de semana?",
-    "output": "Sí, el soporte de emergencia 24/7 cubre también los fines de semana."
+    "output": "Puedes contactarnos dentro de nuestro horario de atención (Lunes a Viernes, 8:30 a 17:30) y agendaremos tu revisión lo antes posible."
   },
   {
     "instruction": "¿Qué se considera una emergencia?",
-    "output": "Situaciones donde tu equipo deja de funcionar y necesitas atención antes de perder el confort en tu hogar o negocio."
-  },
-  {
-    "instruction": "¿El soporte de emergencia tiene costo adicional?",
-    "output": "Contáctanos al +52 999 123 4567 para conocer los detalles y costos del servicio de emergencia."
+    "output": "Situaciones donde tu equipo deja de funcionar y necesitas atención antes de perder el confort en tu hogar o negocio; te atendemos dentro de nuestro horario regular."
   },
   {
     "instruction": "¿Puedo llamar fuera del horario regular?",
-    "output": "Sí, para emergencias contamos con atención 24/7, además de nuestro horario regular de lunes a sábado."
+    "output": "No, solo atendemos dentro de nuestro horario regular de Lunes a Viernes de 8:30 a 17:30."
   },
   {
     "instruction": "¿Qué tan rápido atienden una emergencia?",
-    "output": "Contamos con soporte de emergencia 24/7 pensado para atenderte antes de que pierdas el confort en tu hogar o negocio."
-  },
-  {
-    "instruction": "¿El soporte 24/7 aplica para negocios también?",
-    "output": "Sí, aplica tanto para hogares como para negocios."
-  },
-  {
-    "instruction": "¿Cómo contacto el soporte de emergencia?",
-    "output": "Llama al +52 999 123 4567, disponible las 24 horas para emergencias."
+    "output": "Contáctanos dentro de nuestro horario de atención y agendaremos tu revisión lo antes posible."
   },
   {
     "instruction": "¿En qué estado ofrecen servicio?",
@@ -797,7 +705,7 @@
   },
   {
     "instruction": "¿VACRC protege mi inversión a largo plazo?",
-    "output": "Sí, con contratos de mantenimiento preventivo, soporte técnico 24/7 y refacciones originales."
+    "output": "Sí, con contratos de mantenimiento preventivo y refacciones originales."
   },
   {
     "instruction": "¿Qué servicios de la página puedo solicitar?",

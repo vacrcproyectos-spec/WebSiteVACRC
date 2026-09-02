@@ -1,19 +1,24 @@
 export const SITE = {
   name: "VACRC",
-  tagline: "Instalación · Mantenimiento · Reparación de Minisplit",
+  tagline: "Cálculo · Cotización · Proyectos de Climatización",
   description:
-    "VACRC instala, da mantenimiento y repara equipos de aire acondicionado tipo minisplit para hogares y negocios que buscan confort inmediato y un servicio técnico de confianza.",
-  phone: "+52 999 123 4567",
-  email: "contacto@vacrc.mx",
+    "VACRC cotiza y diseña proyectos de climatización, desde el cálculo y la selección de equipo hasta la entrega y el mantenimiento. Nos especializamos en centros comerciales, departamentos, plantas de producción, almacenes, bodegas y quirófanos.",
+  phone: "+52 991 959 2109",
+  email: "vacrcproyectos@gmail.com",
   address: "Mérida, Yucatán, México",
-  hours: "Lun – Sáb, 8:00 – 19:00 · Emergencias 24/7",
+  hours: "Lun – Vie, 8:30 – 17:30",
+};
+
+export const SOCIAL = {
+  facebook: "https://www.facebook.com/profile.php?id=61593057442063&sk=about",
+  instagram: "https://www.instagram.com/vacrcproyectos/",
+  whatsapp: `https://wa.me/${SITE.phone.replace(/\D/g, "")}`,
 };
 
 export const NAV_LINKS = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Alcance", href: "#alcance" },
   { label: "Nosotros", href: "#nosotros" },
-  { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -28,31 +33,94 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "instalacion-minisplit",
-    icon: "ac",
-    name: "Instalación",
-    short: "Equipos nuevos, instalados a la primera",
+    slug: "calculo",
+    icon: "target",
+    name: "Cálculo",
+    short: "Cálculos precisos que sostienen todo el proyecto",
     description:
-      "Instalamos equipos minisplit de todas las capacidades y marcas, con cálculo del tamaño correcto para tu espacio, línea frigorífica a medida y pruebas de vacío y carga de gas para que tu equipo rinda al máximo desde el primer encendido.",
-    bullets: ["Cálculo de capacidad ideal", "Instalación de línea frigorífica", "Prueba de vacío y carga de gas"],
+      "Realizamos cálculos precisos y eficientes de carga térmica, capacidad de equipos y requerimientos técnicos, para que cada proyecto de climatización parta de una base confiable y ajustada a la realidad del espacio.",
+    bullets: ["Cálculo de carga térmica", "Dimensionamiento de equipos", "Requerimientos técnicos del espacio"],
   },
   {
-    slug: "mantenimiento-minisplit",
+    slug: "seleccion",
+    icon: "scale",
+    name: "Selección",
+    short: "La mejor opción técnica y económica para tu proyecto",
+    description:
+      "Elegimos la mejor opción para tu proyecto entre equipos, marcas y soluciones disponibles, evaluando rendimiento, eficiencia energética y costo, para asegurar que la propuesta se ajuste a tus necesidades reales.",
+    bullets: ["Comparación de marcas y equipos", "Análisis de eficiencia energética", "Recomendación técnica objetiva"],
+  },
+  {
+    slug: "dibujo",
+    icon: "conservacion",
+    name: "Dibujo",
+    short: "Planos técnicos claros antes de ejecutar",
+    description:
+      "Diseñamos planos técnicos detallados con la distribución de equipos, ductería y líneas frigoríficas, para que el proyecto quede claro y validado antes de iniciar cualquier trabajo en sitio.",
+    bullets: ["Planos de distribución de equipos", "Trazado de ductería y líneas", "Validación técnica previa a obra"],
+  },
+  {
+    slug: "cuantificacion",
+    icon: "gem",
+    name: "Cuantificación",
+    short: "Cada material y partida, contabilizada con precisión",
+    description:
+      "Cuantificamos cada detalle del proyecto, desde equipos y materiales hasta mano de obra, para que la cotización refleje con exactitud lo que se necesita, sin sorpresas ni faltantes durante la ejecución.",
+    bullets: ["Levantamiento de materiales", "Cálculo de mano de obra", "Detalle completo de partidas"],
+  },
+  {
+    slug: "catalogo",
+    icon: "ac",
+    name: "Catálogo",
+    short: "Equipos y materiales de las mejores marcas",
+    description:
+      "Contamos con catálogos actualizados de equipos y materiales de las principales marcas del sector, para ofrecerte opciones vigentes en tecnología, garantía y disponibilidad.",
+    bullets: ["Marcas líderes del sector", "Fichas técnicas actualizadas", "Disponibilidad y tiempos de entrega"],
+  },
+  {
+    slug: "presupuesto",
+    icon: "shield",
+    name: "Presupuesto",
+    short: "Presupuestos claros, sin letras pequeñas",
+    description:
+      "Elaboramos presupuestos claros, detallados y competitivos, desglosando cada concepto para que tomes decisiones informadas sobre la inversión de tu proyecto.",
+    bullets: ["Desglose por partida", "Precios competitivos", "Sin costos ocultos"],
+  },
+  {
+    slug: "planeacion",
+    icon: "bulb",
+    name: "Planeación",
+    short: "Tiempos y recursos organizados desde el inicio",
+    description:
+      "Organizamos tiempos y recursos de cada proyecto, definiendo etapas, responsables y fechas clave, para una ejecución ordenada que cumpla con los plazos comprometidos.",
+    bullets: ["Cronograma de trabajo", "Asignación de recursos", "Coordinación por etapas"],
+  },
+  {
+    slug: "control",
+    icon: "team",
+    name: "Control",
+    short: "Supervisión técnica en cada etapa",
+    description:
+      "Supervisamos y aseguramos la calidad en cada etapa del proyecto, con revisiones técnicas constantes que garantizan que la ejecución cumpla con lo diseñado y cotizado.",
+    bullets: ["Supervisión técnica en obra", "Verificación de calidad", "Seguimiento de avance"],
+  },
+  {
+    slug: "entrega",
+    icon: "arrow",
+    name: "Entrega",
+    short: "Proyectos entregados a tiempo y con respaldo",
+    description:
+      "Entregamos a tiempo, con compromiso, cada proyecto de climatización, incluyendo pruebas de funcionamiento y documentación técnica para que inicies operaciones sin contratiempos.",
+    bullets: ["Entrega en tiempo comprometido", "Pruebas de funcionamiento", "Documentación técnica"],
+  },
+  {
+    slug: "mantenimiento",
     icon: "fan",
     name: "Mantenimiento",
-    short: "Rendimiento y ahorro que no se apagan",
+    short: "Mantenimiento preventivo y correctivo confiable",
     description:
-      "Programas de mantenimiento preventivo con limpieza profunda de evaporadora y condensadora, revisión de gas refrigerante y componentes eléctricos, para alargar la vida útil de tu equipo y mantener bajo el consumo eléctrico.",
-    bullets: ["Limpieza de evaporadora y condensadora", "Revisión de gas refrigerante", "Chequeo eléctrico y de drenaje"],
-  },
-  {
-    slug: "reparacion-minisplit",
-    icon: "refrigeracion",
-    name: "Reparación",
-    short: "Diagnóstico certero, solución rápida",
-    description:
-      "Diagnosticamos y reparamos fallas eléctricas, fugas de refrigerante, ruidos y falta de enfriamiento, con refacciones de calidad y técnicos capacitados para que tu minisplit vuelva a funcionar sin rodeos.",
-    bullets: ["Diagnóstico de fallas", "Detección y reparación de fugas", "Cambio de componentes y refacciones"],
+      "Ofrecemos mantenimiento preventivo y correctivo confiable para que los equipos instalados mantengan su rendimiento y vida útil, con planes programados según las necesidades de cada proyecto.",
+    bullets: ["Mantenimiento preventivo programado", "Atención correctiva confiable", "Extensión de vida útil del equipo"],
   },
 ];
 
@@ -73,37 +141,50 @@ export const BRANDS: Brand[] = [
   { slug: "danfoss", name: "Danfoss" },
 ];
 
-export type Equipment = {
+export type Specialty = {
   slug: string;
   icon: string;
   name: string;
   short: string;
 };
 
-export const EQUIPMENT: Equipment[] = [
+// La imagen de cada especialidad vive en public/especialidades/{slug}.png
+export const SPECIALTIES: Specialty[] = [
   {
-    slug: "minisplit",
-    icon: "ac",
-    name: "Minisplit tipo Pared",
-    short: "La solución más popular: instalación rápida, silenciosa y eficiente para una sola zona, ideal para hogares, oficinas y consultorios.",
+    slug: "centros-comerciales",
+    icon: "gem",
+    name: "Centros Comerciales",
+    short: "Climatización de alto rendimiento para grandes superficies, con control por zonas y confort constante para locatarios y visitantes.",
   },
   {
-    slug: "cassette",
-    icon: "ac",
-    name: "Minisplit tipo Cassette",
-    short: "Climatización empotrada en plafón, ideal para locales comerciales y áreas abiertas sin unidades visibles en pared.",
+    slug: "hoteles",
+    icon: "team",
+    name: "Hoteles",
+    short: "Soluciones pensadas para la experiencia del huésped, con control independiente por habitación y cobertura para áreas comunes.",
   },
   {
-    slug: "minisplit-ducto",
+    slug: "departamentos",
+    icon: "ac",
+    name: "Departamentos",
+    short: "Proyectos de climatización para desarrollos residenciales, con soluciones eficientes para cada unidad y las áreas compartidas.",
+  },
+  {
+    slug: "plantas-produccion",
     icon: "fan",
-    name: "Minisplit tipo Ducto",
-    short: "Climatización oculta que se integra al plafón mediante ductería, sin unidades visibles en el espacio.",
+    name: "Plantas de Producción",
+    short: "Climatización industrial que protege procesos, equipos y personal, incluso en condiciones de operación exigentes.",
   },
   {
-    slug: "vrf-vrv",
-    icon: "ac",
-    name: "Sistemas VRF / VRV",
-    short: "Para proyectos que necesitan varias unidades interiores tipo minisplit controladas desde un solo sistema exterior, con control independiente por zona.",
+    slug: "almacenes-bodegas",
+    icon: "conservacion",
+    name: "Almacenes y Bodegas",
+    short: "Control de temperatura y humedad para proteger inventario, materia prima y condiciones óptimas de almacenamiento.",
+  },
+  {
+    slug: "quirofanos",
+    icon: "shield",
+    name: "Quirófanos",
+    short: "Climatización de precisión con los estándares de calidad y seguridad que requieren los espacios médicos críticos.",
   },
 ];
 
@@ -130,56 +211,3 @@ export const ABOUT_IMAGES = {
   vision: "/nosotros/vision.png",
 };
 
-export type Project = {
-  slug: string;
-  icon: string;
-  tag: string;
-  title: string;
-  client: string;
-  date: string;
-  description: string;
-};
-
-// La imagen de cada proyecto vive en public/projects/{slug}.png
-export const PROJECTS: Project[] = [
-  {
-    slug: "instalacion-minisplit-oficinas",
-    icon: "ac",
-    tag: "Instalación",
-    title: "Instalación de minisplits en oficinas corporativas",
-    client: "Mérida, Yuc.",
-    date: "Marzo 2024",
-    description:
-      "Instalación de 12 equipos minisplit en un corporativo de 3 niveles, con cálculo de capacidad por área, línea frigorífica oculta y puesta en marcha por fases para no interrumpir la operación de las oficinas.",
-  },
-  {
-    slug: "mantenimiento-minisplit-hotel",
-    icon: "fan",
-    tag: "Mantenimiento",
-    title: "Mantenimiento preventivo a flotilla de minisplits",
-    client: "Cancún, Q.Roo",
-    date: "Julio 2023",
-    description:
-      "Programa de mantenimiento preventivo trimestral para 30 equipos minisplit de un hotel boutique, con limpieza de evaporadoras y condensadoras, revisión de gas refrigerante y reporte técnico por habitación.",
-  },
-  {
-    slug: "reparacion-minisplit-comercio",
-    icon: "refrigeracion",
-    tag: "Reparación",
-    title: "Reparación urgente de minisplit en local comercial",
-    client: "Playa del Carmen",
-    date: "Octubre 2023",
-    description:
-      "Diagnóstico y reparación de una fuga de refrigerante que impedía el enfriamiento de un local comercial, con recarga de gas, sellado de línea y prueba de funcionamiento el mismo día para no afectar el horario de atención.",
-  },
-  {
-    slug: "instalacion-minisplit-residencial",
-    icon: "ac",
-    tag: "Instalación",
-    title: "Instalación residencial de minisplit",
-    client: "Campeche",
-    date: "Enero 2024",
-    description:
-      "Instalación de 3 equipos minisplit en una vivienda, incluyendo salida de drenaje, conexión eléctrica dedicada y acabados que cuidan la fachada, con garantía de instalación y primera revisión de cortesía a los 30 días.",
-  },
-];

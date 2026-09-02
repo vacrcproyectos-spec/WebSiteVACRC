@@ -1,5 +1,5 @@
 ---
-import { NAV_LINKS, SITE } from "../data/site";
+import { NAV_LINKS, SITE, SOCIAL } from "../data/site";
 import Button from "./Button.astro";
 ---
 
@@ -26,6 +26,18 @@ import Button from "./Button.astro";
           </li>
         ))}
       </ul>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
+          <img src="/brands/facebook.png" alt="Facebook" class="w-5 h-5 object-contain" />
+        </a>
+        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
+          <img src="/brands/instagram.png" alt="Instagram" class="w-5 h-5 object-contain" />
+        </a>
+        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
+          <img src="/brands/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain" />
+        </a>
+      </div>
 
       <Button href="#contacto" size="sm" class="hidden md:inline-flex">
         Cotizar servicio
@@ -63,6 +75,17 @@ import Button from "./Button.astro";
         <Button href="#contacto" size="sm" class="mobile-link w-full">
           Cotizar servicio
         </Button>
+      </li>
+      <li class="flex items-center justify-center gap-6 pt-5">
+        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
+          <img src="/brands/facebook.png" alt="Facebook" class="w-6 h-6 object-contain" />
+        </a>
+        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
+          <img src="/brands/instagram.png" alt="Instagram" class="w-6 h-6 object-contain" />
+        </a>
+        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
+          <img src="/brands/whatsapp.png" alt="WhatsApp" class="w-6 h-6 object-contain" />
+        </a>
       </li>
     </ul>
   </div>

@@ -85,7 +85,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
 
     <div class="chat-suggestions shrink-0 bg-white border-t border-vacrc-ink-100" id="chat-suggestions">
       <div class="flex gap-1.5 px-2.5 py-1.5 overflow-x-auto whitespace-nowrap">
-        <button type="button" class="chat-suggestion shrink-0 text-[10.5px] leading-none px-2 py-1 rounded-full border border-vacrc-ink-200 text-vacrc-ink-500 hover:border-vacrc-blue-500 hover:text-vacrc-blue-600 transition-colors">Servicios</button>
+        <button type="button" class="chat-suggestion shrink-0 text-[10.5px] leading-none px-2 py-1 rounded-full border border-vacrc-ink-200 text-vacrc-ink-500 hover:border-vacrc-blue-500 hover:text-vacrc-blue-600 transition-colors">Alcances</button>
         <button type="button" class="chat-suggestion shrink-0 text-[10.5px] leading-none px-2 py-1 rounded-full border border-vacrc-ink-200 text-vacrc-ink-500 hover:border-vacrc-blue-500 hover:text-vacrc-blue-600 transition-colors">Horario</button>
         <button type="button" class="chat-suggestion shrink-0 text-[10.5px] leading-none px-2 py-1 rounded-full border border-vacrc-ink-200 text-vacrc-ink-500 hover:border-vacrc-blue-500 hover:text-vacrc-blue-600 transition-colors">Cotización</button>
         <button type="button" class="chat-suggestion shrink-0 text-[10.5px] leading-none px-2 py-1 rounded-full border border-vacrc-ink-200 text-vacrc-ink-500 hover:border-vacrc-blue-500 hover:text-vacrc-blue-600 transition-colors">Marcas</button>
@@ -572,7 +572,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     const target = e.target;
     if (!(target instanceof HTMLElement) || !target.classList.contains("chat-suggestion")) return;
     const questions = {
-      Servicios: "¿Qué servicios ofrecen?",
+      Alcances: "¿Qué incluye tu proyecto?",
       Horario: "¿Cuál es su horario de atención?",
       Cotización: "¿Cómo pido una cotización?",
       Marcas: "¿Con qué marcas trabajan?",

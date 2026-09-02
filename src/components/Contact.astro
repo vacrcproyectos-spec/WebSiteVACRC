@@ -1,5 +1,5 @@
 ---
-import { SITE, SERVICES } from "../data/site";
+import { SITE } from "../data/site";
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 import SectionDivider from "./SectionDivider.astro";
@@ -53,9 +53,7 @@ import SectionDivider from "./SectionDivider.astro";
       <div class="sm:col-span-2">
         <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Servicio de interés</label>
         <select name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
-          {SERVICES.map((s) => (
-            <option>{s.name}</option>
-          ))}
+          <option selected>Cotización de Proyectos</option>
         </select>
       </div>
       <div class="sm:col-span-2">
