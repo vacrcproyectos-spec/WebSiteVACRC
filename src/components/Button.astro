@@ -9,6 +9,7 @@ interface Props {
   icon?: string;
   iconPosition?: "left" | "right";
   class?: string;
+  id?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   icon,
   iconPosition = "right",
   class: className = "",
+  id,
 } = Astro.props;
 
 const sizes = {
@@ -33,7 +35,7 @@ const variants = {
 };
 
 const classes = [
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors",
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors cursor-pointer",
   sizes[size],
   variants[variant],
   className,
@@ -41,13 +43,13 @@ const classes = [
 ---
 
 {href ? (
-  <a href={href} class={classes}>
+  <a id={id} href={href} class={classes}>
     {icon && iconPosition === "left" && <Icon icon={icon} class="w-4 h-4" />}
     <slot />
     {icon && iconPosition === "right" && <Icon icon={icon} class="w-4 h-4" />}
   </a>
 ) : (
-  <button type={type} class={classes}>
+  <button id={id} type={type} class={classes}>
     {icon && iconPosition === "left" && <Icon icon={icon} class="w-4 h-4" />}
     <slot />
     {icon && iconPosition === "right" && <Icon icon={icon} class="w-4 h-4" />}

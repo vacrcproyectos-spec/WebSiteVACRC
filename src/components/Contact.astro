@@ -1,5 +1,5 @@
 ---
-import { SITE } from "../data/site";
+import { SITE, SOCIAL } from "../data/site";
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 import SectionDivider from "./SectionDivider.astro";
@@ -20,17 +20,33 @@ import SectionDivider from "./SectionDivider.astro";
       </p>
 
       <ul class="mt-9 space-y-5">
-        <li class="flex items-center gap-3 text-vacrc-ink-700">
+        <li class="group relative flex items-center gap-3 text-vacrc-ink-700">
           <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
             <Icon icon="phone" class="w-4 h-4" />
           </span>
-          {SITE.phone}
+          <a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="cursor-pointer hover:text-vacrc-blue-600 transition-colors">{SITE.phone}</a>
+          <button
+            type="button"
+            data-copy={SITE.phone}
+            aria-label="Copiar teléfono"
+            class="copy-btn cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity text-vacrc-ink-400 hover:text-vacrc-blue-600"
+          >
+            <Icon icon="copy" class="w-4 h-4" />
+          </button>
         </li>
-        <li class="flex items-center gap-3 text-vacrc-ink-700">
+        <li class="group relative flex items-center gap-3 text-vacrc-ink-700">
           <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
             <Icon icon="email" class="w-4 h-4" />
           </span>
-          {SITE.email}
+          <a href={`mailto:${SITE.email}`} class="cursor-pointer hover:text-vacrc-blue-600 transition-colors">{SITE.email}</a>
+          <button
+            type="button"
+            data-copy={SITE.email}
+            aria-label="Copiar correo"
+            class="copy-btn cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity text-vacrc-ink-400 hover:text-vacrc-blue-600"
+          >
+            <Icon icon="copy" class="w-4 h-4" />
+          </button>
         </li>
         <li class="flex items-center gap-3 text-vacrc-ink-700">
           <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
@@ -41,28 +57,86 @@ import SectionDivider from "./SectionDivider.astro";
       </ul>
     </div>
 
-    <form class="reveal reveal-delay-2 lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]">
+    <form id="contact-form" class="reveal reveal-delay-2 lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]">
       <div class="sm:col-span-1">
         <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Nombre</label>
-        <input type="text" name="nombre" placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <input id="contact-nombre" type="text" name="nombre" placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
       </div>
       <div class="sm:col-span-1">
         <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Teléfono</label>
-        <input type="tel" name="telefono" placeholder="999 000 0000" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <input id="contact-telefono" type="tel" name="telefono" placeholder="999 000 0000" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
       </div>
       <div class="sm:col-span-2">
         <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Servicio de interés</label>
-        <select name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
+        <select id="contact-servicio" name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
           <option selected>Cotización de Proyectos</option>
         </select>
       </div>
       <div class="sm:col-span-2">
         <label class="block text-xs font-mono uppercase tracking-widest text-vacrc-ink-400 mb-2">Mensaje</label>
-        <textarea name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
+        <textarea id="contact-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 text-sm text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
       </div>
-      <Button type="submit" class="sm:col-span-2 mt-1">
-        Enviar solicitud
+      <Button id="send-email" type="button" variant="secondary" icon="email" iconPosition="left" class="sm:col-span-1 mt-1">
+        Enviar correo
+      </Button>
+      <Button id="send-whatsapp" type="button" icon="phone" iconPosition="left" class="sm:col-span-1 mt-1">
+        Enviar WhatsApp
       </Button>
     </form>
   </div>
 </section>
+
+<script define:vars={{ email: SITE.email, whatsapp: SOCIAL.whatsapp }}>
+  const form = document.getElementById("contact-form");
+  const nombreEl = document.getElementById("contact-nombre");
+  const telefonoEl = document.getElementById("contact-telefono");
+  const servicioEl = document.getElementById("contact-servicio");
+  const mensajeEl = document.getElementById("contact-mensaje");
+
+  const getValues = () => ({
+    nombre: nombreEl.value.trim(),
+    telefono: telefonoEl.value.trim(),
+    servicio: servicioEl.value,
+    mensaje: mensajeEl.value.trim(),
+  });
+
+  document.getElementById("send-email")?.addEventListener("click", () => {
+    const { nombre, telefono, servicio, mensaje } = getValues();
+    const subject = `Solicitud de cotización - ${servicio}`;
+    const body =
+      `Nombre: ${nombre}\n` +
+      `Teléfono: ${telefono}\n` +
+      `Servicio de interés: ${servicio}\n\n` +
+      `Mensaje:\n${mensaje}`;
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  document.getElementById("send-whatsapp")?.addEventListener("click", () => {
+    const { nombre, telefono, mensaje } = getValues();
+    const text =
+      `Hola, soy ${nombre || "un cliente interesado"}.\n` +
+      `Teléfono: ${telefono || "no proporcionado"}.\n` +
+      `Mensaje: ${mensaje || "Quiero más información sobre sus proyectos de climatización."}`;
+    window.open(`${whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
+  });
+
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const value = btn.getAttribute("data-copy");
+      if (!value) return;
+      try {
+        await navigator.clipboard.writeText(value);
+      } catch {
+        return;
+      }
+      const original = btn.innerHTML;
+      btn.innerHTML = '<svg viewBox="0 0 20 20" fill="none" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>';
+      btn.classList.add("text-emerald-500");
+      window.setTimeout(() => {
+        btn.innerHTML = original;
+        btn.classList.remove("text-emerald-500");
+      }, 1500);
+    });
+  });
+</script>
