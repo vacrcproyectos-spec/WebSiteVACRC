@@ -1,5 +1,5 @@
 ---
-import { SITE, SERVICES } from "../data/site";
+import { SERVICES } from "../data/site";
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 ---
@@ -24,7 +24,7 @@ import Button from "./Button.astro";
 
   <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-16 md:py-32 w-full">
     <div class="reveal max-w-2xl">
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-mono uppercase tracking-widest text-white">
+      <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-[0.9rem] font-mono uppercase tracking-widest text-white">
         <span class="relative w-3.5 h-3.5">
           {SERVICES.map((service, i) => (
             <Icon
@@ -36,14 +36,12 @@ import Button from "./Button.astro";
         <span id="hero-label-text">{SERVICES[0].name}</span>
       </span>
 
-      <h1 class="font-display font-bold leading-[0.95] mt-6 text-5xl sm:text-6xl lg:text-7xl text-white">
-        COTIZAMOS<br />
-        DISEÑAMOS<br />
-        TU PROYECTO DE CLIMATIZACIÓN
+      <h1 id="hero-title" class="font-display font-bold leading-[0.95] mt-6 text-5xl sm:text-6xl lg:text-7xl text-white transition-opacity duration-500">
+        {SERVICES[0].name}
       </h1>
 
-      <p class="font-display mt-6 text-white/80 text-base sm:text-lg max-w-lg leading-relaxed">
-        {SITE.description}
+      <p id="hero-description" class="font-display mt-6 text-white/80 text-[1.2rem] sm:text-[1.35rem] max-w-lg leading-relaxed transition-opacity duration-500">
+        {SERVICES[0].description}
       </p>
 
       <div class="mt-9 flex flex-wrap gap-4">
@@ -76,17 +74,20 @@ import Button from "./Button.astro";
   </div>
 </section>
 
-<script>
-  const slides = document.querySelectorAll<HTMLElement>(".hero-slide");
-  const labelIcons = document.querySelectorAll<HTMLElement>(".hero-label-icon");
+<script define:vars={{ services: SERVICES }}>
+  const slides = document.querySelectorAll(".hero-slide");
+  const labelIcons = document.querySelectorAll(".hero-label-icon");
   const labelText = document.getElementById("hero-label-text");
-  const dots = document.querySelectorAll<HTMLElement>(".hero-dot");
+  const dots = document.querySelectorAll(".hero-dot");
   const names = Array.from(dots).map((dot) => dot.getAttribute("aria-label")?.replace("Ver ", "") ?? "");
+  const titleEl = document.getElementById("hero-title");
+  const descriptionEl = document.getElementById("hero-description");
+  const descriptions = services.map((s) => s.description);
 
   let current = 0;
-  let timer: ReturnType<typeof setInterval>;
+  let timer;
 
-  const show = (index: number) => {
+  const show = (index) => {
     slides.forEach((el, i) => {
       el.classList.toggle("opacity-100", i === index);
       el.classList.toggle("opacity-0", i !== index);
@@ -102,6 +103,18 @@ import Button from "./Button.astro";
       el.classList.toggle("bg-white/30", i !== index);
     });
     if (labelText) labelText.textContent = names[index];
+
+    if (titleEl && descriptionEl) {
+      titleEl.classList.add("opacity-0");
+      descriptionEl.classList.add("opacity-0");
+      window.setTimeout(() => {
+        titleEl.textContent = names[index];
+        descriptionEl.textContent = descriptions[index];
+        titleEl.classList.remove("opacity-0");
+        descriptionEl.classList.remove("opacity-0");
+      }, 500);
+    }
+
     current = index;
   };
 
@@ -109,7 +122,7 @@ import Button from "./Button.astro";
 
   const restart = () => {
     clearInterval(timer);
-    timer = setInterval(next, 5000);
+    timer = setInterval(next, 6000);
   };
 
   dots.forEach((dot, i) => {

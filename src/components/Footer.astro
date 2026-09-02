@@ -1,64 +1,77 @@
 ---
-import { SITE, SERVICES, NAV_LINKS } from "../data/site";
+import { SITE, SERVICES, NAV_LINKS, SOCIAL } from "../data/site";
 import Icon from "./Icon.astro";
+import SocialIcon from "./SocialIcon.astro";
 const year = new Date().getFullYear();
 ---
 
-<footer class="relative bg-vacrc-bg-soft border-t border-vacrc-ink-100 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="reveal flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-3xl sm:rounded-full bg-white px-5 sm:pl-3 sm:pr-8 py-5 sm:py-3 mb-14">
-      <img src="/logo.svg" alt={SITE.name} class="relative h-16 sm:h-20 w-auto shrink-0 sm:-my-7 drop-shadow-lg" />
-      <p class="text-sm text-vacrc-ink-500">
-         Somos especialistas en cotización y desarrollo de proyectos de climatización en Mérida y Yucatán, para centros comerciales, hoteles, departamentos, plantas de producción, almacenes, bodegas y quirófanos.
-      </p>
-      <span class="sm:ml-auto shrink-0 inline-flex items-center gap-1.5 font-display font-bold text-sm uppercase tracking-wide text-vacrc-blue-600">
-        <Icon icon="fan" ring={false} class="w-4 h-4 text-vacrc-blue-500" />
-        Soluciones con respaldo
-      </span>
-    </div>
+<footer class="relative bg-vacrc-ink-900">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
+      <div class="reveal">
+        <img src="/logo.svg" alt={SITE.name} class="h-14 w-auto" />
+        <p class="mt-4 text-sm text-white/70 leading-relaxed max-w-xs">
+          Empresa mexicana especializada en la cotización y desarrollo de proyectos de climatización. Más de 15 años de experiencia, agregando valor en cada solución que ofrecemos a nuestros clientes.
+        </p>
+        <div class="mt-5 flex items-center gap-4">
+          <a href="#nosotros" class="text-sm font-semibold text-white hover:text-vacrc-cyan-400 transition-colors">Conoce VACRC &gt;</a>
+          <span class="inline-flex items-center gap-1.5 font-display font-bold text-xs uppercase tracking-wide text-white/80">
+            <Icon icon="fan" ring={false} class="w-4 h-4" />
+            Soluciones con respaldo
+          </span>
+        </div>
+      </div>
 
-    <div class="reveal grid sm:grid-cols-3 gap-10">
-      <div>
-        <h4 class="font-script text-2xl text-vacrc-blue-600 mb-4">Menú</h4>
-        <ul class="space-y-2.5 text-sm text-vacrc-ink-600">
+      <div class="reveal reveal-delay-1">
+        <h4 class="font-bold text-base text-white mb-4">Menú</h4>
+        <ul class="space-y-2.5 text-sm text-white/70">
           {NAV_LINKS.map((link) => (
             <li>
-              <a href={link.href} class="inline-flex items-center gap-1.5 hover:text-vacrc-blue-600 transition-colors">
-                <span class="text-vacrc-blue-400 font-bold">&gt;</span>
-                {link.label}
-              </a>
+              <a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
             </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <h4 class="font-script text-2xl text-vacrc-blue-600 mb-4">Alcance</h4>
-        <ul class="space-y-2.5 text-sm text-vacrc-ink-600">
+      <div class="reveal reveal-delay-2">
+        <h4 class="font-bold text-base text-white mb-4">Alcance</h4>
+        <ul class="space-y-2.5 text-sm text-white/70">
           {SERVICES.map((s) => (
             <li>
-              <a href="#alcance" class="inline-flex items-center gap-1.5 hover:text-vacrc-blue-600 transition-colors">
-                <span class="text-vacrc-blue-400 font-bold">&gt;</span>
-                {s.name}
-              </a>
+              <a href="#alcance" class="hover:text-white transition-colors">{s.name}</a>
             </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <h4 class="font-script text-2xl text-vacrc-blue-600 mb-4">Contacto</h4>
-        <ul class="space-y-2.5 text-sm text-vacrc-ink-600">
-          <li class="flex items-center gap-1.5"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.phone}</li>
-          <li class="flex items-center gap-1.5"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.email}</li>
-          <li class="flex items-center gap-1.5"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.address}</li>
-          <li class="flex items-center gap-1.5 text-vacrc-ink-400"><span class="text-vacrc-blue-400 font-bold">&gt;</span> {SITE.hours}</li>
+      <div class="reveal reveal-delay-3">
+        <h4 class="font-bold text-base text-white mb-4">Contacto</h4>
+        <ul class="space-y-2.5 text-sm text-white/70">
+          <li><a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="hover:text-white transition-colors">{SITE.phone}</a></li>
+          <li><a href={`mailto:${SITE.email}`} class="hover:text-white transition-colors">{SITE.email}</a></li>
+          <li>{SITE.address}</li>
+          <li class="text-white/50">{SITE.hours}</li>
         </ul>
+
+        <h4 class="font-bold text-base text-white mt-6 mb-3">Síguenos</h4>
+        <div class="flex items-center gap-3">
+          <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="text-white/70 hover:text-white transition-colors">
+            <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-5 h-5" />
+          </a>
+          <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="text-white/70 hover:text-white transition-colors">
+            <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-5 h-5" />
+          </a>
+          <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="text-white/70 hover:text-white transition-colors">
+            <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-5 h-5" />
+          </a>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="mt-14 pt-6 border-t border-vacrc-ink-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-vacrc-ink-400">
-      <p>© {year} {SITE.name}. Todos los derechos reservados.</p>
+  <div class="bg-vacrc-blue-500">
+    <div class="reveal max-w-7xl mx-auto px-5 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/90">
+      <p>{SITE.name} © {year}. Todos los derechos reservados.</p>
       <p class="font-mono">{SITE.tagline}</p>
     </div>
   </div>

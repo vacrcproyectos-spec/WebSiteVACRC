@@ -13,20 +13,20 @@ const rows = Array.from({ length: Math.ceil(SPECIALTIES.length / chunkSize) }, (
   <SectionDivider />
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="reveal max-w-2xl">
-      <span class="font-mono text-xs uppercase tracking-widest text-vacrc-blue-600">Nos Especializamos En</span>
+      <span class="font-mono text-[0.9rem] uppercase tracking-widest text-vacrc-blue-600">Nos Especializamos En</span>
       <h2 class="font-display font-bold text-4xl sm:text-5xl mt-3 text-metal">
         Proyectos de climatización para cada tipo de espacio
       </h2>
-      <p class="mt-4 text-vacrc-ink-500 text-base sm:text-lg">
+      <p class="mt-4 text-vacrc-ink-500 text-[1.2rem] sm:text-[1.35rem]">
         Cotizamos y desarrollamos proyectos de climatización a la medida de cada giro. Pasa el cursor sobre cada uno para ver más.
       </p>
     </div>
 
     <div class="mt-14 md:mt-16 space-y-3">
-      {rows.map((row, rowIndex) => (
-        <div class:list={["reveal flex flex-col md:flex-row gap-3 md:h-[420px]", `reveal-delay-${Math.min(rowIndex + 1, 4)}`]}>
-          {row.map((item) => (
-            <div class="group relative w-full h-64 md:h-full md:flex-1 md:min-w-0 overflow-hidden rounded-2xl bg-vacrc-ink-900 cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[2.5]">
+      {rows.map((row) => (
+        <div class="flex flex-col md:flex-row gap-3 md:h-[420px]">
+          {row.map((item, itemIndex) => (
+            <div class:list={["reveal group relative w-full h-64 md:h-full md:flex-1 md:min-w-0 overflow-hidden rounded-2xl bg-vacrc-ink-900 cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[2.5]", `reveal-delay-${Math.min(itemIndex + 1, 4)}`]}>
               <img
                 src={`/especialidades/${item.slug}.png`}
                 onerror="this.onerror=null;this.src='/hero/placeholder.svg';"

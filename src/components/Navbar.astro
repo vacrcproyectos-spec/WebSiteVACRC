@@ -1,6 +1,7 @@
 ---
 import { NAV_LINKS, SITE, SOCIAL } from "../data/site";
 import Button from "./Button.astro";
+import SocialIcon from "./SocialIcon.astro";
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50">
@@ -14,7 +15,7 @@ import Button from "./Button.astro";
         />
       </a>
 
-      <ul class="hidden lg:flex items-center gap-9 font-medium text-sm">
+      <ul class="hidden lg:flex items-center gap-9 font-display font-medium text-sm">
         {NAV_LINKS.map((link) => (
           <li>
             <a
@@ -28,20 +29,22 @@ import Button from "./Button.astro";
       </ul>
 
       <div class="hidden lg:flex items-center gap-3">
-        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
-          <img src="/brands/facebook.png" alt="Facebook" class="w-5 h-5 object-contain" />
+        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
+          <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-5 h-5" />
         </a>
-        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
-          <img src="/brands/instagram.png" alt="Instagram" class="w-5 h-5 object-contain" />
+        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
+          <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-5 h-5" />
         </a>
-        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
-          <img src="/brands/whatsapp.png" alt="WhatsApp" class="w-5 h-5 object-contain" />
+        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
+          <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-5 h-5" />
         </a>
       </div>
 
-      <Button href="#contacto" size="sm" class="hidden lg:inline-flex">
-        Cotizar servicio
-      </Button>
+      <div class="hidden lg:block">
+        <Button href="#contacto" size="sm">
+          Cotizar servicio
+        </Button>
+      </div>
 
       <button
         id="menu-toggle"
@@ -61,12 +64,12 @@ import Button from "./Button.astro";
 
   <div
     id="mobile-menu"
-    class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/98 backdrop-blur border-b border-vacrc-ink-100"
+    class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/60 backdrop-blur-md border-b border-vacrc-blue-500/30"
   >
-    <ul class="flex flex-col px-6 py-4 gap-1 font-medium text-vacrc-ink-500">
+    <ul class="flex flex-col px-6 py-4 gap-1 font-display font-medium">
       {NAV_LINKS.map((link) => (
         <li>
-          <a href={link.href} class="mobile-link block py-3 border-b border-vacrc-ink-100 hover:text-vacrc-ink-900 transition-colors">
+          <a href={link.href} class="mobile-link navbar-link block py-3 border-b border-vacrc-blue-500/30 text-center uppercase transition-colors">
             {link.label}
           </a>
         </li>
@@ -77,14 +80,14 @@ import Button from "./Button.astro";
         </Button>
       </li>
       <li class="flex items-center justify-center gap-6 pt-5">
-        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
-          <img src="/brands/facebook.png" alt="Facebook" class="w-6 h-6 object-contain" />
+        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
+          <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-6 h-6" />
         </a>
-        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
-          <img src="/brands/instagram.png" alt="Instagram" class="w-6 h-6 object-contain" />
+        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
+          <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-6 h-6" />
         </a>
-        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="opacity-80 hover:opacity-100 transition-opacity">
-          <img src="/brands/whatsapp.png" alt="WhatsApp" class="w-6 h-6 object-contain" />
+        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
+          <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-6 h-6" />
         </a>
       </li>
     </ul>
@@ -99,30 +102,38 @@ import Button from "./Button.astro";
   const bar2 = document.getElementById("bar2");
   const bar3 = document.getElementById("bar3");
   const navLinks = document.querySelectorAll<HTMLElement>(".navbar-link");
-  const hero = document.getElementById("inicio");
+  const socialIcons = document.querySelectorAll<HTMLElement>(".social-icon");
 
   const setScrolled = () => {
     if (!shell) return;
-    const scrolled = window.scrollY > 8;
-    // Text only turns dark once we've scrolled past the hero photos entirely,
-    // so it stays white (legible over any photo) while the glass bar still floats over them.
-    const heroHeight = hero?.offsetHeight ?? 0;
-    const pastHero = window.scrollY > heroHeight - (shell.offsetHeight || 80);
+    // On mobile/tablet (below the lg breakpoint, where the hamburger menu lives)
+    // the header always shows the glass background and dark icons, regardless
+    // of scroll position — only the desktop bar waits for an actual scroll.
+    const isMobileViewport = window.innerWidth < 1024;
+    const scrolled = isMobileViewport || window.scrollY > 8;
+    // Text turns dark as soon as the glass background shows, so it never
+    // sits white-on-white once the bar stops being fully transparent.
 
     shell.classList.toggle("backdrop-blur-md", scrolled);
-    shell.classList.toggle("bg-white/20", scrolled);
+    shell.classList.toggle("bg-white/60", scrolled);
     shell.classList.toggle("shadow-[0_1px_0_0_rgba(15,22,33,0.04)]", scrolled);
 
-    toggle?.classList.toggle("text-vacrc-ink-900", pastHero);
-    toggle?.classList.toggle("text-white", !pastHero);
-    toggle?.classList.toggle("text-shadow-nav", !pastHero);
+    toggle?.classList.toggle("text-vacrc-blue-500", scrolled);
+    toggle?.classList.toggle("text-white", !scrolled);
+    toggle?.classList.toggle("text-shadow-nav", !scrolled);
 
     navLinks.forEach((link) => {
-      link.classList.toggle("text-vacrc-ink-500", pastHero);
-      link.classList.toggle("hover:text-vacrc-ink-900", pastHero);
-      link.classList.toggle("text-white/80", !pastHero);
-      link.classList.toggle("hover:text-white", !pastHero);
-      link.classList.toggle("text-shadow-nav", !pastHero);
+      link.classList.toggle("text-vacrc-blue-500", scrolled);
+      link.classList.toggle("hover:text-vacrc-blue-600", scrolled);
+      link.classList.toggle("text-white/80", !scrolled);
+      link.classList.toggle("hover:text-white", !scrolled);
+      link.classList.toggle("text-shadow-nav", !scrolled);
+    });
+
+    socialIcons.forEach((icon) => {
+      icon.classList.toggle("text-vacrc-blue-500", scrolled);
+      icon.classList.toggle("text-white", !scrolled);
+      icon.classList.toggle("drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]", !scrolled);
     });
   };
   setScrolled();

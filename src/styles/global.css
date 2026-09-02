@@ -47,14 +47,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
   }
   body {
     background-color: var(--color-vacrc-bg);
     color: var(--color-vacrc-ink-700);
     font-family: var(--font-body);
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
   }
   h1, h2, h3, h4, .font-display {
@@ -166,17 +166,17 @@
 /* Scroll reveal, toggled by IntersectionObserver in Layout.astro */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s var(--ease-flow), transform 0.8s var(--ease-flow);
+  transform: translateY(60px);
+  transition: opacity 2.6s var(--ease-flow), transform 2.6s var(--ease-flow);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal-delay-1.is-visible { transition-delay: 0.1s; }
-.reveal-delay-2.is-visible { transition-delay: 0.2s; }
-.reveal-delay-3.is-visible { transition-delay: 0.3s; }
-.reveal-delay-4.is-visible { transition-delay: 0.4s; }
+.reveal-delay-1.is-visible { transition-delay: 0.3s; }
+.reveal-delay-2.is-visible { transition-delay: 0.6s; }
+.reveal-delay-3.is-visible { transition-delay: 0.9s; }
+.reveal-delay-4.is-visible { transition-delay: 1.2s; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
