@@ -29,48 +29,48 @@ import Icon from "./Icon.astro";
 
         return (
             <div
-                class="group relative flex-1 w-full min-h-[300px] md:min-h-full border-b md:border-b-0 md:border-r border-white/10 overflow-hidden cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[3.5]"
+                class="specialty-card group relative flex-1 w-full min-h-[300px] md:min-h-full border-b md:border-b-0 md:border-r border-white/10 overflow-hidden cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[3.5]"
                 data-aos="fade-up"
                 data-aos-delay={Math.min(index, 6) * 100}
             >
-              <!-- Imagen de Fondo con Zoom sutil al hover -->
+              <!-- Imagen de Fondo con Zoom sutil al hover/active -->
               <img
                   src={`/especialidades/${item.slug}.png`}
                   onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
                   alt={item.name}
                   loading="lazy"
-                  class="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  class="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-[.active]:scale-105"
               />
 
-              <!-- Capa de Tinte Institucional (Sustituye la escala de grises con color de la página) -->
-              <div class="absolute inset-0 bg-vacrc-bg/75 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-10"></div>
+              <!-- Capa de Tinte Institucional -->
+              <div class="absolute inset-0 bg-vacrc-bg/75 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-10 group-[.active]:opacity-10"></div>
 
               <!-- Sombra Direccional para Lectura Directa -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10 transition-opacity duration-500 opacity-80 group-hover:opacity-90"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10 transition-opacity duration-500 opacity-80 group-hover:opacity-90 group-[.active]:opacity-90"></div>
 
               <!-- Contenido Directo sobre la Imagen -->
               <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
 
                 <!-- Cabecera de Fila: Número Serial + Icono Minimalista -->
                 <div class="flex items-center justify-between">
-                <span class="text-sm font-mono tracking-widest text-white/40 group-hover:text-vacrc-cyan-400 transition-colors duration-300">
-                  {itemNumber} //
-                </span>
-                  <div class="w-10 h-10 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/80 group-hover:text-vacrc-cyan-400 group-hover:border-vacrc-cyan-400/50 transition-colors duration-300">
+                  <span class="text-sm font-mono tracking-widest text-white/40 group-hover:text-vacrc-cyan-400 group-[.active]:text-vacrc-cyan-400 transition-colors duration-300">
+                    {itemNumber} //
+                  </span>
+                  <div class="w-10 h-10 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/80 group-hover:text-vacrc-cyan-400 group-hover:border-vacrc-cyan-400/50 group-[.active]:text-vacrc-cyan-400 group-[.active]:border-vacrc-cyan-400/50 transition-colors duration-300">
                     <Icon icon={item.icon} class="w-5 h-5" />
                   </div>
                 </div>
 
                 <!-- Pie de Fila: Título + Descripción Expandible -->
-                <div class="transform transition-transform duration-500 group-hover:-translate-y-2">
+                <div class="transform transition-transform duration-500 group-hover:-translate-y-2 group-[.active]:-translate-y-2">
                   <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white tracking-tight leading-tight">
                     {item.name}
                   </h3>
 
                   <!-- Línea de acento cian -->
-                  <div class="w-8 h-0.5 bg-vacrc-cyan-400 my-3 transition-all duration-500 group-hover:w-16"></div>
+                  <div class="w-8 h-0.5 bg-vacrc-cyan-400 my-3 transition-all duration-500 group-hover:w-16 group-[.active]:w-16"></div>
 
-                  <p class="text-white/75 font-montserrat text-xs sm:text-sm font-light leading-relaxed max-w-sm opacity-100 md:opacity-0 md:max-h-0 md:overflow-hidden group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
+                  <p class="text-white/75 font-montserrat text-xs sm:text-sm font-light leading-relaxed max-w-sm opacity-100 md:opacity-0 md:max-h-0 md:overflow-hidden group-hover:opacity-100 group-hover:max-h-40 group-[.active]:opacity-100 group-[.active]:max-h-40 transition-all duration-500">
                     {item.short}
                   </p>
                 </div>
@@ -82,3 +82,20 @@ import Icon from "./Icon.astro";
     </div>
   </div>
 </section>
+
+<script>
+  const cards = document.querySelectorAll(".specialty-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // Si la tarjeta ya estaba activa la desactivamos, o desactivamos las demás y activamos la tocada
+      const isActive = card.classList.contains("active");
+
+      cards.forEach((c) => c.classList.remove("active"));
+
+      if (!isActive) {
+        card.classList.add("active");
+      }
+    });
+  });
+</script>
