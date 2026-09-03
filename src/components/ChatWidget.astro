@@ -1,17 +1,20 @@
 ---
 import { MessageCircle, X, Send } from "@lucide/astro";
 import { SITE } from "../data/site";
-import faq from "../../preguntas-respuestas-vacrc.json";
+
+const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL.replace(/\/$/, "");
+const CHATBOT_API_URL = `${API_BASE_URL}/api/v1/chatbot`;
+const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 ---
 
-<div id="chat-widget" class="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-[70]">
-  <!-- Panel Estilizado en Modo Oscuro / Glassmorphism -->
+<div id="chat-widget">
+  <!-- Panel Estilizado: Mobile Fullscreen / Desktop Dock Lateral Derecho -->
   <div
       id="chat-panel"
-      class="chat-panel absolute bottom-[4.75rem] right-0 flex flex-col rounded-3xl border border-white/10 bg-vacrc-bg/90 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden origin-bottom-right opacity-0 scale-95 translate-y-2 pointer-events-none"
+      class="chat-panel fixed z-[75] inset-0 sm:inset-y-0 sm:left-auto sm:right-0 flex flex-col rounded-none sm:rounded-l-3xl border-0 sm:border-l sm:border-white/10 bg-vacrc-bg/95 sm:bg-vacrc-bg/90 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden opacity-0 translate-x-full pointer-events-none"
   >
     <!-- Header del Chat -->
-    <div class="shrink-0 bg-white/5 border-b border-white/10 text-white px-4 py-3 flex items-center gap-3">
+    <div class="shrink-0 bg-white/5 border-b border-white/10 text-white px-4 py-3 sm:py-3 flex items-center gap-3">
       <span class="relative w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-vacrc-cyan-400 shrink-0">
         <svg viewBox="0 0 82 68" class="w-7 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -66,21 +69,15 @@ import faq from "../../preguntas-respuestas-vacrc.json";
             type="button"
             id="chat-close"
             aria-label="Cerrar chat"
-            class="w-7 h-7 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            class="w-8 h-8 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
         >
-          <X class="w-4 h-4" strokeWidth={2} />
+          <X class="w-5 h-5 sm:w-4 sm:h-4" strokeWidth={2} />
         </button>
       </div>
     </div>
 
-    <!-- Puntos de Redimensionamiento -->
-    <div id="chat-resize-corner" class="chat-resize-handle chat-resize-corner" aria-hidden="true">
-      <svg viewBox="0 0 10 10" class="w-2.5 h-2.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.5 1.5L1.5 8.5M8.5 5L5 8.5" stroke="white" stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round" />
-      </svg>
-    </div>
-    <div id="chat-resize-top" class="chat-resize-handle chat-resize-top" aria-hidden="true"></div>
-    <div id="chat-resize-left" class="chat-resize-handle chat-resize-left" aria-hidden="true"></div>
+    <!-- Punto de Redimensionamiento (solo ancho, escritorio) -->
+    <div id="chat-resize-left" class="chat-resize-handle chat-resize-left hidden sm:block" aria-hidden="true"></div>
 
     <!-- Área del Historial de Mensajes -->
     <div id="chat-messages" class="flex-1 min-h-0 overflow-y-auto bg-transparent px-4 py-4 flex flex-col gap-3"></div>
@@ -114,13 +111,13 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     </form>
   </div>
 
-  <!-- Botón Flotante (FAB) - Conserva el color Azul Primario -->
+  <!-- Botón Flotante (FAB) -->
   <button
       type="button"
       id="chat-toggle"
       aria-label="Abrir chat de VACRC"
       aria-expanded="false"
-      class="chat-fab relative w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] flex items-end justify-center bg-transparent cursor-pointer"
+      class="chat-fab fixed z-[70] bottom-5 right-5 sm:bottom-7 sm:right-7 w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] flex items-end justify-center bg-transparent cursor-pointer"
   >
     <span class="chat-fab-shadow absolute bottom-0 w-11 h-3 rounded-full bg-black/60 blur-[4px]"></span>
     <span class="chat-fab-icon relative w-full h-full rounded-full bg-vacrc-blue-600 hover:bg-vacrc-blue-700 text-white border border-white/20 shadow-xl shadow-blue-900/40 flex items-center justify-center transition-all duration-200">
@@ -131,16 +128,21 @@ import faq from "../../preguntas-respuestas-vacrc.json";
 </div>
 
 <style is:global>
+  /* Dock lateral en escritorio: alto completo, ancho fijo redimensionable */
   .chat-panel {
-    width: min(26rem, calc(100vw - 2.5rem));
-    height: min(40rem, 80vh);
-    min-width: 300px;
-    min-height: 360px;
+    width: 100%;
     transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  @media (min-width: 640px) {
+    .chat-panel {
+      width: min(26rem, calc(100vw - 2.5rem));
+      min-width: 320px;
+    }
   }
   .chat-panel.is-open {
     opacity: 1;
     transform: none;
+    translate: none;
     pointer-events: auto;
   }
   .chat-panel.is-resizing {
@@ -152,34 +154,12 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     position: absolute;
     z-index: 20;
   }
-  .chat-resize-top {
-    top: 0;
-    left: 14px;
-    right: 0;
-    height: 6px;
-    cursor: ns-resize;
-  }
   .chat-resize-left {
-    top: 14px;
+    top: 0;
     left: 0;
     bottom: 0;
     width: 6px;
     cursor: ew-resize;
-  }
-  .chat-resize-corner {
-    top: 0;
-    left: 0;
-    width: 16px;
-    height: 16px;
-    cursor: nwse-resize;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 2px;
-    opacity: 0.7;
-  }
-  .chat-resize-corner:hover {
-    opacity: 1;
   }
 
   .chat-suggestions {
@@ -243,7 +223,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     line-height: 0;
   }
 
-  /* Mensajes del Bot: Estilo Card Cristalino / Glassmorphism */
+  /* Mensajes del Bot */
   .chat-bubble.bot {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
@@ -256,7 +236,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     color: rgba(255, 255, 255, 0.45);
   }
 
-  /* Mensajes del Usuario: Acento cian */
+  /* Mensajes del Usuario */
   .chat-bubble.user {
     background: var(--color-vacrc-cyan-400, #22d3ee);
     color: #0b132b;
@@ -267,7 +247,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     color: rgba(11, 19, 43, 0.7);
   }
 
-  /* Indicador de escribiendo con estilo Card Cristalino */
+  /* Indicador de escribiendo */
   .chat-typing {
     display: flex;
     gap: 4px;
@@ -324,67 +304,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
   }
 </style>
 
-<script define:vars={{ faq, phone: SITE.phone }}>
-  const STOPWORDS = new Set([
-    "que", "cual", "cuales", "como", "para", "por", "con", "los", "las", "una", "uno",
-    "del", "las", "sus", "sobre", "esta", "este", "estos", "estas", "hay", "muy",
-    "puedo", "puede", "pueden", "tiene", "tienen", "hacer", "hacen", "dan", "sera",
-    "soy", "eres", "somos", "son", "van", "voy", "tengo", "algun", "alguna", "algo",
-    "the", "and", "for",
-  ]);
-
-  const normalize = (str) =>
-      str
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(new RegExp("[\\u0300-\\u036f]", "g"), "")
-          .replace(/[¿?¡!.,;:()"']/g, "")
-          .trim();
-
-  const tokenize = (str) =>
-      normalize(str)
-          .split(/\s+/)
-          .filter((w) => w.length > 2 && !STOPWORDS.has(w));
-
-  const corpus = faq.map((item) => ({
-    ...item,
-    tokens: tokenize(item.instruction),
-  }));
-
-  const scoreMatch = (queryTokens, itemTokens) => {
-    if (queryTokens.length === 0 || itemTokens.length === 0) return 0;
-    const shared = itemTokens.filter((t) => queryTokens.includes(t)).length;
-    return (2 * shared) / (queryTokens.length + itemTokens.length);
-  };
-
-  const findAnswer = (question) => {
-    const normalized = normalize(question);
-
-    if (/^(hola|buenas|buenos dias|buenas tardes|buenas noches|hey|que tal)/.test(normalized)) {
-      return "¡Hola! Soy el asistente de VACRC. Pregúntame sobre instalación, mantenimiento o reparación de tu minisplit, marcas con las que trabajamos, horarios o contacto.";
-    }
-    if (/gracias/.test(normalized)) {
-      return "¡De nada! Si tienes otra duda sobre tu minisplit, aquí estoy.";
-    }
-
-    const queryTokens = tokenize(question);
-    let best = null;
-    let bestScore = 0;
-    for (const item of corpus) {
-      const s = scoreMatch(queryTokens, item.tokens);
-      if (s > bestScore) {
-        bestScore = s;
-        best = item;
-      }
-    }
-
-    if (best && bestScore >= 0.28) {
-      return best.output;
-    }
-
-    return `No estoy seguro de haber entendido tu pregunta. Puedes preguntarme sobre instalación, mantenimiento, reparación, marcas o contacto, o comunícate directamente al ${phone}.`;
-  };
-
+<script define:vars={{ CHATBOT_API_URL, CHATBOT_API_KEY, phone: SITE.phone }}>
   const toggleBtn = document.getElementById("chat-toggle");
   const panel = document.getElementById("chat-panel");
   const closeBtn = document.getElementById("chat-close");
@@ -392,8 +312,6 @@ import faq from "../../preguntas-respuestas-vacrc.json";
   const suggestionsEl = document.getElementById("chat-suggestions");
   const form = document.getElementById("chat-form");
   const input = document.getElementById("chat-input");
-  const resizeCorner = document.getElementById("chat-resize-corner");
-  const resizeTop = document.getElementById("chat-resize-top");
   const resizeLeft = document.getElementById("chat-resize-left");
 
   let open = false;
@@ -471,14 +389,36 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     suggestionsEl.classList.add("is-hidden");
   };
 
-  const respond = (question) => {
+  const fetchBotAnswer = async (message) => {
+    try {
+      const response = await fetch(CHATBOT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": CHATBOT_API_KEY,
+        },
+        body: JSON.stringify({ message }),
+      });
+
+      if (!response.ok) throw new Error("Error en la solicitud");
+
+      const data = await response.json();
+      return data.reply || data.message || "No pude obtener una respuesta en este momento.";
+    } catch (error) {
+      console.error("Chatbot API Error:", error);
+      return `Lo siento, ocurrió un problema al conectar con el servidor. Puedes contactarnos al ${phone}.`;
+    }
+  };
+
+  const respond = async (question) => {
     dismissSuggestions();
     addBubble(question, "user");
     showTyping();
-    window.setTimeout(() => {
-      removeTyping();
-      addBubble(findAnswer(question), "bot");
-    }, 450 + Math.random() * 350);
+
+    const answer = await fetchBotAnswer(question);
+
+    removeTyping();
+    addBubble(answer, "bot");
   };
 
   const setOpen = (state) => {
@@ -486,6 +426,7 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     toggleBtn.setAttribute("aria-expanded", String(open));
     toggleBtn.setAttribute("aria-label", open ? "Cerrar chat de VACRC" : "Abrir chat de VACRC");
     panel.classList.toggle("is-open", open);
+    document.body.classList.toggle("overflow-hidden", open);
 
     if (open && !started) {
       started = true;
@@ -497,32 +438,22 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     if (open) window.setTimeout(() => input?.focus(), 300);
   };
 
-  const MIN_WIDTH = 300;
-  const MIN_HEIGHT = 360;
+  const MIN_WIDTH = 320;
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-  const startResize = (startEvent, axis) => {
+  const startResize = (startEvent) => {
     startEvent.preventDefault();
     const startX = startEvent.clientX;
-    const startY = startEvent.clientY;
     const rect = panel.getBoundingClientRect();
     const startWidth = rect.width;
-    const startHeight = rect.height;
-    const maxWidth = Math.min(window.innerWidth - 40, 760);
-    const maxHeight = Math.min(window.innerHeight - 40, 880);
+    const maxWidth = Math.min(window.innerWidth - 80, 760);
 
     panel.classList.add("is-resizing");
 
     const onMove = (moveEvent) => {
-      if (axis === "x" || axis === "both") {
-        const nextWidth = clamp(startWidth + (startX - moveEvent.clientX), MIN_WIDTH, maxWidth);
-        panel.style.width = `${nextWidth}px`;
-      }
-      if (axis === "y" || axis === "both") {
-        const nextHeight = clamp(startHeight + (startY - moveEvent.clientY), MIN_HEIGHT, maxHeight);
-        panel.style.height = `${nextHeight}px`;
-      }
+      const nextWidth = clamp(startWidth + (startX - moveEvent.clientX), MIN_WIDTH, maxWidth);
+      panel.style.width = `${nextWidth}px`;
     };
 
     const onUp = () => {
@@ -553,7 +484,5 @@ import faq from "../../preguntas-respuestas-vacrc.json";
     }
   });
 
-  resizeCorner?.addEventListener("mousedown", (e) => startResize(e, "both"));
-  resizeTop?.addEventListener("mousedown", (e) => startResize(e, "y"));
-  resizeLeft?.addEventListener("mousedown", (e) => startResize(e, "x"));
+  resizeLeft?.addEventListener("mousedown", (e) => startResize(e));
 </script>
