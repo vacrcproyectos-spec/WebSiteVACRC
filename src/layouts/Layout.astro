@@ -1,4 +1,5 @@
 ---
+import "aos/dist/aos.css";
 import "../styles/global.css";
 import { SITE } from "../data/site";
 import ChatWidget from "../components/ChatWidget.astro";
@@ -30,19 +31,14 @@ const {
     <ChatWidget />
 
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          }
-        },
-        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-      );
+      import AOS from "aos";
 
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      AOS.init({
+        duration: 2600,
+        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        offset: 40,
+        once: true,
+      });
     </script>
   </body>
 </html>

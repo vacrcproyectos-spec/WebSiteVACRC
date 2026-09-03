@@ -9,7 +9,7 @@ import Icon from "./Icon.astro";
   </div>
 
   <div class="py-16 md:py-20 px-5 sm:px-8 bg-white">
-    <div class="reveal max-w-2xl mx-auto text-center">
+    <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
       <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Lo que incluye tu proyecto</span>
       <h2 class="text-h2 mt-3 text-metal">
         El desarrollo integral de tu proyecto de climatización
@@ -21,9 +21,10 @@ import Icon from "./Icon.astro";
     <div class:list={["py-8 md:py-10", i % 2 === 0 ? "bg-vacrc-bg-soft" : "bg-white"]}>
       <div
         class:list={[
-          "reveal max-w-[1440px] mx-auto px-5 sm:px-8 flex flex-col items-center md:items-stretch md:min-h-[460px] gap-10 md:gap-16",
+          "max-w-[1440px] mx-auto px-5 sm:px-8 flex flex-col items-center md:items-stretch md:min-h-[460px] gap-10 md:gap-16",
           i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row",
         ]}
+        data-aos="fade-up"
       >
         <div class="w-full md:w-[60%] shrink-0">
           <div class="relative h-96 md:aspect-auto md:h-full md:min-h-[320px] rounded-2xl overflow-hidden bg-vacrc-ink-900 shadow-sm shadow-vacrc-ink-900/[0.06]">

@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
 <footer class="relative bg-vacrc-ink-900">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
     <div class="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
-      <div class="reveal">
+      <div data-aos="fade-up">
         <img src="/logo.svg" alt={SITE.name} class="h-14 w-auto" />
         <p class="text-tile-body mt-4 text-white/70 max-w-xs font-montserrat font-normal text-[0.85rem] text-justify">
           Empresa mexicana especializada en la cotización y desarrollo de proyectos de climatización. Más de 15 años de experiencia, agregando valor en cada solución que ofrecemos a nuestros clientes.
@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <div class="reveal reveal-delay-1">
+      <div data-aos="fade-up" data-aos-delay="300">
         <h4 class="text-footer-heading text-white mb-4">Menú</h4>
         <ul class="space-y-2.5 text-white/70 font-montserrat font-normal text-[0.85rem]">
           {NAV_LINKS.map((link) => (
@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <div class="reveal reveal-delay-2">
+      <div data-aos="fade-up" data-aos-delay="600">
         <h4 class="text-footer-heading text-white mb-4">Alcance</h4>
         <ul class="space-y-2.5 text-white/70 font-montserrat font-normal text-[0.85rem]">
           {SERVICES.map((s) => (
@@ -44,7 +44,7 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <div class="reveal reveal-delay-3">
+      <div data-aos="fade-up" data-aos-delay="900">
         <h4 class="text-footer-heading text-white mb-4">Contacto</h4>
         <ul class="space-y-2.5 text-white/70 font-montserrat font-normal text-[0.85rem]">
           <li><a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="hover:text-white transition-colors">{SITE.phone}</a></li>
@@ -70,7 +70,7 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="bg-vacrc-blue-500">
-    <div class="reveal max-w-7xl mx-auto px-5 sm:px-8 py-4 text-center text-xs text-white/90">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 text-center text-xs text-white/90" data-aos="fade-up">
       <p>{SITE.name} © {year}. Todos los derechos reservados.</p>
     </div>
   </div>

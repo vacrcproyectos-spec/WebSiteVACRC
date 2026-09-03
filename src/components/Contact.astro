@@ -3,6 +3,11 @@ import { SITE, SOCIAL } from "../data/site";
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 import SectionDivider from "./SectionDivider.astro";
+
+const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL.replace(/\/$/, "");
+const CONTACT_API_URL = `${API_BASE_URL}/api/v1/contact/send-email`;
+const CAPTCHA_API_URL = `${API_BASE_URL}/api/v1/captcha`;
+const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 ---
 
 <section id="contacto" class="relative py-24 md:py-32 bg-white border-t border-vacrc-ink-100">
@@ -12,7 +17,7 @@ import SectionDivider from "./SectionDivider.astro";
   </div>
 
   <div class="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-5 gap-12">
-    <div class="reveal lg:col-span-2">
+    <div class="lg:col-span-2" data-aos="fade-up">
       <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Contacto</span>
       <h2 class="text-h2 mt-3 text-metal">Hablemos de tu proyecto</h2>
       <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
@@ -57,14 +62,29 @@ import SectionDivider from "./SectionDivider.astro";
       </ul>
     </div>
 
-    <form id="contact-form" class="reveal reveal-delay-2 lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]">
+    <form
+      id="contact-form"
+      class="lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]"
+      data-aos="fade-up"
+      data-aos-delay="600"
+    >
       <div class="sm:col-span-1">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Nombre</label>
-        <input id="contact-nombre" type="text" name="nombre" placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <input id="contact-nombre" type="text" name="nombre" required placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
       </div>
       <div class="sm:col-span-1">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Teléfono</label>
-        <input id="contact-telefono" type="tel" name="telefono" placeholder="999 000 0000" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <input
+          id="contact-telefono"
+          type="tel"
+          name="telefono"
+          required
+          inputmode="tel"
+          pattern="[0-9+\-\s()]{7,20}"
+          title="Ingresa un teléfono válido (solo números, espacios, +, - o paréntesis)"
+          placeholder="999 000 0000"
+          class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors"
+        />
       </div>
       <div class="sm:col-span-2">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Servicio de interés</label>
@@ -74,24 +94,97 @@ import SectionDivider from "./SectionDivider.astro";
       </div>
       <div class="sm:col-span-2">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Mensaje</label>
-        <textarea id="contact-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
+        <textarea id="contact-mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
       </div>
+
+      <div class="sm:col-span-2">
+        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Código de seguridad</label>
+        <div class="flex items-center gap-3">
+          <div class="relative h-12 w-32 shrink-0 rounded-lg border border-vacrc-ink-200 bg-vacrc-ink-50 overflow-hidden flex items-center justify-center">
+            <span id="captcha-placeholder" class="text-vacrc-ink-300">
+              <Icon icon="shield" class="w-5 h-5" />
+            </span>
+            <img id="captcha-image" alt="Código de verificación" class="absolute inset-0 w-full h-full object-contain hidden transition-opacity" />
+          </div>
+          <button
+            type="button"
+            id="captcha-refresh"
+            aria-label="Generar nuevo código"
+            class="shrink-0 w-10 h-10 rounded-lg border border-vacrc-ink-200 flex items-center justify-center text-vacrc-ink-400 hover:text-vacrc-blue-600 hover:border-vacrc-blue-500 transition-colors cursor-pointer"
+          >
+            <Icon icon="refresh" class="w-4 h-4" />
+          </button>
+          <input
+            id="contact-captcha"
+            type="text"
+            name="captcha_code"
+            required
+            autocomplete="off"
+            placeholder="Escribe el código"
+            class="flex-1 min-w-0 rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors"
+          />
+        </div>
+      </div>
+
       <Button id="send-email" type="button" variant="secondary" icon="email" iconPosition="left" class="sm:col-span-1 mt-1">
         Enviar correo
       </Button>
       <Button id="send-whatsapp" type="button" icon="phone" iconPosition="left" class="sm:col-span-1 mt-1">
         Enviar WhatsApp
       </Button>
+      <p id="email-status" class="sm:col-span-2 text-sm font-montserrat hidden"></p>
     </form>
   </div>
 </section>
 
-<script define:vars={{ email: SITE.email, whatsapp: SOCIAL.whatsapp }}>
+<script define:vars={{ email: SITE.email, whatsapp: SOCIAL.whatsapp, apiUrl: CONTACT_API_URL, captchaApiUrl: CAPTCHA_API_URL, apiKey: CONTACT_API_KEY }}>
   const form = document.getElementById("contact-form");
   const nombreEl = document.getElementById("contact-nombre");
   const telefonoEl = document.getElementById("contact-telefono");
   const servicioEl = document.getElementById("contact-servicio");
   const mensajeEl = document.getElementById("contact-mensaje");
+  const captchaCodeEl = document.getElementById("contact-captcha");
+  const captchaImageEl = document.getElementById("captcha-image");
+  const captchaPlaceholderEl = document.getElementById("captcha-placeholder");
+  const captchaRefreshBtn = document.getElementById("captcha-refresh");
+  const statusEl = document.getElementById("email-status");
+  const sendEmailBtn = document.getElementById("send-email");
+
+  let captchaUuid = null;
+  let captchaExpireTimer = null;
+
+  const showCaptchaPlaceholder = () => {
+    captchaImageEl.classList.add("hidden");
+    captchaImageEl.removeAttribute("src");
+    captchaPlaceholderEl.classList.remove("hidden");
+  };
+
+  const loadCaptcha = async () => {
+    window.clearTimeout(captchaExpireTimer);
+    captchaImageEl.classList.add("opacity-40");
+    captchaCodeEl.value = "";
+    try {
+      const res = await fetch(captchaApiUrl, {
+        headers: { "X-API-Token": apiKey },
+      });
+      if (!res.ok) throw new Error(`Captcha request failed with status ${res.status}`);
+      const json = await res.json();
+      const { uuid, image, expire_seconds } = json.data;
+      captchaUuid = uuid;
+      captchaImageEl.src = `data:image/jpeg;base64,${image}`;
+      captchaImageEl.classList.remove("hidden");
+      captchaPlaceholderEl.classList.add("hidden");
+      captchaExpireTimer = window.setTimeout(loadCaptcha, (expire_seconds || 300) * 1000);
+    } catch (err) {
+      captchaUuid = null;
+      showCaptchaPlaceholder();
+    } finally {
+      captchaImageEl.classList.remove("opacity-40");
+    }
+  };
+
+  captchaRefreshBtn?.addEventListener("click", loadCaptcha);
+  loadCaptcha();
 
   const getValues = () => ({
     nombre: nombreEl.value.trim(),
@@ -100,7 +193,19 @@ import SectionDivider from "./SectionDivider.astro";
     mensaje: mensajeEl.value.trim(),
   });
 
-  const sendEmail = (e) => {
+  // Only allow phone-appropriate characters as the user types.
+  telefonoEl.addEventListener("input", () => {
+    telefonoEl.value = telefonoEl.value.replace(/[^0-9+\-\s()]/g, "");
+  });
+
+  const showStatus = (message, isError) => {
+    statusEl.textContent = message;
+    statusEl.classList.remove("hidden");
+    statusEl.classList.toggle("text-red-600", isError);
+    statusEl.classList.toggle("text-emerald-600", !isError);
+  };
+
+  const mailtoFallback = (e) => {
     e?.preventDefault();
     const { nombre, telefono, servicio, mensaje } = getValues();
     const subject = `Solicitud de cotización - ${servicio}`;
@@ -112,8 +217,64 @@ import SectionDivider from "./SectionDivider.astro";
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
-  document.getElementById("send-email")?.addEventListener("click", sendEmail);
-  document.getElementById("contact-email-link")?.addEventListener("click", sendEmail);
+  let isSending = false;
+
+  const sendEmailApi = async (e) => {
+    e?.preventDefault();
+
+    if (isSending) return;
+
+    if (
+      !nombreEl.value.trim() ||
+      !telefonoEl.value.trim() ||
+      !mensajeEl.value.trim() ||
+      !captchaCodeEl.value.trim() ||
+      !form.checkValidity()
+    ) {
+      form.reportValidity();
+      return;
+    }
+
+    if (!captchaUuid) {
+      showStatus("No pudimos cargar el código de seguridad. Intenta de nuevo.", true);
+      loadCaptcha();
+      return;
+    }
+
+    const { nombre, telefono, servicio, mensaje } = getValues();
+    const captcha_uuid = captchaUuid;
+    const captcha_code = captchaCodeEl.value.trim();
+    isSending = true;
+    sendEmailBtn.disabled = true;
+    sendEmailBtn.classList.add("opacity-60", "cursor-not-allowed");
+    showStatus("Enviando tu solicitud...", false);
+
+    try {
+      const res = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-Token": apiKey,
+        },
+        body: JSON.stringify({ nombre, telefono, servicio, mensaje, captcha_uuid, captcha_code }),
+      });
+
+      if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
+
+      showStatus("¡Listo! Tu solicitud fue enviada correctamente.", false);
+      form.reset();
+      // Keep it disabled: the request already went through, no need to send it twice.
+    } catch (err) {
+      showStatus("No pudimos enviar tu solicitud. Verifica el código de seguridad e intenta de nuevo.", true);
+      isSending = false;
+      sendEmailBtn.disabled = false;
+      sendEmailBtn.classList.remove("opacity-60", "cursor-not-allowed");
+      loadCaptcha();
+    }
+  };
+
+  sendEmailBtn?.addEventListener("click", sendEmailApi);
+  document.getElementById("contact-email-link")?.addEventListener("click", mailtoFallback);
 
   document.getElementById("send-whatsapp")?.addEventListener("click", () => {
     const { nombre, telefono, mensaje } = getValues();

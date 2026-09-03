@@ -106,6 +106,13 @@ const { icon, class: className = "w-8 h-8", ring = true } = Astro.props;
   </svg>
 )}
 
+{icon === "refresh" && (
+  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 10a6 6 0 1 1-1.76-4.24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M16 3.5V7.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)}
+
 {icon === "target" && (
   <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5" />

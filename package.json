@@ -12,8 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@lucide/astro": "^1.39.0",
     "@tailwindcss/vite": "^4.3.2",
+    "aos": "^2.3.4",
     "astro": "^7.0.4",
     "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.8"
   }
 }
