@@ -1,4 +1,5 @@
 ---
+import "toastify-js/src/toastify.css";
 import { SITE, SOCIAL } from "../data/site";
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
@@ -70,21 +71,37 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     >
       <div class="sm:col-span-1">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Nombre</label>
-        <input id="contact-nombre" type="text" name="nombre" required placeholder="Tu nombre" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors" />
+        <div class="relative">
+          <input id="contact-nombre" type="text" name="nombre" required placeholder="Tu nombre" class="peer w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 pr-10 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors [&:user-valid]:border-emerald-500 [&:user-invalid]:border-red-400" />
+          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-500">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-red-500">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+        </div>
       </div>
       <div class="sm:col-span-1">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Teléfono</label>
-        <input
-          id="contact-telefono"
-          type="tel"
-          name="telefono"
-          required
-          inputmode="tel"
-          pattern="[0-9+\-\s()]{7,20}"
-          title="Ingresa un teléfono válido (solo números, espacios, +, - o paréntesis)"
-          placeholder="999 000 0000"
-          class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors"
-        />
+        <div class="relative">
+          <input
+            id="contact-telefono"
+            type="tel"
+            name="telefono"
+            required
+            inputmode="tel"
+            pattern="[0-9+\-\s\(\)]{7,20}"
+            title="Ingresa un teléfono válido (solo números, espacios, +, - o paréntesis)"
+            placeholder="999 000 0000"
+            class="peer w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 pr-10 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors [&:user-valid]:border-emerald-500 [&:user-invalid]:border-red-400"
+          />
+          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-500">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-red-500">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+        </div>
       </div>
       <div class="sm:col-span-2">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Servicio de interés</label>
@@ -94,7 +111,15 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
       </div>
       <div class="sm:col-span-2">
         <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Mensaje</label>
-        <textarea id="contact-mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..." class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none"></textarea>
+        <div class="relative">
+          <textarea id="contact-mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..." class="peer w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 pr-10 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none [&:user-valid]:border-emerald-500 [&:user-invalid]:border-red-400"></textarea>
+          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-3 pointer-events-none text-emerald-500">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-3 pointer-events-none text-red-500">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+        </div>
       </div>
 
       <div class="sm:col-span-2">
@@ -132,10 +157,30 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
       <Button id="send-whatsapp" type="button" icon="phone" iconPosition="left" class="sm:col-span-1 mt-1">
         Enviar WhatsApp
       </Button>
-      <p id="email-status" class="sm:col-span-2 text-sm font-montserrat hidden"></p>
     </form>
   </div>
 </section>
+
+<style is:global>
+  .toastify {
+    font-family: var(--font-montserrat);
+    font-size: 0.9rem;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 10px 25px -5px rgba(14, 30, 51, 0.25);
+  }
+  .toastify.toast-success {
+    background: var(--color-emerald-600, #059669);
+  }
+  .toastify.toast-error {
+    background: var(--color-red-600, #dc2626);
+  }
+</style>
+
+<script>
+  import Toastify from "toastify-js";
+  window.Toastify = Toastify;
+</script>
 
 <script define:vars={{ email: SITE.email, whatsapp: SOCIAL.whatsapp, apiUrl: CONTACT_API_URL, captchaApiUrl: CAPTCHA_API_URL, apiKey: CONTACT_API_KEY }}>
   const form = document.getElementById("contact-form");
@@ -147,7 +192,6 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
   const captchaImageEl = document.getElementById("captcha-image");
   const captchaPlaceholderEl = document.getElementById("captcha-placeholder");
   const captchaRefreshBtn = document.getElementById("captcha-refresh");
-  const statusEl = document.getElementById("email-status");
   const sendEmailBtn = document.getElementById("send-email");
 
   let captchaUuid = null;
@@ -199,10 +243,15 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
   });
 
   const showStatus = (message, isError) => {
-    statusEl.textContent = message;
-    statusEl.classList.remove("hidden");
-    statusEl.classList.toggle("text-red-600", isError);
-    statusEl.classList.toggle("text-emerald-600", !isError);
+    window.Toastify({
+      text: message,
+      duration: isError ? 7000 : 6000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      className: isError ? "toast-error" : "toast-success",
+    }).showToast();
   };
 
   const mailtoFallback = (e) => {
@@ -217,12 +266,21 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
-  let isSending = false;
+  const sendEmailBtnDefaultHTML = sendEmailBtn.innerHTML;
+  const SEND_SPINNER_HTML =
+    '<svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>' +
+    '<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>' +
+    "</svg><span>Enviando...</span>";
+  const SEND_SUCCESS_HTML =
+    '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>' +
+    "<span>Enviado</span>";
 
   const sendEmailApi = async (e) => {
     e?.preventDefault();
 
-    if (isSending) return;
+    if (sendEmailBtn.disabled) return;
 
     if (
       !nombreEl.value.trim() ||
@@ -244,10 +302,9 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     const { nombre, telefono, servicio, mensaje } = getValues();
     const captcha_uuid = captchaUuid;
     const captcha_code = captchaCodeEl.value.trim();
-    isSending = true;
     sendEmailBtn.disabled = true;
     sendEmailBtn.classList.add("opacity-60", "cursor-not-allowed");
-    showStatus("Enviando tu solicitud...", false);
+    sendEmailBtn.innerHTML = SEND_SPINNER_HTML;
 
     try {
       const res = await fetch(apiUrl, {
@@ -263,12 +320,18 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 
       showStatus("¡Listo! Tu solicitud fue enviada correctamente.", false);
       form.reset();
-      // Keep it disabled: the request already went through, no need to send it twice.
+      sendEmailBtn.innerHTML = SEND_SUCCESS_HTML;
+      loadCaptcha();
+      window.setTimeout(() => {
+        sendEmailBtn.disabled = false;
+        sendEmailBtn.classList.remove("opacity-60", "cursor-not-allowed");
+        sendEmailBtn.innerHTML = sendEmailBtnDefaultHTML;
+      }, 3000);
     } catch (err) {
       showStatus("No pudimos enviar tu solicitud. Verifica el código de seguridad e intenta de nuevo.", true);
-      isSending = false;
       sendEmailBtn.disabled = false;
       sendEmailBtn.classList.remove("opacity-60", "cursor-not-allowed");
+      sendEmailBtn.innerHTML = sendEmailBtnDefaultHTML;
       loadCaptcha();
     }
   };

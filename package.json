@@ -16,9 +16,11 @@
     "@tailwindcss/vite": "^4.3.2",
     "aos": "^2.3.4",
     "astro": "^7.0.4",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.2",
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
-    "@types/aos": "^3.0.8"
+    "@types/aos": "^3.0.8",
+    "@types/toastify-js": "^1.12.4"
   }
 }
