@@ -146,6 +146,18 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
+  <!-- Big Typography Spotlight Section -->
+  <div id="spotlight-container" class="relative w-full overflow-hidden border-t border-white/5 bg-black py-2 cursor-default leading-none">
+    <div class="w-full flex items-center justify-between">
+      <span
+          id="spotlight-text"
+          class="spotlight-text font-montserrat font-black text-[25.5vw] leading-[0.75] tracking-[-0.05em] uppercase select-none text-white/90 w-full block text-center whitespace-nowrap -ml-[0.02em]"
+      >
+        VACRC
+      </span>
+    </div>
+  </div>
+
   <!-- Bottom Bar Monocromática / Minimalista -->
   <div class="border-t border-white/10 bg-black/80 backdrop-blur-md">
     <div
@@ -157,3 +169,41 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<style>
+  .spotlight-text {
+    -webkit-mask-image: radial-gradient(
+        var(--spotlight-radius, 40vw) circle at var(--mouse-x, 50%) 50%,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: radial-gradient(
+        var(--spotlight-radius, 40vw) circle at var(--mouse-x, 50%) 50%,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+  }
+</style>
+
+<script>
+  const container = document.getElementById("spotlight-container");
+  const text = document.getElementById("spotlight-text");
+
+  if (container && text) {
+    const updateSpotlight = (clientX: number) => {
+      const rect = container.getBoundingClientRect();
+      const x = clientX - rect.left;
+
+      text.style.setProperty("--mouse-x", `${x}px`);
+      text.style.setProperty("--spotlight-radius", `${window.innerWidth * 0.4}px`);
+    };
+
+    window.addEventListener("mousemove", (e) => {
+      updateSpotlight(e.clientX);
+    });
+
+    updateSpotlight(window.innerWidth / 2);
+  }
+</script>

@@ -31,9 +31,10 @@
   --color-vacrc-blue-600: #1E40AF;     /* Azul Profundo Bugatti */
   --color-vacrc-blue-700: #0F172A;     /* Sombra Chasis */
 
-  /* Cool Cyan Accent (Acento Hiperdeportivo) */
-  --color-vacrc-cyan-400: #22D3EE;     /* Neon Telemetry Cyan */
-  --color-vacrc-cyan-600: #0891B2;     /* Cyan Industrial */
+
+  /* Mantienen el nombre para no romper las clases Tailwind existentes */
+  --color-vacrc-cyan-400: #38BDF8;     /* Sky Steel Matte (Sutil, elegante y de alto contraste) */
+  --color-vacrc-cyan-600: #0284C7;     /* Azul Cobalto Técnico */
 
   /* --- Type --- */
   --font-display: 'Bitter', 'Inter', serif;
@@ -44,7 +45,6 @@
   /* --- Motion --- */
   --ease-flow: cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 @layer base {
   html {
     scroll-behavior: smooth;
