@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "Cálculo · Cotización · Proyectos de Climatización",
   description:
     "VACRC cotiza y diseña proyectos de climatización, desde el cálculo y la selección de equipo hasta la entrega y el mantenimiento. Nos especializamos en centros comerciales, departamentos, plantas de producción, almacenes, bodegas y quirófanos.",
-  phone: "+52 991 959 2109",
+  phone: "+52 991 959 0790",
   email: "vacrcproyectos@gmail.com",
   address: "Mérida, Yucatán, México",
   hours: "Lun – Vie, 8:30 – 17:30",

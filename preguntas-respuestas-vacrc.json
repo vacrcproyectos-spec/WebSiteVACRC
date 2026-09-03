@@ -1,7 +1,7 @@
 [
   {
     "instruction": "¿Qué es VACRC?",
-    "output": "VACRC es una empresa especializada en aire acondicionado tipo minisplit en Mérida, Yucatán, con más de 15 años de experiencia en climatización, dedicada a la instalación, mantenimiento y reparación de estos equipos."
+    "output": "VACRC es una empresa especializada en aire acondicionado tipo minisplit en Mérida, Yucatán, con más de 10 años de experiencia en climatización, dedicada a la instalación, mantenimiento y reparación de estos equipos."
   },
   {
     "instruction": "¿A qué se dedica VACRC?",
@@ -9,7 +9,7 @@
   },
   {
     "instruction": "¿Cuántos años de experiencia tiene VACRC?",
-    "output": "Contamos con más de 15 años de experiencia en climatización."
+    "output": "Contamos con más de 10 años de experiencia en climatización."
   },
   {
     "instruction": "¿Dónde está ubicada VACRC?",
@@ -29,7 +29,7 @@
   },
   {
     "instruction": "¿Qué hace diferente a VACRC de otras empresas de aire acondicionado?",
-    "output": "Nuestra ingeniería propia: cada instalación se calcula según las necesidades reales de tu espacio, no de catálogo, respaldada por más de 15 años de experiencia."
+    "output": "Nuestra ingeniería propia: cada instalación se calcula según las necesidades reales de tu espacio, no de catálogo, respaldada por más de 10 años de experiencia."
   },
   {
     "instruction": "¿VACRC atiende también refrigeración industrial o cuartos fríos?",
@@ -41,19 +41,19 @@
   },
   {
     "instruction": "¿Qué tan confiable es el servicio de VACRC?",
-    "output": "Respaldamos cada instalación y servicio con ingeniería propia, técnicos certificados y más de 15 años de experiencia en climatización."
+    "output": "Respaldamos cada instalación y servicio con ingeniería propia, técnicos certificados y más de 10 años de experiencia en climatización."
   },
   {
     "instruction": "¿VACRC ofrece garantía en sus servicios?",
-    "output": "Para conocer las condiciones específicas de garantía de tu equipo o servicio, te recomendamos contactarnos directamente al +52 991 959 2109 o vacrcproyectos@gmail.com."
+    "output": "Para conocer las condiciones específicas de garantía de tu equipo o servicio, te recomendamos contactarnos directamente al +52 991 959 0790 o vacrcproyectos@gmail.com."
   },
   {
     "instruction": "¿Cómo puedo saber más sobre VACRC?",
-    "output": "Puedes contactarnos al +52 991 959 2109, escribirnos a vacrcproyectos@gmail.com o visitarnos en Mérida, Yucatán."
+    "output": "Puedes contactarnos al +52 991 959 0790, escribirnos a vacrcproyectos@gmail.com o visitarnos en Mérida, Yucatán."
   },
   {
     "instruction": "¿VACRC es una empresa nueva?",
-    "output": "No, contamos con más de 15 años de experiencia en climatización."
+    "output": "No, contamos con más de 10 años de experiencia en climatización."
   },
   {
     "instruction": "¿Qué significa el enfoque \"100% en minisplit\" de VACRC?",
@@ -173,7 +173,7 @@
   },
   {
     "instruction": "¿Cómo agendo un mantenimiento?",
-    "output": "Contáctanos al +52 991 959 2109 o vacrcproyectos@gmail.com para agendar tu mantenimiento preventivo."
+    "output": "Contáctanos al +52 991 959 0790 o vacrcproyectos@gmail.com para agendar tu mantenimiento preventivo."
   },
   {
     "instruction": "¿El mantenimiento preventivo evita fallas futuras?",
@@ -233,7 +233,7 @@
   },
   {
     "instruction": "¿Cómo solicito una reparación?",
-    "output": "Contáctanos al +52 991 959 2109, por correo a vacrcproyectos@gmail.com, o a través del formulario de contacto en la página."
+    "output": "Contáctanos al +52 991 959 0790, por correo a vacrcproyectos@gmail.com, o a través del formulario de contacto en la página."
   },
   {
     "instruction": "¿Ofrecen diagnóstico antes de cobrar la reparación?",
@@ -441,7 +441,7 @@
   },
   {
     "instruction": "¿Cuál es el teléfono de VACRC?",
-    "output": "Nuestro teléfono es +52 991 959 2109."
+    "output": "Nuestro teléfono es +52 991 959 0790."
   },
   {
     "instruction": "¿Cuál es el correo de contacto de VACRC?",
@@ -461,7 +461,7 @@
   },
   {
     "instruction": "¿Cómo puedo contactar a VACRC?",
-    "output": "Puedes llamarnos al +52 991 959 2109, escribirnos a vacrcproyectos@gmail.com o llenar el formulario de contacto en nuestra página."
+    "output": "Puedes llamarnos al +52 991 959 0790, escribirnos a vacrcproyectos@gmail.com o llenar el formulario de contacto en nuestra página."
   },
   {
     "instruction": "¿A qué hora abren?",
@@ -509,11 +509,11 @@
   },
   {
     "instruction": "¿Cómo agendo una visita técnica?",
-    "output": "Contáctanos al +52 991 959 2109 o vacrcproyectos@gmail.com para agendar una visita y recibir tu propuesta técnica."
+    "output": "Contáctanos al +52 991 959 0790 o vacrcproyectos@gmail.com para agendar una visita y recibir tu propuesta técnica."
   },
   {
     "instruction": "¿Puedo pedir informes por WhatsApp?",
-    "output": "Puedes comunicarte a nuestro número +52 991 959 2109; contáctanos para confirmar el medio de atención disponible."
+    "output": "Puedes comunicarte a nuestro número +52 991 959 0790; contáctanos para confirmar el medio de atención disponible."
   },
   {
     "instruction": "¿Cuál es la misión de VACRC?",
@@ -557,7 +557,7 @@
   },
   {
     "instruction": "¿En qué se basa la confianza que ofrece VACRC?",
-    "output": "En más de 15 años de experiencia, ingeniería propia y técnicos certificados."
+    "output": "En más de 10 años de experiencia, ingeniería propia y técnicos certificados."
   },
   {
     "instruction": "¿VACRC busca ser reconocida en la región?",
@@ -597,7 +597,7 @@
   },
   {
     "instruction": "¿Cuánto tardan en responder una solicitud de cotización?",
-    "output": "Contáctanos y te responderemos con una propuesta técnica; para tiempos específicos, comunícate al +52 991 959 2109."
+    "output": "Contáctanos y te responderemos con una propuesta técnica; para tiempos específicos, comunícate al +52 991 959 0790."
   },
   {
     "instruction": "¿Puedo pedir cotización para varios equipos?",
@@ -685,7 +685,7 @@
   },
   {
     "instruction": "¿Por qué elegir a VACRC?",
-    "output": "Por nuestra ingeniería propia, técnicos certificados, más de 15 años de experiencia y un enfoque 100% dedicado a equipos minisplit."
+    "output": "Por nuestra ingeniería propia, técnicos certificados, más de 10 años de experiencia y un enfoque 100% dedicado a equipos minisplit."
   },
   {
     "instruction": "¿VACRC trabaja solo con minisplit o también otros equipos de clima?",
