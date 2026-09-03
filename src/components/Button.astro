@@ -24,18 +24,21 @@ const {
 } = Astro.props;
 
 const sizes = {
-  sm: "px-5 py-2.5 text-sm",
-  md: "px-7 py-3.5",
+  sm: "px-5 py-2.5 text-[0.7rem]",
+  md: "px-8 py-3.5 text-[0.75rem]",
 };
 
 const variants = {
-  primary: "bg-vacrc-blue-500 hover:bg-vacrc-blue-600 text-white",
-  secondary: "border border-vacrc-ink-200 hover:border-vacrc-ink-400 text-vacrc-ink-700",
-  "secondary-light": "border border-white/30 hover:border-white text-white",
+  primary:
+      "bg-vacrc-cyan-400 text-black font-bold border border-vacrc-cyan-400 hover:bg-white hover:border-white hover:text-black shadow-[0_0_20px_rgba(34,211,238,0.25)]",
+  secondary:
+      "border border-white/20 bg-white/[0.03] backdrop-blur-md text-white hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 hover:bg-vacrc-cyan-400/5",
+  "secondary-light":
+      "border border-white/30 bg-black/40 backdrop-blur-md text-white hover:border-white hover:bg-white/10",
 };
 
 const classes = [
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors cursor-pointer",
+  "inline-flex items-center justify-center gap-3 font-montserrat uppercase tracking-[0.2em] font-semibold transition-all duration-300 cursor-pointer active:scale-[0.98]",
   sizes[size],
   variants[variant],
   className,
@@ -43,15 +46,15 @@ const classes = [
 ---
 
 {href ? (
-  <a id={id} href={href} class={classes}>
-    {icon && iconPosition === "left" && <Icon icon={icon} class="w-4 h-4" />}
-    <slot />
-    {icon && iconPosition === "right" && <Icon icon={icon} class="w-4 h-4" />}
-  </a>
-) : (
-  <button id={id} type={type} class={classes}>
-    {icon && iconPosition === "left" && <Icon icon={icon} class="w-4 h-4" />}
-    <slot />
-    {icon && iconPosition === "right" && <Icon icon={icon} class="w-4 h-4" />}
-  </button>
-)}
+<a id={id} href={href} class={classes}>
+  {icon && iconPosition === "left" && <Icon icon={icon} class="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />}
+  <slot />
+  {icon && iconPosition === "right" && <Icon icon={icon} class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />}
+</a>
+    ) : (
+<button id={id} type={type} class={classes}>
+  {icon && iconPosition === "left" && <Icon icon={icon} class="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />}
+  <slot />
+  {icon && iconPosition === "right" && <Icon icon={icon} class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />}
+</button>
+    )}

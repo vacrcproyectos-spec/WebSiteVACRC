@@ -1,149 +1,187 @@
 ---
 import { SITE, VALUES, ABOUT_IMAGES } from "../data/site";
 import Icon from "./Icon.astro";
-import SectionDivider from "./SectionDivider.astro";
 
 const strengths = [
   {
-    title: "Ingeniería propia",
-    text: "Cada proyecto se calcula y diseña según las necesidades reales del espacio, no de catálogo.",
+    title: "Ingeniería Propia",
+    text: "Cada proyecto se calcula y diseña según las necesidades reales del espacio, sin basarse en catálogos genéricos.",
   },
   {
-    title: "Equipo certificado",
-    text: "Técnicos certificados en manejo de refrigerantes y equipos de climatización de todas las marcas.",
+    title: "Equipo Certificado",
+    text: "Técnicos certificados en manejo de refrigerantes y sistemas de climatización multimarca.",
   },
   {
-    title: "Presupuestos claros",
-    text: "Cotizaciones detalladas y competitivas, sin costos ocultos.",
+    title: "Presupuestos Transparentes",
+    text: "Cotizaciones detalladas, competitivas y sin costos ocultos durante la ejecución.",
   },
   {
-    title: "Atención rápida",
-    text: "Diagnóstico y solución ágil para que no pierdas el confort en tu espacio.",
+    title: "Atención Ágil",
+    text: "Diagnóstico y resolución rápida para proteger el confort y la continuidad operativa de tu espacio.",
   },
 ];
 ---
 
-<section id="nosotros" class="relative bg-white">
-  <SectionDivider />
-  <!-- Banner -->
-  <div class="relative mt-10 md:mt-14 min-h-[260px] lg:min-h-[420px] overflow-hidden" data-aos="fade-up">
+<section id="nosotros" class="relative bg-vacrc-bg overflow-hidden border-t border-white/10">
+
+  <!-- Banner Full-Bleed / Hero Bugatti Style -->
+  <div class="relative w-full h-[55vh] min-h-[400px] lg:h-[70vh] overflow-hidden group" data-aos="fade-up">
     <img
-      src={ABOUT_IMAGES.equipo}
-      onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-      alt={`Equipo de ${SITE.name}`}
-      loading="lazy"
-      class="absolute inset-0 w-full h-full object-cover"
+        src={ABOUT_IMAGES.equipo}
+        onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+        alt={`Equipo de ${SITE.name}`}
+        loading="lazy"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
     />
-  </div>
+    <!-- Overlay de Gradiente para lectura limpia -->
+    <div class="absolute inset-0 bg-gradient-to-t from-vacrc-bg via-black/40 to-transparent"></div>
 
-  <!-- Intro: quiénes somos + foto -->
-  <div class="py-16 md:py-24 px-5 sm:px-8">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-stretch">
-      <div data-aos="fade-up">
-        <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Nosotros</span>
-        <h2 class="text-h2 mt-3 text-metal">
-          Especialistas en cotización de proyectos de climatización
-        </h2>
-
-        <p class="text-lead mt-5 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
-          Somos <strong class="text-vacrc-ink-900">especialistas en cotización y desarrollo de proyectos de climatización en Yucatán</strong>, acompañando a centros comerciales, hoteles, departamentos, plantas de producción, almacenes, bodegas y quirófanos que buscan un servicio técnico confiable.
-        </p>
-
-        <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
-          Como especialistas desde hace más de 10 años en climatización, entregamos con <strong class="text-vacrc-ink-900">ingeniería propia</strong> proyectos que cumplen las más altas especificaciones y estándares de seguridad, eficiencia y calidad, para que nuestros clientes tomen decisiones informadas y sin sorpresas.
-        </p>
-
-        <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
-          Desde el cálculo inicial hasta la entrega y el mantenimiento, acompañamos cada proyecto con presupuestos claros y tiempos de respuesta que protegen tu inversión.
-        </p>
-
-        <div class="mt-9 grid sm:grid-cols-2 gap-6">
-          {strengths.map((s) => (
-            <div class="flex gap-3">
-              <span class="mt-1 w-1.5 h-1.5 rounded-full bg-vacrc-blue-500 shrink-0"></span>
-              <div>
-                <h3 class="font-semibold text-vacrc-ink-900 text-xl">{s.title}</h3>
-                <p class="text-vacrc-ink-500 mt-1 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem] text-justify">{s.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="600">
-        <div class="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[420px] rounded-3xl overflow-hidden bg-vacrc-ink-900 shadow-sm shadow-vacrc-ink-900/[0.06]">
-          <img
-            src={ABOUT_IMAGES.instalacion}
-            onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-            alt={`Instalación de ${SITE.name}`}
-            loading="lazy"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-      </div>
+    <div class="absolute bottom-0 inset-x-0 max-w-7xl mx-auto px-6 sm:px-8 pb-12 z-10">
+      <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+        Trayectoria & Compromiso
+      </span>
+      <h2 class="text-3xl sm:text-5xl lg:text-7xl font-display font-bold text-white tracking-tight leading-none">
+        Más de una década diseñando clima de alta precisión
+      </h2>
     </div>
   </div>
 
-  <!-- Misión, visión y valores -->
-  <div class="relative py-20 md:py-28 px-5 sm:px-8 bg-vacrc-ink-900 overflow-hidden">
-    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-vacrc-blue-500/20 blur-[120px]"></div>
+  <!-- Sección Introductoria: Quiénes Somos + Fotografía de Galería -->
+  <div class="py-20 md:py-32 px-6 sm:px-8 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-    <div class="relative max-w-7xl mx-auto">
-      <div class="grid sm:grid-cols-2 gap-6" data-aos="fade-up">
-        <div class="rounded-2xl overflow-hidden bg-vacrc-ink-700/40 border border-white/10">
-          <div class="relative aspect-[16/10]">
-            <img
-              src={ABOUT_IMAGES.mision}
-              onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-              alt="Misión"
-              loading="lazy"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900/80 to-transparent"></div>
-            <span class="text-badge-caption absolute bottom-0 left-0 text-white bg-vacrc-blue-600/90 px-5 py-2 rounded-tr-xl text-3xl">
-              Misión
-            </span>
-          </div>
-          <p class="text-tile-body p-6 text-white/80 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem] text-justify">
-            Ser el aliado técnico de confianza en la cotización y el desarrollo integral de proyectos de climatización, entregando un servicio con los más altos estándares de calidad y seguridad para centros comerciales, hoteles, departamentos, plantas de producción, almacenes, bodegas y quirófanos.
+      <!-- Columna de Texto -->
+      <div class="lg:col-span-7" data-aos="fade-up">
+        <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+          Nosotros
+        </span>
+        <h3 class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight leading-tight mb-8">
+          Especialistas en cotización y desarrollo de proyectos de climatización
+        </h3>
+
+        <div class="space-y-6 text-white/80 font-montserrat font-light text-base sm:text-lg leading-relaxed">
+          <p>
+            Somos especialistas en la cotización y desarrollo integral de proyectos de climatización en Yucatán. Acompañamos a centros comerciales, hoteles, desarrollos residenciales, plantas de producción, almacenes y áreas quirúrgicas que exigen precisión técnica.
+          </p>
+          <p>
+            Como especialistas con más de 10 años en el sector, entregamos proyectos respaldados por <strong class="text-white font-semibold">ingeniería propia</strong> que cumplen las más altas especificaciones de seguridad, eficiencia energética y confort.
           </p>
         </div>
 
-        <div class="rounded-2xl overflow-hidden bg-vacrc-ink-700/40 border border-white/10">
-          <div class="relative aspect-[16/10]">
-            <img
-              src={ABOUT_IMAGES.vision}
-              onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-              alt="Visión"
-              loading="lazy"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900/80 to-transparent"></div>
-            <span class="text-badge-caption absolute bottom-0 left-0 text-white bg-vacrc-blue-600/90 px-5 py-2 rounded-tr-xl text-3xl">
-              Visión
-            </span>
-          </div>
-          <p class="text-tile-body p-6 text-white/80 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem] text-justify">
-            Ser la empresa de referencia en cotización y desarrollo de proyectos de climatización en la región, reconocida por la confiabilidad de nuestro servicio y el compromiso con cada cliente.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-16 md:mt-20 text-center" data-aos="fade-up" data-aos-delay="600">
-        <h3 class="text-script-heading text-white">Valores</h3>
-        <div class="mt-10 grid grid-cols-3 sm:grid-cols-6 gap-y-8 gap-x-4">
-          {VALUES.map((value) => (
-            <div class="flex flex-col items-center gap-3">
-              <span class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white">
-                <Icon icon={value.icon} class="w-10 h-10 sm:w-12 sm:h-12" />
+        <!-- Fortalezas / Especificaciones -->
+        <div class="mt-12 pt-8 border-t border-white/15 grid sm:grid-cols-2 gap-8">
+          {strengths.map((s, idx) => (
+              <div>
+              <span class="text-xs font-mono tracking-widest text-vacrc-cyan-400 block mb-2">
+                0{idx + 1} //
               </span>
-              <p class="text-value-label text-white/80 text-center font-montserrat">
-                {value.name}
-              </p>
-            </div>
+                <h4 class="font-display font-bold text-white text-lg sm:text-xl mb-2">{s.title}</h4>
+                <p class="text-white/65 font-montserrat font-light text-xs sm:text-sm leading-relaxed">{s.text}</p>
+              </div>
           ))}
         </div>
       </div>
+
+      <!-- Fotografía Secundaria / Estilo Editorial sin Curvas -->
+      <div class="lg:col-span-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative w-full h-[450px] lg:h-[620px] overflow-hidden border border-white/10 group">
+          <img
+              src={ABOUT_IMAGES.instalacion}
+              onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+              alt={`Instalación de ${SITE.name}`}
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="text-xs uppercase tracking-[0.2em] text-white/50 font-montserrat">
+              Estándares de Calidad
+            </span>
+            <p class="text-white font-display font-bold text-xl mt-1">
+              Ejecución técnica sin margen de error
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Misión & Visión: Mosaico Asimétrico Split Screen -->
+  <div class="w-full border-t border-white/10">
+    <div class="grid lg:grid-cols-2 w-full">
+
+      <!-- Bloque Misión -->
+      <div class="relative min-h-[480px] lg:min-h-[580px] flex items-end p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/10 group overflow-hidden" data-aos="fade-up">
+        <img
+            src={ABOUT_IMAGES.mision}
+            onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+            alt="Misión"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30"></div>
+        <div class="relative z-10 max-w-xl">
+          <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-2">
+            01 // Propósito
+          </span>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight mb-4">
+            Misión
+          </h3>
+          <p class="text-white/80 font-montserrat font-light text-sm sm:text-base leading-relaxed">
+            Ser el aliado técnico de confianza en la cotización y el desarrollo integral de proyectos de climatización, entregando un servicio con los más altos estándares de calidad y seguridad para centros comerciales, hoteles, departamentos, plantas de producción, almacenes y áreas especializadas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bloque Visión -->
+      <div class="relative min-h-[480px] lg:min-h-[580px] flex items-end p-8 sm:p-12 group overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <img
+            src={ABOUT_IMAGES.vision}
+            onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+            alt="Visión"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30"></div>
+        <div class="relative z-10 max-w-xl">
+          <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-2">
+            02 // Horizonte
+          </span>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight mb-4">
+            Visión
+          </h3>
+          <p class="text-white/80 font-montserrat font-light text-sm sm:text-base leading-relaxed">
+            Ser la empresa de referencia en cotización y desarrollo de proyectos de climatización en la región, reconocida por la confiabilidad de nuestras soluciones de ingeniería y el compromiso inquebrantable con cada cliente.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Grid de Valores Minimalista Estilo Showcase -->
+  <div class="py-24 md:py-32 px-6 sm:px-8 border-t border-white/10 max-w-7xl mx-auto" data-aos="fade-up">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+        Principios Rectores
+      </span>
+      <h3 class="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
+        Nuestros Valores
+      </h3>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10 border border-white/10">
+      {VALUES.map((value) => (
+          <div class="bg-vacrc-bg p-6 sm:p-8 flex flex-col items-center justify-center text-center group hover:bg-white/[0.03] transition-colors duration-300">
+            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/20 bg-black/40 flex items-center justify-center text-white/80 group-hover:text-vacrc-cyan-400 group-hover:border-vacrc-cyan-400/50 transition-all duration-300 mb-4">
+              <Icon icon={value.icon} class="w-6 h-6 sm:w-8 sm:h-8" />
+            </div>
+            <span class="text-white/90 font-montserrat text-xs sm:text-sm font-medium tracking-wide uppercase">
+            {value.name}
+          </span>
+          </div>
+      ))}
     </div>
   </div>
 

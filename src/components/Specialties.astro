@@ -1,58 +1,84 @@
 ---
 import { SPECIALTIES } from "../data/site";
 import Icon from "./Icon.astro";
-import SectionDivider from "./SectionDivider.astro";
-
-const chunkSize = 4;
-const rows = Array.from({ length: Math.ceil(SPECIALTIES.length / chunkSize) }, (_, i) =>
-  SPECIALTIES.slice(i * chunkSize, i * chunkSize + chunkSize)
-);
 ---
 
-<section id="especialidades" class="relative py-24 md:py-32 bg-white border-t border-vacrc-ink-100">
-  <SectionDivider />
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="max-w-2xl" data-aos="fade-up">
-      <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Nos Especializamos En</span>
-      <h2 class="text-h2 mt-3 text-metal">
-        Proyectos de climatización para cada tipo de espacio
-      </h2>
-      <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
-        Cotizamos y desarrollamos proyectos de climatización a la medida de cada giro. Pasa el cursor sobre cada uno para ver más.
+<section id="especialidades" class="relative py-24 md:py-32 bg-vacrc-bg border-t border-white/10 overflow-hidden">
+  <!-- Encabezado Editorial / Bugatti Style -->
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 mb-16 md:mb-20">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6" data-aos="fade-up">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+          Sectores de Aplicación
+        </span>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight leading-tight">
+          Proyectos de climatización para cada tipo de espacio
+        </h2>
+      </div>
+      <p class="text-white/60 font-montserrat font-light text-sm sm:text-base max-w-md leading-relaxed border-l border-white/15 pl-4">
+        Soluciones de ingeniería a la medida según las exigencias térmicas, operativas y arquitectónicas de tu sector.
       </p>
     </div>
+  </div>
 
-    <div class="mt-14 md:mt-16 space-y-3">
-      {rows.map((row) => (
-        <div class="flex flex-col md:flex-row gap-3 md:h-[460px]">
-          {row.map((item, itemIndex) => (
+  <!-- Showcase de Especialidades (Galería Horizontal Interactiva) -->
+  <div class="w-full border-y border-white/10">
+    <div class="flex flex-col md:flex-row w-full min-h-[600px] md:h-[680px]">
+      {SPECIALTIES.map((item, index) => {
+        const itemNumber = String(index + 1).padStart(2, "0");
+
+        return (
             <div
-              class="group relative w-full h-80 md:h-full md:flex-1 md:min-w-0 overflow-hidden rounded-2xl bg-vacrc-ink-900 cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[2.5]"
-              data-aos="fade-up"
-              data-aos-delay={Math.min(itemIndex + 1, 4) * 300}
+                class="group relative flex-1 w-full min-h-[300px] md:min-h-full border-b md:border-b-0 md:border-r border-white/10 overflow-hidden cursor-pointer md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[3.5]"
+                data-aos="fade-up"
+                data-aos-delay={Math.min(index, 6) * 100}
             >
+              <!-- Imagen de Fondo con Zoom sutil al hover -->
               <img
-                src={`/especialidades/${item.slug}.png`}
-                onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-                alt={item.name}
-                loading="lazy"
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src={`/especialidades/${item.slug}.png`}
+                  onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+                  alt={item.name}
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900/90 via-vacrc-ink-900/25 to-transparent"></div>
 
-              <div class="absolute inset-x-0 bottom-0 p-5">
-                <div class="w-10 h-10 rounded-lg bg-white/15 backdrop-blur border border-white/20 flex items-center justify-center text-white">
-                  <Icon icon={item.icon} class="w-5 h-5" />
+              <!-- Capa de Tinte Institucional (Sustituye la escala de grises con color de la página) -->
+              <div class="absolute inset-0 bg-vacrc-bg/75 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-10"></div>
+
+              <!-- Sombra Direccional para Lectura Directa -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10 transition-opacity duration-500 opacity-80 group-hover:opacity-90"></div>
+
+              <!-- Contenido Directo sobre la Imagen -->
+              <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
+
+                <!-- Cabecera de Fila: Número Serial + Icono Minimalista -->
+                <div class="flex items-center justify-between">
+                <span class="text-sm font-mono tracking-widest text-white/40 group-hover:text-vacrc-cyan-400 transition-colors duration-300">
+                  {itemNumber} //
+                </span>
+                  <div class="w-10 h-10 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/80 group-hover:text-vacrc-cyan-400 group-hover:border-vacrc-cyan-400/50 transition-colors duration-300">
+                    <Icon icon={item.icon} class="w-5 h-5" />
+                  </div>
                 </div>
-                <h3 class="text-tile-title text-white mt-3 text-2xl sm:text-[1.75rem]">{item.name}</h3>
-                <p class="text-tile-body mt-2 text-white/80 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem] text-justify max-h-40 opacity-100 overflow-hidden transition-all duration-500 md:max-h-0 md:opacity-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
-                  {item.short}
-                </p>
+
+                <!-- Pie de Fila: Título + Descripción Expandible -->
+                <div class="transform transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white tracking-tight leading-tight">
+                    {item.name}
+                  </h3>
+
+                  <!-- Línea de acento cian -->
+                  <div class="w-8 h-0.5 bg-vacrc-cyan-400 my-3 transition-all duration-500 group-hover:w-16"></div>
+
+                  <p class="text-white/75 font-montserrat text-xs sm:text-sm font-light leading-relaxed max-w-sm opacity-100 md:opacity-0 md:max-h-0 md:overflow-hidden group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
+                    {item.short}
+                  </p>
+                </div>
+
               </div>
             </div>
-          ))}
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>

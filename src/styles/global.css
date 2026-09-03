@@ -2,47 +2,47 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- Color system: navy + cool cyan, evoking clean air and cold --- */
-  --color-vacrc-bg: #FFFFFF;
-  --color-vacrc-bg-soft: #EAF4F5;
-  --color-vacrc-surface: #FFFFFF;
-  --color-vacrc-surface-alt: #DCEDF0;
+  /* --- Bugatti Dark Aesthetics: Deep Monocoque & Electric Cyan --- */
+  --color-vacrc-bg: #020617;           /* Slate Ultra Obscuro (Fibra de Carbono) */
+  --color-vacrc-bg-soft: #0B132B;      /* Azul Noche Técnico */
+  --color-vacrc-surface: #0F172A;      /* Panel Principal */
+  --color-vacrc-surface-alt: #1E293B;  /* Módulo de Diagnóstico */
 
-  /* Ink scale — navy-tinted neutrals for text/borders on a light theme */
-  --color-vacrc-ink-900: #0E1E33;
-  --color-vacrc-ink-700: #1D3A5C;
-  --color-vacrc-ink-500: #4C6483;
-  --color-vacrc-ink-400: #7688A0;
-  --color-vacrc-ink-300: #A4B2C4;
-  --color-vacrc-ink-200: #CCD6E2;
-  --color-vacrc-ink-100: #E4EAF2;
-  --color-vacrc-ink-50: #F3F6FA;
+  /* Ink Scale — Escala Metálica y Blanca para Dark Mode de Alta Precisión */
+  --color-vacrc-ink-900: #FFFFFF;      /* Texto Primario: Blanco Puro */
+  --color-vacrc-ink-700: #F1F5F9;      /* Blanco Titán */
+  --color-vacrc-ink-500: #94A3B8;      /* Acero Cepillado */
+  --color-vacrc-ink-400: #64748B;      /* Titanio Mate */
+  --color-vacrc-ink-300: #475569;      /* Aleación Oscura */
+  --color-vacrc-ink-200: #334155;      /* Borde de Precisión */
+  --color-vacrc-ink-100: #1E293B;      /* Estructura Interna */
+  --color-vacrc-ink-50:  #0F172A;      /* Fondo Secundario */
 
-  /* Muted steel accents, kept for icon strokes / fine detail */
-  --color-vacrc-steel-300: #B6C0CE;
-  --color-vacrc-steel-500: #859CA5;
-  --color-vacrc-steel-700: #48607F;
+  /* Acero & Cromado Técnico */
+  --color-vacrc-steel-300: #CBD5E1;
+  --color-vacrc-steel-500: #64748B;
+  --color-vacrc-steel-700: #334155;
 
-  /* Institutional navy, the primary brand blue */
---color-vacrc-blue-50: #0E1A29;
---color-vacrc-blue-100: #0C151F;
---color-vacrc-blue-400: #1C3F5E;
---color-vacrc-blue-500: #0F2E4F;
---color-vacrc-blue-600: #0A1C2E;
---color-vacrc-blue-700: #06111C;
-  /* Cool cyan accent, echoing ice/clean air instead of a warm tone */
-  --color-vacrc-cyan-400: #2E86AB;
-  --color-vacrc-cyan-600: #1D6580;
+  /* Institutional Navy (Colores de tu Empresa) */
+  --color-vacrc-blue-50:  #1E293B;
+  --color-vacrc-blue-100: #0F172A;
+  --color-vacrc-blue-400: #1E3A8A;     /* Azul Institucional */
+  --color-vacrc-blue-500: #1D4ED8;     /* Racing Blue Activo */
+  --color-vacrc-blue-600: #1E40AF;     /* Azul Profundo Bugatti */
+  --color-vacrc-blue-700: #0F172A;     /* Sombra Chasis */
+
+  /* Cool Cyan Accent (Acento Hiperdeportivo) */
+  --color-vacrc-cyan-400: #22D3EE;     /* Neon Telemetry Cyan */
+  --color-vacrc-cyan-600: #0891B2;     /* Cyan Industrial */
 
   /* --- Type --- */
   --font-display: 'Bitter', 'Inter', serif;
---font-body: 'DM Sans', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-montserrat: 'Montserrat', sans-serif;
 
-
   /* --- Motion --- */
-  --ease-flow: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-flow: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
@@ -60,9 +60,8 @@
   }
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
-  /* Elegant italic accent for section labels, e.g. "Divisiones" on hbs-delli.mx */
   .font-script {
     font-family: var(--font-display);
     font-style: italic;
@@ -70,119 +69,113 @@
     letter-spacing: 0;
   }
   ::selection {
-    background: var(--color-vacrc-blue-500);
-    color: white;
+    background: var(--color-vacrc-cyan-400);
+    color: #020617;
   }
 }
 
 @layer components {
-  /*
-   * Centralized typography roles. Every recurring text pattern on the site
-   * (eyebrow labels, headings, lead paragraphs, etc.) pulls its font-family
-   * and font-size from here, so both can be tuned in one place instead of
-   * hunting through each component. Color, margin and layout utilities stay
-   * inline per usage since they vary by context/background.
-   */
   .text-eyebrow {
-    @apply font-mono uppercase tracking-widest text-[0.9rem];
+    @apply font-mono uppercase tracking-[0.2em] text-[0.85rem] text-cyan-400;
   }
   .text-h1 {
-    @apply font-display font-bold leading-[0.95] text-5xl sm:text-6xl lg:text-7xl;
+    @apply font-display font-bold leading-[0.95] text-5xl sm:text-6xl lg:text-7xl text-white;
   }
   .text-h2 {
-    @apply font-display font-bold text-4xl sm:text-5xl;
+    @apply font-display font-bold text-4xl sm:text-5xl text-white;
   }
   .text-lead {
-    @apply text-[1.2rem] sm:text-[1.35rem] leading-relaxed;
+    @apply text-[1.2rem] sm:text-[1.35rem] leading-relaxed text-slate-300;
   }
   .text-card-title {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 600;
     letter-spacing: 0;
-    @apply text-4xl sm:text-5xl;
+    @apply text-4xl sm:text-5xl text-white;
   }
   .text-tile-title {
-    @apply font-display font-bold text-lg leading-tight;
+    @apply font-display font-bold text-lg leading-tight text-white;
   }
   .text-tile-body {
-    @apply text-sm leading-relaxed;
+    @apply text-sm leading-relaxed text-slate-400;
   }
   .text-badge-caption {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 600;
     letter-spacing: 0;
-    @apply text-2xl;
+    @apply text-2xl text-cyan-400;
   }
   .text-script-heading {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 600;
     letter-spacing: 0;
-    @apply text-3xl sm:text-4xl;
+    @apply text-3xl sm:text-4xl text-white;
   }
   .text-value-label {
-    @apply text-xs font-semibold uppercase tracking-wide leading-tight;
+    @apply text-xs font-mono uppercase tracking-widest leading-tight text-slate-400;
   }
   .text-nav-link {
-    @apply font-display font-medium text-sm;
+    @apply font-display font-medium text-sm text-slate-200 hover:text-cyan-400 transition-colors;
   }
   .text-footer-heading {
-    @apply font-bold text-base;
+    @apply font-mono uppercase tracking-wider text-sm text-white;
   }
   .text-eyebrow-badge {
-    @apply font-display font-bold uppercase tracking-wide text-xs;
+    @apply font-mono font-bold uppercase tracking-wider text-xs text-cyan-400;
   }
   .text-form-label {
-    @apply font-mono uppercase tracking-widest text-xs;
+    @apply font-mono uppercase tracking-widest text-xs text-slate-300;
   }
   .text-includes-label {
-    @apply font-bold text-sm uppercase tracking-wide;
+    @apply font-bold text-sm uppercase tracking-wide text-white;
   }
   .text-chip {
-    @apply text-[10.5px] leading-none;
+    @apply text-[10.5px] leading-none font-mono uppercase tracking-wider;
   }
   .text-chat-title {
-    @apply font-display font-bold text-sm;
+    @apply font-mono font-bold text-sm tracking-wider uppercase text-white;
   }
   .text-chat-subtitle {
-    @apply text-[11px];
+    @apply font-mono text-[10px] tracking-wider uppercase text-cyan-400;
   }
   .text-stat-number {
-    @apply font-display font-bold text-2xl;
+    @apply font-mono font-bold text-3xl text-white;
   }
   .text-fallback-brand {
-    @apply font-display font-bold text-xl;
+    @apply font-display font-bold text-xl text-white;
   }
 }
 
 @layer utilities {
-  /* Brushed-steel text fill for headings, tuned for a light background */
+  /* Brushed Titan/Crome Gradient para Títulos Bugatti */
   .text-metal {
-    background: linear-gradient(180deg, #33404F 0%, #17202E 30%, #4A5A6E 55%, #1A222E 80%, #384453 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #94A3B8 50%, #FFFFFF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
+  /* Resplandor Cian Neón / Azul de Telemetría */
   .text-glow-blue {
-    text-shadow: 0 0 30px rgba(29, 99, 199, 0.18);
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
   }
 
+  /* Parrilla Radial de Alto Rendimiento */
   .bg-grid {
     background-image:
-      linear-gradient(rgba(91, 101, 118, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(91, 101, 118, 0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
+            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
-  /* Keeps navbar text legible over photos of any brightness while its background is transparent */
   .text-shadow-nav {
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
   }
 
-  /* Cursor-tracking glow + 3D tilt, driven by --x/--y/--rx/--ry set via JS on mousemove */
+  /* Spotlight Card con halo Cian/Azul Racing */
   .spotlight-card {
     transform: perspective(900px) rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
   }
@@ -191,7 +184,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(280px circle at var(--x, 50%) var(--y, 50%), rgba(29, 78, 125, 0.16), transparent 65%);
+    background: radial-gradient(300px circle at var(--x, 50%) var(--y, 50%), rgba(34, 211, 238, 0.12), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -208,18 +201,13 @@
 
 @keyframes float-y {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  70% { transform: scale(1.4); opacity: 0; }
-  100% { transform: scale(1.4); opacity: 0; }
-}
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70% { transform: scale(1.3); opacity: 0; }
+  100% { transform: scale(1.3); opacity: 0; }
 }
 
 @keyframes shimmer {

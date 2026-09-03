@@ -1,58 +1,104 @@
 ---
 import { SERVICES } from "../data/site";
-import Icon from "./Icon.astro";
 ---
 
-<section id="alcance" class="relative">
-  <div class="absolute -top-8 left-1/2 -translate-x-1/2 z-10 w-16 h-16 rounded-full bg-white shadow-lg shadow-vacrc-ink-900/10 flex items-center justify-center text-vacrc-blue-500">
-    <Icon icon="fan" ring={false} class="w-8 h-8" />
+<section id="alcance" class="relative bg-vacrc-bg overflow-hidden">
+  <!-- Encabezado de Sección Minimalista -->
+  <div class="pt-24 pb-16 px-5 sm:px-8 max-w-7xl mx-auto text-center" data-aos="fade-up">
+    <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+      Proceso Editorial
+    </span>
+    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight max-w-3xl mx-auto leading-tight">
+      El desarrollo integral de tu proyecto de climatización
+    </h2>
   </div>
 
-  <div class="py-16 md:py-20 px-5 sm:px-8 bg-white">
-    <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
-      <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Lo que incluye tu proyecto</span>
-      <h2 class="text-h2 mt-3 text-metal">
-        El desarrollo integral de tu proyecto de climatización
-      </h2>
-    </div>
-  </div>
+  <!-- Lista de Pasos Bugatti-Style -->
+  <div class="flex flex-col">
+    {SERVICES.map((service, i) => {
+      const isEven = i % 2 === 1;
+      const stepNumber = String(i + 1).padStart(2, "0");
+      const totalSteps = String(SERVICES.length).padStart(2, "0");
 
-  {SERVICES.map((service, i) => (
-    <div class:list={["py-8 md:py-10", i % 2 === 0 ? "bg-vacrc-bg-soft" : "bg-white"]}>
-      <div
-        class:list={[
-          "max-w-[1440px] mx-auto px-5 sm:px-8 flex flex-col items-center md:items-stretch md:min-h-[460px] gap-10 md:gap-16",
-          i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row",
-        ]}
-        data-aos="fade-up"
-      >
-        <div class="w-full md:w-[60%] shrink-0">
-          <div class="relative h-96 md:aspect-auto md:h-full md:min-h-[320px] rounded-2xl overflow-hidden bg-vacrc-ink-900 shadow-sm shadow-vacrc-ink-900/[0.06]">
-            <img
-              src={`/hero/${service.slug}.png`}
-              onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-              alt={service.name}
-              loading="lazy"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
+      return (
+          <div class="relative group" data-aos="fade-up">
+            <!-- Separador Minimalista entre Pasos -->
+            {i > 0 && (
+                <div class="w-full bg-vacrc-bg py-6 flex items-center justify-center gap-4">
+                  <div class="h-px w-12 sm:w-24 bg-gradient-to-r from-transparent to-white/20"></div>
+                  <span class="text-[0.65rem] font-mono uppercase tracking-[0.25em] text-white/40">
+                Fase {stepNumber}
+              </span>
+                  <div class="h-px w-12 sm:w-24 bg-gradient-to-l from-transparent to-white/20"></div>
+                </div>
+            )}
+
+            <!-- Card/Bloque Principal full-bleed -->
+            <div class="relative min-h-[80vh] md:min-h-[88vh] flex items-end md:items-center overflow-hidden">
+              <!-- Imagen de Fondo con Zoom Sutil al pasar el cursor -->
+              <img
+                  src={`/hero/${service.slug}.png`}
+                  onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+                  alt={service.name}
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+              />
+
+              <!-- Overlay de Sombra Direccional para Lectura Directa -->
+              <div
+                  class:list={[
+                    "absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 md:bg-gradient-to-r",
+                    isEven
+                        ? "md:from-transparent md:via-black/60 md:to-black/90"
+                        : "md:from-black/90 md:via-black/60 md:to-transparent"
+                  ]}
+              ></div>
+
+              <!-- Contenido Directo en la Imagen -->
+              <div class="relative max-w-7xl mx-auto px-6 sm:px-12 w-full py-16 md:py-24 z-10">
+                <div class:list={["max-w-xl lg:max-w-2xl", isEven ? "md:ml-auto" : ""]}>
+
+                  <!-- Metadatos de Paso -->
+                  <div class="flex items-center gap-3 mb-4">
+                  <span class="text-4xl sm:text-6xl font-display font-black text-vacrc-cyan-400 tracking-tighter leading-none">
+                    {stepNumber}
+                  </span>
+                    <span class="text-white/30 text-xl font-light">/</span>
+                    <span class="text-xs uppercase tracking-[0.25em] text-white/60 font-montserrat font-semibold">
+                    Paso {stepNumber} de {totalSteps}
+                  </span>
+                  </div>
+
+                  <!-- Título del Servicio -->
+                  <h3 class="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight leading-tight">
+                    {service.name}
+                  </h3>
+
+                  <!-- Descripción Líder -->
+                  <p class="mt-4 md:mt-6 text-white/80 font-montserrat text-sm sm:text-base md:text-lg font-light leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <!-- Puntos Incluidos -->
+                  <div class="mt-8 pt-6 border-t border-white/15">
+                  <span class="block text-xs uppercase tracking-[0.2em] text-vacrc-cyan-400 font-montserrat font-bold mb-4">
+                    Especificaciones e Inclusiones
+                  </span>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                      {service.bullets.map((bullet) => (
+                          <li class="flex items-center gap-3 text-white/90 font-montserrat text-xs sm:text-sm font-normal">
+                            <span class="w-1.5 h-1.5 rounded-full bg-vacrc-cyan-400 shrink-0"></span>
+                            <span>{bullet}</span>
+                          </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="w-full md:w-[40%] flex flex-col md:justify-center">
-          <h3 class="text-card-title text-vacrc-blue-600">{service.name}</h3>
-          <p class="text-lead mt-5 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">{service.description}</p>
-
-          <p class="text-includes-label mt-7 text-vacrc-ink-900 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] text-justify">Lo que incluye</p>
-          <ul class="mt-3 flex flex-col gap-y-2">
-            {service.bullets.map((bullet) => (
-              <li class="flex items-center gap-2 text-vacrc-ink-600 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem] text-justify">
-                <span class="w-1.5 h-1.5 rounded-full bg-vacrc-blue-500 shrink-0"></span>
-                {bullet}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  ))}
+      );
+    })}
+  </div>
 </section>

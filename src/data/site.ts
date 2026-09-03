@@ -132,7 +132,6 @@ export type Brand = {
 // Placeholder: marcas reconocidas del sector HVAC/refrigeración.
 // Confirma o reemplaza esta lista por los proveedores reales de VACRC antes de publicar.
 export const BRANDS: Brand[] = [
-  { slug: "carrier", name: "Carrier" },
   { slug: "trane", name: "Trane" },
   { slug: "york", name: "York" },
   { slug: "daikin", name: "Daikin" },

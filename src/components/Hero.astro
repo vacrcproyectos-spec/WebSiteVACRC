@@ -1,74 +1,102 @@
 ---
 import { SERVICES } from "../data/site";
-import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 ---
 
-<section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden bg-vacrc-ink-900">
-  <!-- Full-screen service photo slideshow -->
+<section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden bg-black text-white border-b border-white/10">
+  <!-- Slideshow con Luminosidad Optimizada -->
   <div class="absolute inset-0">
     {SERVICES.map((service, i) => (
-      <img
-        src={`/hero/${service.slug}.png`}
-        onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
-        alt={service.name}
-        loading={i === 0 ? "eager" : "lazy"}
-        class:list={[
-          "hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out",
-          i === 0 ? "opacity-100" : "opacity-0",
-        ]}
-      />
+        <img
+            src={`/hero/${service.slug}.png`}
+            onerror="this.onerror=null;this.src='/hero/placeholder.svg';"
+            alt={service.name}
+            loading={i === 0 ? "eager" : "lazy"}
+            class:list={[
+              "hero-slide absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out scale-105",
+              i === 0 ? "opacity-85 scale-100" : "opacity-0",
+            ]}
+        />
     ))}
-    <div class="absolute inset-0 bg-gradient-to-t from-vacrc-ink-900 via-vacrc-ink-900/55 to-vacrc-ink-900/15"></div>
+    <!-- Gradiente Equilibrado (Oscurece solo bordes/base para legibilidad) -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
+    <!-- Overlay Táctico Ligero -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-30"></div>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-16 md:py-32 w-full">
-    <div class="max-w-2xl" data-aos="fade-up">
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur px-4 py-1.5 text-eyebrow text-white">
-        <span class="relative w-3.5 h-3.5">
-          {SERVICES.map((service, i) => (
-            <Icon
-              icon={service.icon}
-              class:list={["hero-label-icon absolute inset-0 w-3.5 h-3.5 transition-opacity duration-500", i === 0 ? "opacity-100" : "opacity-0"]}
-            />
-          ))}
-        </span>
-        <span id="hero-label-text">{SERVICES[0].name}</span>
-      </span>
+  <div class="relative max-w-7xl mx-auto px-6 sm:px-8 pt-32 pb-20 md:py-36 w-full z-10">
+    <div class="max-w-4xl mx-auto text-center flex flex-col items-center" data-aos="fade-up">
 
-      <h1 id="hero-title" class="text-h1 mt-6 text-white transition-opacity duration-500">
+      <!-- Eyebrow Tag Editorial -->
+      <div class="inline-flex items-center gap-3 px-3.5 py-1.5 border border-white/20 bg-black/40 backdrop-blur-md mb-6 shadow-lg">
+        <span class="w-2 h-2 bg-vacrc-cyan-400 animate-pulse"></span>
+        <span class="text-[0.7rem] uppercase tracking-[0.25em] text-white/90 font-montserrat font-semibold">
+          Ingeniería de Climatización
+        </span>
+      </div>
+
+      <!-- Título Principal con Lectura Definida -->
+      <h1
+          id="hero-title"
+          class="font-display font-extrabold uppercase text-4xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.92] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] transition-all duration-500 min-h-[2.5em] sm:min-h-[1.8em] flex items-center justify-center"
+      >
         {SERVICES[0].name}
       </h1>
 
-      <p id="hero-description" class="text-lead font-display mt-6 text-white/80 max-w-lg transition-opacity duration-500">
-        {SERVICES[0].description}
+      <!-- Subtítulo / Descripción Técnica -->
+      <p
+          id="hero-description"
+          class="mt-6 max-w-xl text-white/90 font-montserrat text-[0.8rem] sm:text-[0.9rem] uppercase tracking-[0.2em] font-medium leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] transition-all duration-500"
+      >
+        {SERVICES[0].short}
       </p>
 
-      <div class="mt-9 flex flex-wrap gap-4">
-        <Button href="#contacto" icon="arrow">
+      <!-- Botones de Acción Estilo Bugatti -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <Button href="#contacto" icon="arrow" class="w-full sm:w-auto">
           Solicitar cotización
         </Button>
-        <Button href="#alcance" variant="secondary-light">
+        <Button href="#alcance" variant="secondary-light" class="w-full sm:w-auto">
           Ver alcance
         </Button>
       </div>
 
-      <div class="mt-12 flex items-center gap-8 font-mono text-white/70 text-sm">
-        <div>
-          <p class="text-stat-number text-white">+10</p>
-          <p>años de experiencia</p>
+      <!-- Módulo Telemétrico de Experiencia -->
+      <div class="mt-14 pt-8 border-t border-white/20 flex items-center justify-center gap-10">
+        <div class="flex items-center gap-4 text-left">
+          <span class="font-display font-bold text-4xl sm:text-5xl text-white drop-shadow-md tracking-tighter">
+            +10
+          </span>
+          <div class="flex flex-col">
+            <span class="text-[0.65rem] uppercase tracking-[0.2em] text-vacrc-cyan-400 font-montserrat font-semibold drop-shadow">Años de</span>
+            <span class="text-[0.75rem] uppercase tracking-[0.15em] text-white/80 font-montserrat font-medium drop-shadow">Experiencia</span>
+          </div>
         </div>
       </div>
+
     </div>
 
-    <!-- Slide indicators -->
-    <div class="mt-12 flex gap-2" data-aos="fade-up" data-aos-delay="600">
+    <!-- Indicadores de Slide Estilo Telemetría -->
+    <div class="mt-16 flex items-center justify-center gap-3 sm:gap-4" data-aos="fade-up" data-aos-delay="400">
       {SERVICES.map((service, i) => (
-        <button
-          type="button"
-          class:list={["hero-dot h-1 rounded-full transition-all duration-500 cursor-pointer", i === 0 ? "w-12 bg-white" : "w-8 bg-white/30"]}
-          aria-label={`Ver ${service.name}`}
-        ></button>
+          <button
+              type="button"
+              class:list={[
+                "hero-dot group relative flex flex-col items-center gap-1.5 py-2 cursor-pointer transition-all duration-300",
+                i === 0 ? "opacity-100" : "opacity-50 hover:opacity-90"
+              ]}
+              aria-label={`Ver ${service.name}`}
+          >
+          <span class="text-[0.65rem] font-mono tracking-widest text-white drop-shadow">
+            0{i + 1}
+          </span>
+            <div
+                class:list={[
+                  "hero-bar h-[2px] transition-all duration-500 bg-white shadow-sm",
+                  i === 0 ? "w-12 bg-vacrc-cyan-400" : "w-6 group-hover:w-8"
+                ]}
+            ></div>
+          </button>
       ))}
     </div>
   </div>
@@ -76,43 +104,51 @@ import Button from "./Button.astro";
 
 <script define:vars={{ services: SERVICES }}>
   const slides = document.querySelectorAll(".hero-slide");
-  const labelIcons = document.querySelectorAll(".hero-label-icon");
-  const labelText = document.getElementById("hero-label-text");
   const dots = document.querySelectorAll(".hero-dot");
+  const bars = document.querySelectorAll(".hero-bar");
   const names = Array.from(dots).map((dot) => dot.getAttribute("aria-label")?.replace("Ver ", "") ?? "");
   const titleEl = document.getElementById("hero-title");
   const descriptionEl = document.getElementById("hero-description");
-  const descriptions = services.map((s) => s.description);
+  const descriptions = services.map((s) => s.short);
 
   let current = 0;
   let timer;
 
   const show = (index) => {
     slides.forEach((el, i) => {
-      el.classList.toggle("opacity-100", i === index);
-      el.classList.toggle("opacity-0", i !== index);
+      if (i === index) {
+        el.classList.add("opacity-85", "scale-100");
+        el.classList.remove("opacity-0", "scale-105");
+      } else {
+        el.classList.add("opacity-0", "scale-105");
+        el.classList.remove("opacity-85", "scale-100");
+      }
     });
-    labelIcons.forEach((el, i) => {
-      el.classList.toggle("opacity-100", i === index);
-      el.classList.toggle("opacity-0", i !== index);
-    });
+
     dots.forEach((el, i) => {
-      el.classList.toggle("w-12", i === index);
-      el.classList.toggle("bg-white", i === index);
-      el.classList.toggle("w-8", i !== index);
-      el.classList.toggle("bg-white/30", i !== index);
+      el.classList.toggle("opacity-100", i === index);
+      el.classList.toggle("opacity-50", i !== index);
     });
-    if (labelText) labelText.textContent = names[index];
+
+    bars.forEach((bar, i) => {
+      if (i === index) {
+        bar.classList.add("w-12", "bg-vacrc-cyan-400");
+        bar.classList.remove("w-6", "bg-white");
+      } else {
+        bar.classList.add("w-6", "bg-white");
+        bar.classList.remove("w-12", "bg-vacrc-cyan-400");
+      }
+    });
 
     if (titleEl && descriptionEl) {
-      titleEl.classList.add("opacity-0");
-      descriptionEl.classList.add("opacity-0");
+      titleEl.classList.add("opacity-0", "translate-y-2");
+      descriptionEl.classList.add("opacity-0", "translate-y-2");
       window.setTimeout(() => {
         titleEl.textContent = names[index];
         descriptionEl.textContent = descriptions[index];
-        titleEl.classList.remove("opacity-0");
-        descriptionEl.classList.remove("opacity-0");
-      }, 500);
+        titleEl.classList.remove("opacity-0", "translate-y-2");
+        descriptionEl.classList.remove("opacity-0", "translate-y-2");
+      }, 400);
     }
 
     current = index;

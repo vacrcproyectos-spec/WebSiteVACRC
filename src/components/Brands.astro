@@ -1,38 +1,47 @@
 ---
 import { BRANDS } from "../data/site";
-import SectionDivider from "./SectionDivider.astro";
-const track = [...BRANDS, ...BRANDS];
 ---
 
-<section id="marcas" class="relative py-20 md:py-24 bg-white border-t border-vacrc-ink-100">
-  <SectionDivider />
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
-      <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Respaldo de fábrica</span>
-      <h2 class="text-h2 mt-3 text-metal">
-        Trabajamos con las marcas líderes del sector
-      </h2>
+<section id="marcas" class="relative py-24 md:py-32 bg-vacrc-bg border-t border-white/10 overflow-hidden">
+
+  <!-- Encabezado Editorial / Bugatti Style -->
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 mb-16 md:mb-20" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+          Respaldo de Fábrica
+        </span>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight leading-tight">
+          Trabajamos con las marcas líderes del sector
+        </h2>
+      </div>
+      <p class="text-white/60 font-montserrat font-light text-sm sm:text-base max-w-md leading-relaxed border-l border-white/15 pl-4">
+        Sistemas integrales compatibles con la tecnología de climatización más exigente y avanzada del mercado global.
+      </p>
     </div>
   </div>
 
-  <div class="relative mt-12 overflow-hidden" data-aos="fade-up" data-aos-delay="600">
-    <div class="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-    <div class="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+  <!-- Tira Infinita / Marquee con Estilo Showcase Bugatti -->
+  <div class="relative w-full border-y border-white/10 py-8 bg-black/20" data-aos="fade-up">
+    <!-- Degradados laterales sutiles para difuminado de bordes -->
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-36 bg-gradient-to-r from-vacrc-bg to-transparent z-10"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-36 bg-gradient-to-l from-vacrc-bg to-transparent z-10"></div>
 
-    <div class="flex w-max animate-marquee">
-      {track.map((brand) => (
-        <div class="flex items-center justify-center shrink-0 w-44 h-24 mx-4">
-          <img
-            src={`/brands/${brand.slug}.png`}
-            alt={brand.name}
-            class="max-h-10 max-w-[140px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-          />
-          <span class="text-fallback-brand hidden items-center justify-center w-full h-full text-vacrc-ink-300 hover:text-vacrc-blue-600 transition-colors duration-300">
+    <div class="flex w-max animate-marquee items-center">
+      {[...BRANDS, ...BRANDS].map((brand) => (
+          <div class="group flex items-center justify-center shrink-0 w-48 sm:w-56 h-20 px-6 border-r border-white/10">
+            <img
+                src={`/brands/${brand.slug}.png`}
+                alt={brand.name}
+                class="max-h-9 max-w-[130px] object-contain brightness-0 invert opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ease-out"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <span class="text-fallback-brand hidden items-center justify-center w-full h-full text-white/40 group-hover:text-vacrc-cyan-400 font-display font-bold tracking-wider text-sm transition-colors duration-300">
             {brand.name}
           </span>
-        </div>
+          </div>
       ))}
     </div>
   </div>
+
 </section>

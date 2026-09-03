@@ -8,156 +8,175 @@ const { icon, class: className = "w-8 h-8", ring = true } = Astro.props;
 ---
 
 {icon === "fan" && (
-  <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    {ring && <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" />}
-    <g class="origin-center">
-      <path d="M24 24C24 24 22 12 28 8C33 5 38 9 36 15C34 20 24 24 24 24Z" fill="currentColor" fill-opacity="0.9" />
-      <path d="M24 24C24 24 36 22 40 28C43 33 39 38 33 36C28 34 24 24 24 24Z" fill="currentColor" fill-opacity="0.75" />
-      <path d="M24 24C24 24 26 36 20 40C15 43 10 39 12 33C14 28 24 24 24 24Z" fill="currentColor" fill-opacity="0.6" />
-      <path d="M24 24C24 24 12 26 8 20C5 15 9 10 15 12C20 14 24 24 24 24Z" fill="currentColor" fill-opacity="0.45" />
-    </g>
-    <circle cx="24" cy="24" r="3.5" fill="currentColor" />
-  </svg>
-)}
+<svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  {ring && <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="4 2" />}
+  <g class="origin-center">
+    <path d="M24 24C24 24 22 10 28 6C33 3 38 7 36 13C34 18 24 24 24 24Z" fill="currentColor" fill-opacity="0.85" />
+    <path d="M24 24C24 24 38 22 42 28C45 33 41 38 35 36C30 34 24 24 24 24Z" fill="currentColor" fill-opacity="0.7" />
+    <path d="M24 24C24 24 26 38 20 42C15 45 10 41 12 35C14 30 24 24 24 24Z" fill="currentColor" fill-opacity="0.55" />
+    <path d="M24 24C24 24 10 26 6 20C3 15 7 10 13 12C18 14 24 24 24 24Z" fill="currentColor" fill-opacity="0.4" />
+  </g>
+  <rect x="22" y="22" width="4" height="4" fill="currentColor" />
+</svg>
+    )}
 
 {icon === "ac" && (
-  <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="14" width="36" height="12" rx="3" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.08" />
-    <circle cx="12" cy="20" r="1.4" fill="currentColor" />
-    <path d="M10 30C13 32 16 34 12 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M20 30C23 33 26 35 22 41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M30 30C33 32 36 34 32 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-  </svg>
-)}
+<svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="14" width="38" height="12" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.04" />
+  <rect x="9" y="18" width="4" height="4" fill="currentColor" />
+  <path d="M12 30L10 40" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M24 30L24 41" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M36 30L38 40" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+</svg>
+    )}
 
 {icon === "conservacion" && (
-  <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="5" width="28" height="38" rx="3" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.06" />
-    <line x1="10" y1="23" x2="38" y2="23" stroke="currentColor" stroke-width="1.5" />
-    <circle cx="16" cy="14" r="2.4" fill="currentColor" fill-opacity="0.55" />
-    <circle cx="24" cy="16" r="2.4" fill="currentColor" fill-opacity="0.55" />
-    <circle cx="16" cy="33" r="2.4" fill="currentColor" fill-opacity="0.55" />
-    <path d="M31 11V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <circle cx="31" cy="24" r="3" stroke="currentColor" stroke-width="1.5" />
-  </svg>
-)}
+<svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="5" width="28" height="38" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.04" />
+  <line x1="10" y1="22" x2="38" y2="22" stroke="currentColor" stroke-width="1.2" />
+  <rect x="14" y="12" width="4" height="4" fill="currentColor" fill-opacity="0.7" />
+  <rect x="22" y="12" width="4" height="4" fill="currentColor" fill-opacity="0.7" />
+  <rect x="14" y="30" width="4" height="4" fill="currentColor" fill-opacity="0.7" />
+  <path d="M31 10V20" stroke="currentColor" stroke-width="1.2" />
+  <rect x="29" y="20" width="4" height="4" stroke="currentColor" stroke-width="1.2" />
+</svg>
+    )}
 
 {icon === "refrigeracion" && (
-  <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 6H24C24 6 24 20 24 24C24 27 27 27 27 30C27 33.3137 24.3137 36 21 36C17.6863 36 15 33.3137 15 30C15 27 18 27 18 24C18 20 18 6 20 6Z" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.08" />
-    <circle cx="21" cy="30" r="2.2" fill="currentColor" />
-    <path d="M32 14L38 10M32 14L38 18M32 14H30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M32 24L39 24M32 24L36 20M32 24L36 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M19 6H23V24C23 27 26 27 26 30C26 33.3 23.3 36 20 36C16.7 36 14 33.3 14 30C14 27 17 27 17 24V6H19Z" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.04" />
+  <rect x="18" y="28" width="4" height="4" fill="currentColor" />
+  <path d="M30 14L36 10M30 14L36 18M30 14H28" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M30 24L37 24M30 24L34 20M30 24L34 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+</svg>
+    )}
 
 {icon === "congelacion" && (
-  <svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-      <line x1="24" y1="6" x2="24" y2="42" />
-      <line x1="10" y1="14" x2="38" y2="34" />
-      <line x1="10" y1="34" x2="38" y2="14" />
-      <path d="M24 6L21 10M24 6L27 10" />
-      <path d="M24 42L21 38M24 42L27 38" />
-      <path d="M10 14L14.5 13.5M10 14L11.5 18.5" />
-      <path d="M38 34L33.5 34.5M38 34L36.5 29.5" />
-      <path d="M10 34L14.5 34.5M10 34L11.5 29.5" />
-      <path d="M38 14L33.5 13.5M38 14L36.5 18.5" />
-    </g>
-  </svg>
-)}
+<svg viewBox="0 0 48 48" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+    <line x1="24" y1="6" x2="24" y2="42" />
+    <line x1="9" y1="15" x2="39" y2="33" />
+    <line x1="9" y1="33" x2="39" y2="15" />
+    <path d="M24 6L20 10M24 6L28 10" />
+    <path d="M24 42L20 38M24 42L28 38" />
+    <path d="M9 15L14 14M9 15L11 19.5" />
+    <path d="M39 33L34 34M39 33L37 28.5" />
+    <path d="M9 33L14 34M9 33L11 28.5" />
+    <path d="M39 15L34 14M39 15L37 19.5" />
+  </g>
+</svg>
+    )}
 
 {icon === "arrow" && (
-  <svg viewBox="0 0 16 16" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 16 16" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "phone" && (
-  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 5.5C3 4.67 3.67 4 4.5 4H6.6L8 8L6 9.5C6.8 11.5 8.5 13.2 10.5 14L12 12L16 13.4V15.5C16 16.33 15.33 17 14.5 17C8.15 17 3 11.85 3 5.5Z" stroke="currentColor" stroke-width="1.3" />
-  </svg>
-)}
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 4H7L8.5 8.5L6 10C7.2 12.2 9.8 14 12 15L13.5 12.5L18 14V18H14C7.37 18 2 12.63 2 6V4H3Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "email" && (
-  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 5H17V15H3V5Z" stroke="currentColor" stroke-width="1.3" />
-    <path d="M3 5L10 11L17 5" stroke="currentColor" stroke-width="1.3" />
-  </svg>
-)}
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="4" width="16" height="12" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity="0.04" />
+  <path d="M2 4L10 10.5L18 4" stroke="currentColor" stroke-width="1.2" />
+</svg>
+    )}
 
 {icon === "location" && (
-  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 18C10 18 16 12.5 16 8.5C16 5 13.3 2.5 10 2.5C6.7 2.5 4 5 4 8.5C4 12.5 10 18 10 18Z" stroke="currentColor" stroke-width="1.3" />
-    <circle cx="10" cy="8.5" r="2" stroke="currentColor" stroke-width="1.3" />
-  </svg>
-)}
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 18L16 10C16 6.5 13.3 3 10 3C6.7 3 4 6.5 4 10L10 18Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" />
+  <rect x="9" y="8" width="2" height="2" fill="currentColor" />
+</svg>
+    )}
+
+{icon === "whatsapp" && (
+<svg viewBox="0 0 24 24" class={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 4.99L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.83 14.15c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.14.11-1.83-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.19-1.58-1.19-3.02 0-1.44.75-2.14 1.02-2.43.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.16.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.61-.07.17-.19.71-.83.9-1.12.19-.29.38-.24.64-.14.26.1 1.64.77 1.92.91.28.14.47.21.53.33.07.12.07.68-.17 1.36Z" />
+</svg>
+    )}
+
+{icon === "user" && (
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="7.5" y="3.5" width="5" height="5" stroke="currentColor" stroke-width="1.2" />
+  <path d="M3 17.5V14H17V17.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+</svg>
+    )}
+
+{icon === "message" && (
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 4H17V13H8L4 16V13H3V4Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" fill="currentColor" fill-opacity="0.04" />
+</svg>
+    )}
 
 {icon === "copy" && (
-  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3" />
-    <path d="M4.5 13H3.5C3.22 13 3 12.78 3 12.5V3.5C3 3.22 3.22 3 3.5 3H12.5C12.78 3 13 3.22 13 3.5V4.5" stroke="currentColor" stroke-width="1.3" />
-  </svg>
-)}
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="7" y="7" width="10" height="10" stroke="currentColor" stroke-width="1.2" />
+  <path d="M4 13H3V3H13V4" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+</svg>
+    )}
 
 {icon === "check" && (
-  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M3.5 10.5L7.5 14.5L16.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "refresh" && (
-  <svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 10a6 6 0 1 1-1.76-4.24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M16 3.5V7.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 20 20" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 10a6 6 0 1 1-1.76-4.24" stroke="currentColor" stroke-width="1.3" stroke-linecap="square" />
+  <path d="M16 3V7H12" stroke="currentColor" stroke-width="1.3" stroke-linecap="square" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "target" && (
-  <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5" />
-    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" />
-    <circle cx="12" cy="12" r="1.2" fill="currentColor" />
-  </svg>
-)}
+<svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="3.5" y="3.5" width="17" height="17" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2" />
+  <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.2" />
+  <rect x="11" y="11" width="2" height="2" fill="currentColor" />
+</svg>
+    )}
 
 {icon === "scale" && (
-  <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 3V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M6 21H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M12 5L4 7.5L12 5L20 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M4 7.5L1.5 13C1.5 14.5 3 15.5 4.5 15.5C6 15.5 7.5 14.5 7.5 13L4 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-    <path d="M20 7.5L17.5 13C17.5 14.5 19 15.5 20.5 15.5C22 15.5 23.5 14.5 23.5 13L20 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3V19" stroke="currentColor" stroke-width="1.2" />
+  <path d="M5 21H19" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M12 5L4 7.5M12 5L20 7.5" stroke="currentColor" stroke-width="1.2" />
+  <path d="M4 7.5L1.5 13H6.5L4 7.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" />
+  <path d="M20 7.5L17.5 13H22.5L20 7.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "gem" && (
-  <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 9L12 21L20 9L16 3H8L4 9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill-opacity="0.06" fill="currentColor" />
-    <path d="M4 9H20M9 3L8.5 9L12 21L15.5 9L15 3" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 9L12 21L21 9L17 3H7L3 9Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" fill-opacity="0.04" fill="currentColor" />
+  <path d="M3 9H21M8 3L7.5 9L12 21L16.5 9L16 3" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "shield" && (
-  <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 3L20 6.5V11C20 16 16.5 19.5 12 21C7.5 19.5 4 16 4 11V6.5L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill-opacity="0.06" fill="currentColor" />
-    <path d="M8.5 12L11 14.5L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3L20 6.5V11C20 16 16.5 19.5 12 21C7.5 19.5 4 16 4 11V6.5L12 3Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" fill-opacity="0.04" fill="currentColor" />
+  <path d="M8.5 11.5L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="square" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "bulb" && (
-  <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 18H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M10 21H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M12 3C8.13 3 5 6.13 5 10C5 12.5 6.3 14.2 7.6 15.4C8.3 16.05 8.5 16.4 8.5 17.5H15.5C15.5 16.4 15.7 16.05 16.4 15.4C17.7 14.2 19 12.5 19 10C19 6.13 15.87 3 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-  </svg>
-)}
+<svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M9 18H15" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M10 21H14" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M12 3C8.13 3 5 6.13 5 10C5 12.5 6.3 14.2 7.6 15.4C8.3 16.05 8.5 16.4 8.5 17.5H15.5C15.5 16.4 15.7 16.05 16.4 15.4C17.7 14.2 19 12.5 19 10C19 6.13 15.87 3 12 3Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter" />
+</svg>
+    )}
 
 {icon === "team" && (
-  <svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="8.5" cy="8" r="3" stroke="currentColor" stroke-width="1.5" />
-    <circle cx="16.5" cy="9" r="2.4" stroke="currentColor" stroke-width="1.5" />
-    <path d="M3 20C3 16.5 5.5 14 8.5 14C11.5 14 14 16.5 14 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M14.5 14.5C17 14.5 19.5 16.5 19.5 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-  </svg>
-)}
+<svg viewBox="0 0 24 24" fill="none" class={className} xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="5" width="5" height="5" stroke="currentColor" stroke-width="1.2" />
+  <rect x="14" y="6" width="4" height="4" stroke="currentColor" stroke-width="1.2" />
+  <path d="M2.5 19.5V15H14.5V19.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+  <path d="M14.5 15.5H20.5V19.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="square" />
+</svg>
+    )}

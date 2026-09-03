@@ -4,90 +4,137 @@ import Button from "./Button.astro";
 import SocialIcon from "./SocialIcon.astro";
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50">
-  <div id="navbar-shell" class="transition-all duration-300">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out">
+  <div id="navbar-shell" class="transition-all duration-300 border-b border-transparent bg-transparent">
     <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
-      <a href="#inicio" class="flex items-center h-9 md:h-10">
+
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center h-9 md:h-10 group">
         <img
-          src="/logo.svg"
-          alt={SITE.name}
-          class="h-8 md:h-9 w-auto object-contain drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+            src="/logo.svg"
+            alt={SITE.name}
+            class="h-7 md:h-8 w-auto object-contain brightness-200 contrast-200 transition-transform duration-300 group-hover:scale-105"
         />
       </a>
 
-      <ul class="hidden lg:flex items-center gap-9 text-nav-link">
+      <!-- Desktop Links -->
+      <ul class="hidden lg:flex items-center gap-8">
         {NAV_LINKS.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="navbar-link relative py-1.5 text-white/80 text-shadow-nav hover:text-white transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-vacrc-blue-500 hover:after:w-full after:transition-all after:duration-300"
-            >
-              {link.label}
-            </a>
-          </li>
+            <li>
+              <a
+                  href={link.href}
+                  class="navbar-link relative py-2 font-montserrat text-[0.75rem] uppercase tracking-[0.2em] text-white/70 hover:text-white transition-colors after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-vacrc-cyan-400 hover:after:w-full after:transition-all after:duration-300"
+              >
+                {link.label}
+              </a>
+            </li>
         ))}
       </ul>
 
-      <div class="hidden lg:flex items-center gap-3">
-        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
-          <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-5 h-5" />
+      <!-- Social Media Icons -->
+      <div class="hidden lg:flex items-center gap-2">
+        <a
+            href={SOCIAL.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook de VACRC"
+            class="social-icon group w-9 h-9 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+        >
+          <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-3.5 h-3.5 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity" />
         </a>
-        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
-          <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-5 h-5" />
+        <a
+            href={SOCIAL.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de VACRC"
+            class="social-icon group w-9 h-9 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+        >
+          <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-3.5 h-3.5 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity" />
         </a>
-        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
-          <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-5 h-5" />
+        <a
+            href={SOCIAL.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp de VACRC"
+            class="social-icon group w-9 h-9 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+        >
+          <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-3.5 h-3.5 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity" />
         </a>
       </div>
 
+      <!-- Action Button -->
       <div class="hidden lg:block">
         <Button href="#contacto" size="sm">
           Cotizar servicio
         </Button>
       </div>
 
+      <!-- Mobile Menu Button -->
       <button
-        id="menu-toggle"
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        class="lg:hidden relative w-10 h-10 flex items-center justify-center text-white text-shadow-nav transition-colors duration-300 cursor-pointer"
+          id="menu-toggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          class="lg:hidden relative w-10 h-10 border border-white/15 bg-white/[0.03] flex items-center justify-center text-white transition-colors duration-300 cursor-pointer hover:border-vacrc-cyan-400"
       >
         <span class="sr-only">Menú</span>
-        <div class="w-6 flex flex-col gap-1.5">
-          <span id="bar1" class="block h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
-          <span id="bar2" class="block h-0.5 bg-current rounded transition-all duration-300"></span>
-          <span id="bar3" class="block h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+        <div class="w-5 flex flex-col gap-1.5">
+          <span id="bar1" class="block h-0.5 bg-current transition-all duration-300 origin-center"></span>
+          <span id="bar2" class="block h-0.5 bg-current transition-all duration-300"></span>
+          <span id="bar3" class="block h-0.5 bg-current transition-all duration-300 origin-center"></span>
         </div>
       </button>
+
     </nav>
   </div>
 
+  <!-- Mobile Dropdown Menu -->
   <div
-    id="mobile-menu"
-    class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-out bg-white/60 backdrop-blur-md border-b border-vacrc-blue-500/30"
+      id="mobile-menu"
+      class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-500 ease-out bg-black/90 backdrop-blur-xl border-b border-white/10"
   >
-    <ul class="flex flex-col px-6 py-4 gap-1 text-nav-link">
+    <ul class="flex flex-col px-6 py-6 gap-2 font-montserrat">
       {NAV_LINKS.map((link) => (
-        <li>
-          <a href={link.href} class="mobile-link navbar-link block py-3 border-b border-vacrc-blue-500/30 text-center uppercase transition-colors">
-            {link.label}
-          </a>
-        </li>
+          <li>
+            <a
+                href={link.href}
+                class="mobile-link navbar-link block py-3 border-b border-white/10 text-white/80 hover:text-vacrc-cyan-400 text-center text-xs uppercase tracking-[0.25em] transition-colors"
+            >
+              {link.label}
+            </a>
+          </li>
       ))}
-      <li class="pt-3">
+      <li class="pt-4">
         <Button href="#contacto" size="sm" class="mobile-link w-full">
           Cotizar servicio
         </Button>
       </li>
-      <li class="flex items-center justify-center gap-6 pt-5">
-        <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
-          <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-6 h-6" />
+      <li class="flex items-center justify-center gap-3 pt-6">
+        <a
+            href={SOCIAL.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook de VACRC"
+            class="group w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+        >
+          <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-4 h-4 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity" />
         </a>
-        <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
-          <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-6 h-6" />
+        <a
+            href={SOCIAL.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de VACRC"
+            class="group w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+        >
+          <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-4 h-4 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity" />
         </a>
-        <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="social-icon text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] hover:text-vacrc-cyan-400 transition-colors">
-          <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-6 h-6" />
+        <a
+            href={SOCIAL.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp de VACRC"
+            class="group w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+        >
+          <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-4 h-4 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity" />
         </a>
       </li>
     </ul>
@@ -95,66 +142,79 @@ import SocialIcon from "./SocialIcon.astro";
 </header>
 
 <script>
+  const header = document.getElementById("site-header");
   const shell = document.getElementById("navbar-shell");
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
   const bar1 = document.getElementById("bar1");
   const bar2 = document.getElementById("bar2");
   const bar3 = document.getElementById("bar3");
-  const navLinks = document.querySelectorAll<HTMLElement>(".navbar-link");
-  const socialIcons = document.querySelectorAll<HTMLElement>(".social-icon");
+
+  let menuOpen = false;
+
+  const HIDE_THRESHOLD = 80;
+  let lastScrollY = window.scrollY;
+  let headerHidden = false;
+
+  const setHeaderVisibility = () => {
+    if (!header || menuOpen) return;
+    const currentY = window.scrollY;
+    const scrollingDown = currentY > lastScrollY;
+
+    if (scrollingDown && currentY > HIDE_THRESHOLD && !headerHidden) {
+      headerHidden = true;
+      header.style.transform = "translateY(-100%)";
+    } else if ((!scrollingDown || currentY <= HIDE_THRESHOLD) && headerHidden) {
+      headerHidden = false;
+      header.style.transform = "translateY(0)";
+    }
+    lastScrollY = currentY;
+  };
 
   const setScrolled = () => {
     if (!shell) return;
-    // On mobile/tablet (below the lg breakpoint, where the hamburger menu lives)
-    // the header always shows the glass background and dark icons, regardless
-    // of scroll position — only the desktop bar waits for an actual scroll.
-    const isMobileViewport = window.innerWidth < 1024;
-    const scrolled = isMobileViewport || window.scrollY > 8;
-    // Text turns dark as soon as the glass background shows, so it never
-    // sits white-on-white once the bar stops being fully transparent.
+    const scrolled = window.scrollY > 20 || menuOpen;
 
-    shell.classList.toggle("backdrop-blur-md", scrolled);
-    shell.classList.toggle("bg-white/60", scrolled);
-    shell.classList.toggle("shadow-[0_1px_0_0_rgba(15,22,33,0.04)]", scrolled);
-
-    toggle?.classList.toggle("text-vacrc-blue-500", scrolled);
-    toggle?.classList.toggle("text-white", !scrolled);
-    toggle?.classList.toggle("text-shadow-nav", !scrolled);
-
-    navLinks.forEach((link) => {
-      link.classList.toggle("text-vacrc-blue-500", scrolled);
-      link.classList.toggle("hover:text-vacrc-blue-600", scrolled);
-      link.classList.toggle("text-white/80", !scrolled);
-      link.classList.toggle("hover:text-white", !scrolled);
-      link.classList.toggle("text-shadow-nav", !scrolled);
-    });
-
-    socialIcons.forEach((icon) => {
-      icon.classList.toggle("text-vacrc-blue-500", scrolled);
-      icon.classList.toggle("text-white", !scrolled);
-      icon.classList.toggle("drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]", !scrolled);
-    });
+    if (scrolled) {
+      shell.classList.add("bg-black/80", "backdrop-blur-md", "border-white/10");
+      shell.classList.remove("bg-transparent", "border-transparent");
+    } else {
+      shell.classList.add("bg-transparent", "border-transparent");
+      shell.classList.remove("bg-black/80", "backdrop-blur-md", "border-white/10");
+    }
   };
+
   setScrolled();
-  window.addEventListener("scroll", setScrolled, { passive: true });
+  setHeaderVisibility();
+
+  window.addEventListener("scroll", () => {
+    setScrolled();
+    setHeaderVisibility();
+  }, { passive: true });
+
   window.addEventListener("resize", setScrolled);
 
-  let open = false;
   const setMenu = (state: boolean) => {
-    open = state;
-    toggle?.setAttribute("aria-expanded", String(open));
+    menuOpen = state;
+    toggle?.setAttribute("aria-expanded", String(menuOpen));
+    if (menuOpen && header) {
+      headerHidden = false;
+      header.style.transform = "translateY(0)";
+    }
+
+    setScrolled();
+
     if (!menu) return;
-    menu.style.maxHeight = open ? menu.scrollHeight + "px" : "0px";
-    bar1?.classList.toggle("rotate-45", open);
-    bar1?.classList.toggle("translate-y-2", open);
-    bar2?.classList.toggle("opacity-0", open);
-    bar3?.classList.toggle("-rotate-45", open);
-    bar3?.classList.toggle("-translate-y-2", open);
+    menu.style.maxHeight = menuOpen ? menu.scrollHeight + "px" : "0px";
+    bar1?.classList.toggle("rotate-45", menuOpen);
+    bar1?.classList.toggle("translate-y-2", menuOpen);
+    bar2?.classList.toggle("opacity-0", menuOpen);
+    bar3?.classList.toggle("-rotate-45", menuOpen);
+    bar3?.classList.toggle("-translate-y-2", menuOpen);
   };
 
-  toggle?.addEventListener("click", () => setMenu(!open));
+  toggle?.addEventListener("click", () => setMenu(!menuOpen));
   document.querySelectorAll(".mobile-link").forEach((el) =>
-    el.addEventListener("click", () => setMenu(false))
+      el.addEventListener("click", () => setMenu(false))
   );
 </script>

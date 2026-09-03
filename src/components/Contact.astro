@@ -3,7 +3,6 @@ import "toastify-js/src/toastify.css";
 import { SITE, SOCIAL } from "../data/site";
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
-import SectionDivider from "./SectionDivider.astro";
 
 const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL.replace(/\/$/, "");
 const CONTACT_API_URL = `${API_BASE_URL}/api/v1/contact/send-email`;
@@ -11,169 +10,282 @@ const CAPTCHA_API_URL = `${API_BASE_URL}/api/v1/captcha`;
 const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 ---
 
-<section id="contacto" class="relative py-24 md:py-32 bg-white border-t border-vacrc-ink-100">
-  <SectionDivider />
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-vacrc-ink-100 blur-[100px]"></div>
-  </div>
+<section id="contacto" class="relative py-24 md:py-32 bg-vacrc-bg border-t border-white/10 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8">
 
-  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-5 gap-12">
-    <div class="lg:col-span-2" data-aos="fade-up">
-      <span class="text-eyebrow text-vacrc-blue-600 font-montserrat font-bold text-[0.99rem] text-justify">Contacto</span>
-      <h2 class="text-h2 mt-3 text-metal">Hablemos de tu proyecto</h2>
-      <p class="text-lead mt-4 text-vacrc-ink-500 font-montserrat font-medium text-[1.056rem] sm:text-[1.188rem] leading-normal text-justify">
-        Cuéntanos qué necesitas y te enviamos una propuesta técnica sin costo.
-      </p>
-
-      <ul class="mt-9 space-y-5 font-montserrat font-normal text-[1.056rem] sm:text-[1.188rem]">
-        <li class="group relative flex items-center gap-3 text-vacrc-ink-700">
-          <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
-            <Icon icon="phone" class="w-4 h-4" />
-          </span>
-          <a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="cursor-pointer hover:text-vacrc-blue-600 transition-colors">{SITE.phone}</a>
-          <button
-            type="button"
-            data-copy={SITE.phone}
-            aria-label="Copiar teléfono"
-            class="copy-btn cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity text-vacrc-ink-400 hover:text-vacrc-blue-600"
-          >
-            <Icon icon="copy" class="w-4 h-4" />
-          </button>
-        </li>
-        <li class="group relative flex items-center gap-3 text-vacrc-ink-700">
-          <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
-            <Icon icon="email" class="w-4 h-4" />
-          </span>
-          <a id="contact-email-link" href={`mailto:${SITE.email}`} class="cursor-pointer hover:text-vacrc-blue-600 transition-colors">{SITE.email}</a>
-          <button
-            type="button"
-            data-copy={SITE.email}
-            aria-label="Copiar correo"
-            class="copy-btn cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity text-vacrc-ink-400 hover:text-vacrc-blue-600"
-          >
-            <Icon icon="copy" class="w-4 h-4" />
-          </button>
-        </li>
-        <li class="flex items-center gap-3 text-vacrc-ink-700">
-          <span class="w-10 h-10 rounded-full bg-vacrc-ink-50 border border-vacrc-ink-100 flex items-center justify-center text-vacrc-blue-500 shrink-0">
-            <Icon icon="location" class="w-4 h-4" />
-          </span>
-          {SITE.address}
-        </li>
-      </ul>
+    <!-- Encabezado Editorial / Bugatti Style -->
+    <div class="mb-16 md:mb-20" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-vacrc-cyan-400 font-montserrat font-bold block mb-3">
+        Contacto & Asesoría
+      </span>
+      <h2 class="text-3xl sm:text-5xl lg:text-7xl font-display font-bold text-white tracking-tight leading-tight">
+        Hablemos de tu proyecto
+      </h2>
     </div>
 
-    <form
-      id="contact-form"
-      class="lg:col-span-3 rounded-3xl border border-vacrc-ink-100 bg-vacrc-bg-soft p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-5 shadow-sm shadow-vacrc-ink-900/[0.03]"
-      data-aos="fade-up"
-      data-aos-delay="600"
-    >
-      <div class="sm:col-span-1">
-        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Nombre</label>
-        <div class="relative">
-          <input id="contact-nombre" type="text" name="nombre" required placeholder="Tu nombre" class="peer w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 pr-10 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors [&:user-valid]:border-emerald-500 [&:user-invalid]:border-red-400" />
-          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-500">
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          </span>
-          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-red-500">
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
-          </span>
-        </div>
-      </div>
-      <div class="sm:col-span-1">
-        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Teléfono</label>
-        <div class="relative">
-          <input
-            id="contact-telefono"
-            type="tel"
-            name="telefono"
-            required
-            inputmode="tel"
-            pattern="[0-9+\-\s\(\)]{7,20}"
-            title="Ingresa un teléfono válido (solo números, espacios, +, - o paréntesis)"
-            placeholder="999 000 0000"
-            class="peer w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 pr-10 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors [&:user-valid]:border-emerald-500 [&:user-invalid]:border-red-400"
-          />
-          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-500">
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          </span>
-          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-red-500">
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
-          </span>
-        </div>
-      </div>
-      <div class="sm:col-span-2">
-        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Servicio de interés</label>
-        <select id="contact-servicio" name="servicio" class="w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 focus:outline-none focus:border-vacrc-blue-500 transition-colors">
-          <option selected>Cotización de Proyectos</option>
-        </select>
-      </div>
-      <div class="sm:col-span-2">
-        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Mensaje</label>
-        <div class="relative">
-          <textarea id="contact-mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..." class="peer w-full rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 pr-10 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors resize-none [&:user-valid]:border-emerald-500 [&:user-invalid]:border-red-400"></textarea>
-          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-3 pointer-events-none text-emerald-500">
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          </span>
-          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-3 pointer-events-none text-red-500">
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
-          </span>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      <div class="sm:col-span-2">
-        <label class="text-form-label block text-vacrc-ink-400 mb-2 font-montserrat">Código de seguridad</label>
-        <div class="flex items-center gap-3">
-          <div class="relative h-12 w-32 shrink-0 rounded-lg border border-vacrc-ink-200 bg-vacrc-ink-50 overflow-hidden flex items-center justify-center">
-            <span id="captcha-placeholder" class="text-vacrc-ink-300">
-              <Icon icon="shield" class="w-5 h-5" />
-            </span>
-            <img id="captcha-image" alt="Código de verificación" class="absolute inset-0 w-full h-full object-contain hidden transition-opacity" />
+      <!-- Columna Información de Contacto -->
+      <div class="lg:col-span-5 space-y-10" data-aos="fade-up">
+        <p class="text-white/70 font-montserrat font-light text-base sm:text-lg leading-relaxed">
+          Cuéntanos tus requerimientos térmicos o de climatización y te entregamos una propuesta de ingeniería detallada a la medida sin compromiso.
+        </p>
+
+        <!-- Bloque de Canales Directos -->
+        <div class="border-y border-white/10 divide-y divide-white/10">
+
+          <!-- Teléfono -->
+          <div class="py-6 group flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-mono tracking-widest text-vacrc-cyan-400">01 //</span>
+              <div>
+                <span class="text-[0.7rem] uppercase tracking-widest text-white/40 block font-montserrat">Línea Directa</span>
+                <a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="text-white font-display font-bold text-lg sm:text-xl hover:text-vacrc-cyan-400 transition-colors">
+                  {SITE.phone}
+                </a>
+              </div>
+            </div>
+            <button
+                type="button"
+                data-copy={SITE.phone}
+                aria-label="Copiar teléfono"
+                class="copy-btn cursor-pointer opacity-50 group-hover:opacity-100 transition-opacity text-white/50 hover:text-vacrc-cyan-400 p-2"
+            >
+              <Icon icon="copy" class="w-5 h-5" />
+            </button>
           </div>
-          <button
-            type="button"
-            id="captcha-refresh"
-            aria-label="Generar nuevo código"
-            class="shrink-0 w-10 h-10 rounded-lg border border-vacrc-ink-200 flex items-center justify-center text-vacrc-ink-400 hover:text-vacrc-blue-600 hover:border-vacrc-blue-500 transition-colors cursor-pointer"
-          >
-            <Icon icon="refresh" class="w-4 h-4" />
-          </button>
-          <input
-            id="contact-captcha"
-            type="text"
-            name="captcha_code"
-            required
-            autocomplete="off"
-            placeholder="Escribe el código"
-            class="flex-1 min-w-0 rounded-lg bg-white border border-vacrc-ink-200 px-4 py-3 font-montserrat text-[0.95rem] text-vacrc-ink-900 placeholder:text-vacrc-ink-300 focus:outline-none focus:border-vacrc-blue-500 transition-colors"
-          />
+
+          <!-- Correo -->
+          <div class="py-6 group flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-mono tracking-widest text-vacrc-cyan-400">02 //</span>
+              <div>
+                <span class="text-[0.7rem] uppercase tracking-widest text-white/40 block font-montserrat">Correo Electrónico</span>
+                <a id="contact-email-link" href={`mailto:${SITE.email}`} class="text-white font-display font-bold text-lg sm:text-xl hover:text-vacrc-cyan-400 transition-colors">
+                  {SITE.email}
+                </a>
+              </div>
+            </div>
+            <button
+                type="button"
+                data-copy={SITE.email}
+                aria-label="Copiar correo"
+                class="copy-btn cursor-pointer opacity-50 group-hover:opacity-100 transition-opacity text-white/50 hover:text-vacrc-cyan-400 p-2"
+            >
+              <Icon icon="copy" class="w-5 h-5" />
+            </button>
+          </div>
+
+          <!-- Ubicación -->
+          <div class="py-6 flex items-center gap-4">
+            <span class="text-xs font-mono tracking-widest text-vacrc-cyan-400">03 //</span>
+            <div>
+              <span class="text-[0.7rem] uppercase tracking-widest text-white/40 block font-montserrat">Ubicación</span>
+              <p class="text-white font-display font-bold text-base sm:text-lg">
+                {SITE.address}
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <Button id="send-email" type="button" variant="secondary" icon="email" iconPosition="left" class="sm:col-span-1 mt-1">
-        Enviar correo
-      </Button>
-      <Button id="send-whatsapp" type="button" icon="phone" iconPosition="left" class="sm:col-span-1 mt-1">
-        Enviar WhatsApp
-      </Button>
-    </form>
+      <!-- Formulario de Contacto / Estilo Showcase Bugatti -->
+      <form
+          id="contact-form"
+          class="lg:col-span-7 bg-black/40 border border-white/10 p-6 sm:p-10 flex flex-col gap-5 relative"
+          data-aos="fade-up"
+          data-aos-delay="200"
+      >
+        <!-- Campo Nombre -->
+        <div class="relative">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 peer-focus:text-vacrc-cyan-400 transition-colors pointer-events-none">
+            <Icon icon="user" class="w-4 h-4" />
+          </span>
+          <input
+              id="contact-nombre"
+              type="text"
+              name="nombre"
+              required
+              placeholder=" "
+              class="peer w-full border border-white/15 bg-white/[0.03] pl-11 pr-10 pt-5 pb-2 font-montserrat text-[0.95rem] text-white placeholder-transparent focus:outline-none focus:border-vacrc-cyan-400 transition-colors [&:user-valid]:border-emerald-400 [&:user-invalid]:border-red-400"
+          />
+          <label
+              for="contact-nombre"
+              class="absolute left-11 top-1/2 -translate-y-1/2 text-[0.85rem] uppercase tracking-wider text-white/40 pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-[0.65rem] peer-focus:text-vacrc-cyan-400 peer-[&:not(:placeholder-shown)]:top-2.5 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-[0.65rem]"
+          >
+            Nombre Completo
+          </label>
+          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-400">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-red-400">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+        </div>
+
+        <!-- Campo Teléfono -->
+        <div class="relative">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 peer-focus:text-vacrc-cyan-400 transition-colors pointer-events-none">
+            <Icon icon="phone" class="w-4 h-4" />
+          </span>
+          <input
+              id="contact-telefono"
+              type="tel"
+              name="telefono"
+              required
+              inputmode="tel"
+              pattern="[0-9+\-\s\(\)]{7,20}"
+              title="Ingresa un teléfono válido (solo números, espacios, +, - o paréntesis)"
+              placeholder=" "
+              class="peer w-full border border-white/15 bg-white/[0.03] pl-11 pr-10 pt-5 pb-2 font-montserrat text-[0.95rem] text-white placeholder-transparent focus:outline-none focus:border-vacrc-cyan-400 transition-colors [&:user-valid]:border-emerald-400 [&:user-invalid]:border-red-400"
+          />
+          <label
+              for="contact-telefono"
+              class="absolute left-11 top-1/2 -translate-y-1/2 text-[0.85rem] uppercase tracking-wider text-white/40 pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-[0.65rem] peer-focus:text-vacrc-cyan-400 peer-[&:not(:placeholder-shown)]:top-2.5 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-[0.65rem]"
+          >
+            Teléfono de Contacto
+          </label>
+          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-400">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-red-400">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+        </div>
+
+        <!-- Servicio de Interés -->
+        <div class="relative">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none">
+            <Icon icon="target" class="w-4 h-4" />
+          </span>
+          <label for="contact-servicio" class="absolute left-11 top-2 text-[0.65rem] uppercase tracking-wider text-white/40 pointer-events-none">
+            Servicio Requerido
+          </label>
+          <select
+              id="contact-servicio"
+              name="servicio"
+              class="w-full border border-white/15 bg-white/[0.03] pl-11 pr-4 pt-5 pb-2 font-montserrat text-[0.95rem] text-white focus:outline-none focus:border-vacrc-cyan-400 transition-colors"
+          >
+            <option class="text-vacrc-ink-900" selected>Cotización de Proyectos</option>
+          </select>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="relative">
+          <span class="absolute left-4 top-4 text-white/30 peer-focus:text-vacrc-cyan-400 transition-colors pointer-events-none">
+            <Icon icon="message" class="w-4 h-4" />
+          </span>
+          <textarea
+              id="contact-mensaje"
+              name="mensaje"
+              rows="4"
+              required
+              placeholder=" "
+              class="peer w-full border border-white/15 bg-white/[0.03] pl-11 pr-10 pt-6 pb-2 font-montserrat text-[0.95rem] text-white placeholder-transparent focus:outline-none focus:border-vacrc-cyan-400 transition-colors resize-none [&:user-valid]:border-emerald-400 [&:user-invalid]:border-red-400"
+          ></textarea>
+          <label
+              for="contact-mensaje"
+              class="absolute left-11 top-4 text-[0.85rem] uppercase tracking-wider text-white/40 pointer-events-none transition-all duration-200 peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:text-vacrc-cyan-400 peer-[&:not(:placeholder-shown)]:top-2 peer-[&:not(:placeholder-shown)]:text-[0.65rem]"
+          >
+            Detalles del Proyecto
+          </label>
+          <span class="hidden peer-[&:user-valid]:flex absolute right-3 top-4 pointer-events-none text-emerald-400">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="hidden peer-[&:user-invalid]:flex absolute right-3 top-4 pointer-events-none text-red-400">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+        </div>
+
+        <!-- Captcha -->
+        <div class="pt-2">
+          <label class="text-[0.7rem] uppercase tracking-wider text-white/40 block mb-2 font-montserrat">
+            Código de Verificación
+          </label>
+          <div class="flex flex-col gap-3">
+
+            <!-- Fila del Captcha + Botón -->
+            <div class="flex items-center gap-3 w-full">
+
+              <!-- Contenedor de la Imagen: Ahora usa 'flex-1' para expandirse a lo ancho -->
+              <div class="relative flex-1 h-12 border border-white/15 bg-black/60 overflow-hidden flex items-center justify-center">
+        <span id="captcha-placeholder" class="text-white/30">
+          <Icon icon="shield" class="w-5 h-5" />
+        </span>
+                <img
+                    id="captcha-image"
+                    alt="Código de verificación"
+                    class="absolute inset-0 w-full h-full object-contain hidden transition-opacity"
+                />
+              </div>
+
+              <!-- Botón de Recarga (Mantiene su tamaño fijo) -->
+              <button
+                  type="button"
+                  id="captcha-refresh"
+                  aria-label="Generar nuevo código"
+                  class="shrink-0 w-12 h-12 border border-white/15 bg-white/[0.03] flex items-center justify-center text-white/50 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400 transition-colors cursor-pointer"
+              >
+                <Icon icon="refresh" class="w-4 h-4" />
+              </button>
+
+            </div>
+
+            <!-- Campo para ingresar el código -->
+            <div class="relative">
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 peer-focus:text-vacrc-cyan-400 transition-colors pointer-events-none">
+        <Icon icon="shield" class="w-4 h-4" />
+      </span>
+              <input
+                  id="contact-captcha"
+                  type="text"
+                  name="captcha_code"
+                  required
+                  autocomplete="off"
+                  placeholder=" "
+                  class="peer w-full bg-white/[0.03] border border-white/15 pl-11 pr-4 pt-5 pb-2 font-montserrat text-[0.95rem] text-white placeholder-transparent focus:outline-none focus:border-vacrc-cyan-400 transition-colors"
+              />
+              <label
+                  for="contact-captcha"
+                  class="absolute left-11 top-1/2 -translate-y-1/2 text-[0.85rem] uppercase tracking-wider text-white/40 pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-[0.65rem] peer-focus:text-vacrc-cyan-400 peer-[&:not(:placeholder-shown)]:top-2.5 peer-[&:not(:placeholder-shown)]:translate-y-0 peer-[&:not(:placeholder-shown)]:text-[0.65rem]"
+              >
+                Ingresa el Código
+              </label>
+            </div>
+
+          </div>
+        </div>
+        <!-- Botones de Acción -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+          <Button id="send-email" type="button" variant="secondary-light" icon="email" iconPosition="left" class="flex-1">
+            Enviar correo
+          </Button>
+          <Button id="send-whatsapp" type="button" icon="whatsapp" iconPosition="left" class="flex-1">
+            Enviar WhatsApp
+          </Button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 
 <style is:global>
   .toastify {
     font-family: var(--font-montserrat);
-    font-size: 0.9rem;
-    border-radius: 0.75rem;
-    padding: 0.75rem 1rem;
-    box-shadow: 0 10px 25px -5px rgba(14, 30, 51, 0.25);
+    font-size: 0.85rem;
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.85rem 1.25rem;
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   .toastify.toast-success {
-    background: var(--color-emerald-600, #059669);
+    background: #059669;
   }
   .toastify.toast-error {
-    background: var(--color-red-600, #dc2626);
+    background: #dc2626;
   }
 </style>
 
@@ -259,23 +371,23 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     const { nombre, telefono, servicio, mensaje } = getValues();
     const subject = `Solicitud de cotización - ${servicio}`;
     const body =
-      `Nombre: ${nombre}\n` +
-      `Teléfono: ${telefono}\n` +
-      `Servicio de interés: ${servicio}\n\n` +
-      `Mensaje:\n${mensaje}`;
+        `Nombre: ${nombre}\n` +
+        `Teléfono: ${telefono}\n` +
+        `Servicio de interés: ${servicio}\n\n` +
+        `Mensaje:\n${mensaje}`;
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const sendEmailBtnDefaultHTML = sendEmailBtn.innerHTML;
   const SEND_SPINNER_HTML =
-    '<svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-    '<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>' +
-    '<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>' +
-    "</svg><span>Enviando...</span>";
+      '<svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>' +
+      '<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>' +
+      "</svg><span>Enviando...</span>";
   const SEND_SUCCESS_HTML =
-    '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-    '<path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>' +
-    "<span>Enviado</span>";
+      '<svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>' +
+      "<span>Enviado</span>";
 
   const sendEmailApi = async (e) => {
     e?.preventDefault();
@@ -283,11 +395,11 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     if (sendEmailBtn.disabled) return;
 
     if (
-      !nombreEl.value.trim() ||
-      !telefonoEl.value.trim() ||
-      !mensajeEl.value.trim() ||
-      !captchaCodeEl.value.trim() ||
-      !form.checkValidity()
+        !nombreEl.value.trim() ||
+        !telefonoEl.value.trim() ||
+        !mensajeEl.value.trim() ||
+        !captchaCodeEl.value.trim() ||
+        !form.checkValidity()
     ) {
       form.reportValidity();
       return;
@@ -342,9 +454,9 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
   document.getElementById("send-whatsapp")?.addEventListener("click", () => {
     const { nombre, telefono, mensaje } = getValues();
     const text =
-      `Hola, soy ${nombre || "un cliente interesado"}.\n` +
-      `Teléfono: ${telefono || "no proporcionado"}.\n` +
-      `Mensaje: ${mensaje || "Quiero más información sobre sus proyectos de climatización."}`;
+        `Hola, soy ${nombre || "un cliente interesado"}.\n` +
+        `Teléfono: ${telefono || "no proporcionado"}.\n` +
+        `Mensaje: ${mensaje || "Quiero más información sobre sus proyectos de climatización."}`;
     window.open(`${whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
   });
 
@@ -360,10 +472,10 @@ const CONTACT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
       }
       const original = btn.innerHTML;
       btn.innerHTML = '<svg viewBox="0 0 20 20" fill="none" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>';
-      btn.classList.add("text-emerald-500");
+      btn.classList.add("text-emerald-400");
       window.setTimeout(() => {
         btn.innerHTML = original;
-        btn.classList.remove("text-emerald-500");
+        btn.classList.remove("text-emerald-400");
       }, 1500);
     });
   });

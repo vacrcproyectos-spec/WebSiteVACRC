@@ -5,73 +5,155 @@ import SocialIcon from "./SocialIcon.astro";
 const year = new Date().getFullYear();
 ---
 
-<footer class="relative bg-vacrc-ink-900">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
+<footer class="relative bg-black text-white overflow-hidden border-t border-white/10">
+  <!-- Micro-grid background layer para toque técnico de alto rendimiento -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-40"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12 lg:gap-10">
+
+      <!-- Brand Column -->
       <div data-aos="fade-up">
-        <img src="/logo.svg" alt={SITE.name} class="h-14 w-auto" />
-        <p class="text-tile-body mt-4 text-white/70 max-w-xs font-montserrat font-normal text-[0.85rem] text-justify">
+        <img src="/logo.svg" alt={SITE.name} class="h-12 w-auto brightness-200 contrast-200" />
+
+        <p class="mt-6 text-white/50 max-w-xs font-montserrat font-light text-[0.825rem] leading-relaxed text-justify tracking-wide">
           Empresa mexicana especializada en la cotización y desarrollo de proyectos de climatización. Más de 10 años de experiencia, agregando valor en cada solución que ofrecemos a nuestros clientes.
         </p>
-        <div class="mt-5 flex items-center gap-4">
-          <a href="#nosotros" class="font-montserrat font-semibold text-[0.85rem] text-white hover:text-vacrc-cyan-400 transition-colors">Conoce VACRC &gt;</a>
-          <span class="text-eyebrow-badge inline-flex items-center gap-1.5 text-white/80 font-montserrat text-[0.85rem]">
-            <Icon icon="fan" ring={false} class="w-4 h-4" />
-            Soluciones con respaldo
-          </span>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a
+              href="#nosotros"
+              class="group inline-flex items-center gap-2 font-montserrat font-semibold text-[0.75rem] uppercase tracking-widest text-white hover:text-vacrc-cyan-400 transition-colors"
+          >
+            <span>Conoce VACRC</span>
+            <span class="group-hover:translate-x-1 transition-transform duration-200 text-vacrc-cyan-400">&gt;</span>
+          </a>
+
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/10 bg-white/[0.02] text-white/70 font-montserrat text-[0.7rem] uppercase tracking-wider">
+            <Icon icon="fan" ring={false} class="w-3.5 h-3.5 text-vacrc-cyan-400 animate-spin-slow" />
+            <span>Soluciones con respaldo</span>
+          </div>
         </div>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="300">
-        <h4 class="text-footer-heading text-white mb-4">Menú</h4>
-        <ul class="space-y-2.5 text-white/70 font-montserrat font-normal text-[0.85rem]">
+      <!-- Menú Column -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h4 class="font-montserrat font-medium text-[0.75rem] uppercase tracking-[0.25em] text-white/40 mb-6 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-vacrc-cyan-400 inline-block"></span>
+          Menú
+        </h4>
+        <ul class="space-y-3 font-montserrat text-[0.825rem] font-light tracking-wide">
           {NAV_LINKS.map((link) => (
-            <li>
-              <a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
-            </li>
+              <li>
+                <a
+                    href={link.href}
+                    class="text-white/60 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  {link.label}
+                </a>
+              </li>
           ))}
         </ul>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="600">
-        <h4 class="text-footer-heading text-white mb-4">Alcance</h4>
-        <ul class="space-y-2.5 text-white/70 font-montserrat font-normal text-[0.85rem]">
+      <!-- Alcance Column -->
+      <div data-aos="fade-up" data-aos-delay="400">
+        <h4 class="font-montserrat font-medium text-[0.75rem] uppercase tracking-[0.25em] text-white/40 mb-6 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-vacrc-cyan-400 inline-block"></span>
+          Alcance
+        </h4>
+        <ul class="space-y-3 font-montserrat text-[0.825rem] font-light tracking-wide">
           {SERVICES.map((s) => (
-            <li>
-              <a href="#alcance" class="hover:text-white transition-colors">{s.name}</a>
-            </li>
+              <li>
+                <a
+                    href="#alcance"
+                    class="text-white/60 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  {s.name}
+                </a>
+              </li>
           ))}
         </ul>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="900">
-        <h4 class="text-footer-heading text-white mb-4">Contacto</h4>
-        <ul class="space-y-2.5 text-white/70 font-montserrat font-normal text-[0.85rem]">
-          <li><a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="hover:text-white transition-colors">{SITE.phone}</a></li>
-          <li><a href={`mailto:${SITE.email}`} class="hover:text-white transition-colors">{SITE.email}</a></li>
+      <!-- Contacto & Redes Column -->
+      <div data-aos="fade-up" data-aos-delay="600">
+        <h4 class="font-montserrat font-medium text-[0.75rem] uppercase tracking-[0.25em] text-white/40 mb-6 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-vacrc-cyan-400 inline-block"></span>
+          Contacto
+        </h4>
+        <ul class="space-y-3 font-montserrat text-[0.825rem] font-light text-white/60 tracking-wide">
+          <li>
+            <a href={`tel:${SITE.phone.replace(/\s+/g, "")}`} class="hover:text-white transition-colors">
+              {SITE.phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${SITE.email}`} class="hover:text-white transition-colors">
+              {SITE.email}
+            </a>
+          </li>
           <li>{SITE.address}</li>
-          <li class="text-white/50">{SITE.hours}</li>
+          <li class="text-white/30 text-[0.75rem]">{SITE.hours}</li>
         </ul>
 
-        <h4 class="text-footer-heading text-white mt-6 mb-3">Síguenos</h4>
-        <div class="flex items-center gap-3">
-          <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook de VACRC" class="text-white/70 hover:text-white transition-colors">
-            <SocialIcon src="/brands/facebook.png" alt="Facebook" class="w-5 h-5" />
+        <h4 class="font-montserrat font-medium text-[0.75rem] uppercase tracking-[0.25em] text-white/40 mt-8 mb-4">
+          Síguenos
+        </h4>
+        <div class="flex items-center gap-2">
+          <a
+              href={SOCIAL.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook de VACRC"
+              class="group w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+          >
+            <SocialIcon
+                src="/brands/facebook.png"
+                alt="Facebook"
+                class="w-4 h-4 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity"
+            />
           </a>
-          <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de VACRC" class="text-white/70 hover:text-white transition-colors">
-            <SocialIcon src="/brands/instagram.png" alt="Instagram" class="w-5 h-5" />
+          <a
+              href={SOCIAL.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de VACRC"
+              class="group w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+          >
+            <SocialIcon
+                src="/brands/instagram.png"
+                alt="Instagram"
+                class="w-4 h-4 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity"
+            />
           </a>
-          <a href={SOCIAL.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de VACRC" class="text-white/70 hover:text-white transition-colors">
-            <SocialIcon src="/brands/whatsapp.png" alt="WhatsApp" class="w-5 h-5" />
+          <a
+              href={SOCIAL.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp de VACRC"
+              class="group w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-vacrc-cyan-400 hover:border-vacrc-cyan-400/50 hover:bg-vacrc-cyan-400/5 transition-all duration-300"
+          >
+            <SocialIcon
+                src="/brands/whatsapp.png"
+                alt="WhatsApp"
+                class="w-4 h-4 brightness-200 opacity-70 group-hover:opacity-100 transition-opacity"
+            />
           </a>
         </div>
       </div>
+
     </div>
   </div>
 
-  <div class="bg-vacrc-blue-500">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 text-center text-xs text-white/90" data-aos="fade-up">
+  <!-- Bottom Bar Monocromática / Minimalista -->
+  <div class="border-t border-white/10 bg-black/80 backdrop-blur-md">
+    <div
+        class="max-w-7xl mx-auto px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[0.7rem] uppercase tracking-widest text-white/40 font-montserrat"
+        data-aos="fade-up"
+    >
       <p>{SITE.name} © {year}. Todos los derechos reservados.</p>
+      <p class="text-[0.65rem] text-white/20">Precision Engineering & Climate Solutions</p>
     </div>
   </div>
 </footer>
