@@ -5,7 +5,7 @@ import SocialIcon from "./SocialIcon.astro";
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out">
-  <div id="navbar-shell" class="transition-all duration-300 border-b border-transparent bg-transparent">
+  <div id="navbar-shell" class="transition-all duration-300 bg-transparent border-b border-transparent">
     <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
 
       <!-- Brand Logo -->
@@ -90,7 +90,7 @@ import SocialIcon from "./SocialIcon.astro";
   <!-- Mobile Dropdown Menu -->
   <div
       id="mobile-menu"
-      class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-500 ease-out bg-black/90 backdrop-blur-xl border-b border-white/10"
+      class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-500 ease-out bg-black/90 backdrop-blur-xl invisible border-b border-white/10"
   >
     <ul class="flex flex-col px-6 py-6 gap-2 font-montserrat">
       {NAV_LINKS.map((link) => (
@@ -184,7 +184,7 @@ import SocialIcon from "./SocialIcon.astro";
     }
   };
 
-  setScrolled();
+  // setScrolled(); // Quitamos la inicialización directa para evitar flasheos
   setHeaderVisibility();
 
   window.addEventListener("scroll", () => {
@@ -205,7 +205,20 @@ import SocialIcon from "./SocialIcon.astro";
     setScrolled();
 
     if (!menu) return;
-    menu.style.maxHeight = menuOpen ? menu.scrollHeight + "px" : "0px";
+
+    if (menuOpen) {
+      menu.classList.remove("invisible");
+      menu.style.maxHeight = menu.scrollHeight + "px";
+    } else {
+      menu.style.maxHeight = "0px";
+      // Esperamos a que termine la animación para ocultar
+      setTimeout(() => {
+        if (!menuOpen) {
+          menu.classList.add("invisible");
+        }
+      }, 500); // Mismo tiempo que duration-500
+    }
+
     bar1?.classList.toggle("rotate-45", menuOpen);
     bar1?.classList.toggle("translate-y-2", menuOpen);
     bar2?.classList.toggle("opacity-0", menuOpen);
@@ -217,4 +230,9 @@ import SocialIcon from "./SocialIcon.astro";
   document.querySelectorAll(".mobile-link").forEach((el) =>
       el.addEventListener("click", () => setMenu(false))
   );
+
+  // Inicialización correcta al cargar
+  requestAnimationFrame(() => {
+    setScrolled();
+  });
 </script>
