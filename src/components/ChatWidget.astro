@@ -3,7 +3,7 @@ import { MessageCircle, X, Send } from "@lucide/astro";
 import { SITE } from "../data/site";
 
 const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL.replace(/\/$/, "");
-const CHATBOT_API_URL = `${API_BASE_URL}/api/v1/chatbot`;
+const CHATBOT_API_URL = `${API_BASE_URL}/api/v1/chat/ask`;
 const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 ---
 
@@ -85,10 +85,11 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     <!-- Chips / Sugerencias -->
     <div class="chat-suggestions shrink-0 bg-transparent border-t border-white/5" id="chat-suggestions">
       <div class="flex gap-1.5 px-3 py-2 overflow-x-auto whitespace-nowrap">
-        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Alcances</button>
-        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Horario</button>
-        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Cotización</button>
+        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Servicios</button>
+        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Especialidades</button>
         <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Marcas</button>
+        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Nosotros</button>
+        <button type="button" class="chat-suggestion text-chip font-montserrat shrink-0 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-white/80 hover:border-vacrc-cyan-400 hover:text-vacrc-cyan-400 transition-colors cursor-pointer text-xs">Contacto</button>
       </div>
     </div>
 
@@ -164,11 +165,6 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
   .chat-suggestions {
     max-height: 3.2rem;
     overflow: hidden;
-    transition: max-height 0.25s ease, opacity 0.2s ease;
-  }
-  .chat-suggestions.is-hidden {
-    max-height: 0;
-    opacity: 0;
   }
 
   .chat-row {
@@ -237,13 +233,14 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 
   /* Mensajes del Usuario */
   .chat-bubble.user {
-    background: var(--color-vacrc-cyan-400, #22d3ee);
-    color: #0b132b;
+    background: linear-gradient(135deg, var(--color-vacrc-blue-500, #1d4ed8), var(--color-vacrc-blue-600, #1e40af));
+    color: #fff;
     font-weight: 500;
-    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 14px rgba(30, 64, 175, 0.35);
   }
   .chat-bubble.user .chat-time {
-    color: rgba(11, 19, 43, 0.7);
+    color: rgba(255, 255, 255, 0.65);
   }
 
   /* Indicador de escribiendo */
@@ -299,7 +296,6 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     .chat-typing span { animation: none; opacity: 0.8; }
     .chat-fab-icon, .chat-fab-shadow { animation: none !important; }
     .chat-panel { transition: none !important; }
-    .chat-suggestions { transition: none !important; }
   }
 </style>
 
@@ -315,7 +311,35 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 
   let open = false;
   let started = false;
-  let suggestionsDismissed = false;
+
+  const STORAGE_KEY = "vacrc_chat_history";
+  const STORAGE_TTL_MS = 24 * 60 * 60 * 1000; // 24 horas
+  const MAX_STORED_MESSAGES = 40;
+  let history = [];
+
+  const loadHistory = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      if (!parsed || !Array.isArray(parsed.messages) || Date.now() - parsed.savedAt > STORAGE_TTL_MS) {
+        localStorage.removeItem(STORAGE_KEY);
+        return [];
+      }
+      return parsed.messages;
+    } catch {
+      return [];
+    }
+  };
+
+  const saveHistory = () => {
+    try {
+      history = history.slice(-MAX_STORED_MESSAGES);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ savedAt: Date.now(), messages: history }));
+    } catch {
+      // Almacenamiento no disponible (modo privado, cuota llena, etc.)
+    }
+  };
 
   const formatTime = (date) =>
       date.toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit", hour12: false });
@@ -333,7 +357,7 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     return avatar;
   };
 
-  const addBubble = (text, from) => {
+  const addBubble = (text, from, { time = new Date(), persist = true } = {}) => {
     const row = document.createElement("div");
     row.className = `chat-row ${from}`;
     if (from === "bot") row.appendChild(addAvatar());
@@ -347,7 +371,7 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
 
     const timeEl = document.createElement("span");
     timeEl.className = "chat-time";
-    timeEl.append(formatTime(new Date()));
+    timeEl.append(formatTime(time));
 
     if (from === "user") {
       const ticks = document.createElement("span");
@@ -361,6 +385,22 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     row.appendChild(bubble);
     messagesEl.appendChild(row);
     messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    if (persist) {
+      history.push({ text, from, time: time.getTime() });
+      saveHistory();
+    }
+  };
+
+  const restoreHistory = () => {
+    const stored = loadHistory();
+    if (stored.length === 0) return;
+
+    history = stored;
+    started = true;
+    for (const msg of stored) {
+      addBubble(msg.text, msg.from, { time: new Date(msg.time), persist: false });
+    }
   };
 
   const showTyping = () => {
@@ -382,35 +422,39 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     document.getElementById("chat-typing-indicator")?.remove();
   };
 
-  const dismissSuggestions = () => {
-    if (suggestionsDismissed) return;
-    suggestionsDismissed = true;
-    suggestionsEl.classList.add("is-hidden");
-  };
+  const CHATBOT_TIMEOUT_MS = 20000;
 
-  const fetchBotAnswer = async (message) => {
+  const fetchBotAnswer = async (pregunta) => {
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), CHATBOT_TIMEOUT_MS);
+
     try {
       const response = await fetch(CHATBOT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": CHATBOT_API_KEY,
+          "X-API-Token": CHATBOT_API_KEY,
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ pregunta }),
+        signal: controller.signal,
       });
 
       if (!response.ok) throw new Error("Error en la solicitud");
 
-      const data = await response.json();
-      return data.reply || data.message || "No pude obtener una respuesta en este momento.";
+      const { data } = await response.json();
+      return data?.respuesta || "No pude obtener una respuesta en este momento.";
     } catch (error) {
       console.error("Chatbot API Error:", error);
+      if (error.name === "AbortError") {
+        return `El asistente está tardando más de lo normal en responder. Intenta de nuevo en unos segundos o comunícate directamente al ${phone}.`;
+      }
       return `Lo siento, ocurrió un problema al conectar con el servidor. Puedes contactarnos al ${phone}.`;
+    } finally {
+      window.clearTimeout(timeoutId);
     }
   };
 
   const respond = async (question) => {
-    dismissSuggestions();
     addBubble(question, "user");
     showTyping();
 
@@ -419,6 +463,8 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     removeTyping();
     addBubble(answer, "bot");
   };
+
+  restoreHistory();
 
   const setOpen = (state) => {
     open = state;
@@ -430,7 +476,7 @@ const CHATBOT_API_KEY = import.meta.env.PUBLIC_CONTACT_API_KEY;
     if (open && !started) {
       started = true;
       addBubble(
-          "¡Hola! Soy el asistente de VACRC. Puedo ayudarte con dudas sobre instalación, mantenimiento y reparación de equipos minisplit. ¿En qué te ayudo?",
+          "¡Hola! Soy el asistente de VACRC. Puedo ayudarte con dudas sobre nuestros servicios, especialidades, las marcas con las que trabajamos, quiénes somos o cómo contactarnos. ¿En qué te ayudo?",
           "bot"
       );
     }
